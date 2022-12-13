@@ -1,0 +1,1011 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+     <!-- font and style*/ -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+<style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  font-size: 100%;
+  /*background: url(./figure/pictures/christopher-gower-m_HRfLhgABo-unsplash.jpg)
+  no-repeat center center fixed; */
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+  scroll-padding-top: 200px;
+}
+
+/* home button */
+.btn {
+  background-color:rgba(2, 2, 3, 0);
+  border: none;
+  color: rgb(19, 18, 18);
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+/*one page tabs*/
+/* Style tab links */
+.tablink {
+    position: sticky;
+    background-color: rgba(10, 10, 10, 0.5);
+    background-blend-mode: overlay;
+    color: rgb(247, 242, 242);
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 20px;
+    width: 100%;
+
+}
+
+.tabs-menu {
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px 20px;
+  height: 100%;
+}
+
+#Census {
+    font-size: 100%;
+    background-color: rgba(243, 244, 247, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1200%;
+}
+#COVID {    
+    font-size: 100%;
+    background-color: rgba(222, 241, 215, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#Zillow {
+    font-size: 100%;
+    background-color: rgba(213, 229, 238, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1000%;
+}
+
+#Maps {    
+    font-size: 100%;
+    background-color: rgba(236, 204, 144, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
+#Text {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 200%;
+}
+
+#Tweets {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1000%;
+}
+
+#News {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1050%;
+}
+
+/* sidebar */
+
+.sidenav {
+  height: 100%;
+  width: 120px;
+  position: fixed;
+  z-index: 1;
+  top: 150;
+  left: 0;
+  background-color:rgba(182, 219, 241, 0);
+  overflow-x: hidden;
+  padding-top: 20px;
+
+}
+
+.sidenav p {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font: weight 100px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+}
+
+.sidenav a:hover {
+  color: #0e0d0d;
+  text-decoration: underline black;
+  font-weight:bold;
+}
+
+
+.anchor{
+  height: 305px; /*same height as header*/
+  margin-top: -305pt; /*same height as header*/
+  visibility: hidden;
+  padding-top: 500pt;
+  
+}
+
+
+.main-container {
+  width: 80%;
+  margin-top: 50px;
+}
+
+.content-container {
+  width: 80%;
+  margin-left: 150px;
+  margin-top: 150px;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.material-icons.md-80 { font-size: 80px; }
+
+/*table, from w3schools.com*/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #111010;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/*pop up image, from w3schools.com*/
+.myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+.modal-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, .modal-caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+.imagecaption {
+    text-align: left;
+}
+figcaption {
+    margin: 10px 0 0 0;
+    font-family: Arial;
+    font-weight: bold;
+    color: #bb3333;
+}
+figure {
+    padding: 5px;
+}
+
+p{
+  line-height: 1.5;
+  text-indent: 30px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+  <div id="buttons" class="tabs-menu">
+      <!--
+      <button class="tablink" onclick="openPage('Census', this, '#112e51')" id="defaultOpen">
+          <span class="material-icons md-80">poll</span>
+          <p>Demography data</p>
+      </button>
+  
+      <button class="tablink" onclick="openPage('COVID', this, 'green')" >
+          <span class="material-icons md-80">
+              coronavirus
+              </span>
+              <div>COVID data</div>
+      </button>
+  -->
+      <button class="tablink" onclick="openPage('Zillow', this, 'blue')" id="defaultOpen">
+          <span class="material-icons md-80">
+              maps_home_work
+              </span>
+              <div>Zillow research data</div>
+      </button>
+  <!--
+      <button class="tablink" onclick="openPage('Maps', this, 'orange')">
+          <span class="material-icons md-80">
+              map
+              </span>
+              <div>Maps</div>
+      </button>
+  
+  
+      <button class="tablink" onclick="openPage('Tweets', this, '#1DA1F2')" >
+          <span class="material-icons md-80">
+              description
+              </span>
+              <div>Tweets</div>
+      </button>
+  -->
+      <button class="tablink" onclick="openPage('News', this, '#1DA1F2')">
+        <span class="material-icons md-80">
+            description
+            </span>
+            <div>News</div>
+    </button>
+    
+  </div>
+
+    <div id="Zillow" class="tabcontent">
+      <div class="sidenav">
+        <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home"></i></button> </a>
+        <p><b>Menu</b> </p> 
+        <a href="#intro zillow">Data overview</a>
+        <a href="#dt zillow">Decision Tree</a>
+        <a href="#rf zillow">Random Forest</a>
+        <a href="#conclusion zillow">Conclusion</a>
+        <a href="#data zillow">Data download and analysis code</a>
+
+      </div>
+
+      <div class="content-container">
+        <span class="anchor" id="intro zillow"></span>
+        <div style="margin: 5%; color: #112e51;" id="zillow beginning">
+          <h1>Data Overview </h1><br>             
+              <p> The datasets obtained from <a href="https://www.zillow.com/research/data/" target="_blank">Zillow Research</a> in <a href="./data_gathering.html">Data Gathering Session</a> 
+                are combined as one dataset with label of U.S. Region (West, Northeast, Midwest, Southeast, Southwest). 
+                The data cleaning and processing procedures for Decision Tree analysis can be found in 
+                <a href="./data_cleaning.html" target="_blank">Data Cleaning</a> session using <a href="./code/zillow_cleaning_DT.R" target="_blank">R code</a>. 
+                The processed dataset is shown in Figure 1 a and b. 
+                There are 362 records (different metropolitan regions)in the dataset. 
+              </p><br>
+              <div id="fig1" class="imagecaption">
+                <div style="display:inline-block" >
+                    <figure>
+                        <img src="./figure/zilow_region_dt_df.png" width=450px />
+                        <figcaption>a</figcaption>
+                    </figure>
+                </div>
+                <div style="display:inline-block">
+                    <figure>
+                        <img src="./figure/zillow_region_dt_df_hd.png" width=450px  />
+                        <figcaption>b</figcaption>
+                    </figure>
+                </div>
+              </div>
+              <p>Figure 1. Metropolitan region median sales prices and inventory dataset (<a href="./data/zillow_DT_df.csv">Download</a>). 
+                a, dataset summary; b, dataset overview</p><br>
+        </div>
+
+        <span class="anchor" id="dt zillow"></span>
+        
+          <div style="margin: 5%; color: #112e51; ">
+            
+          <h2> Decision Tree</h2><br>
+
+          <ol>
+            <div id="general setting zillow">
+            <h3 style="margin-left: 3%;"><li>General setting</li></h3><br>
+          <p> Decision tree is a supervised machine-learning modeling method. It can be used to handle and predict both qualitative and quantitative 
+              variable. There are several metrics measuring the "best" structure, including Gini impurity and Entropy/information. 
+               (<a href="https://en.wikipedia.org/wiki/Decision_tree_learning" target="_blank">Wiki</a>). All R code used in Decision tree analysis can be downloaded 
+        <a href="./code/decision_tree_zillow.R" target="_blank">here</a>. As a supervised learning method, Decision Tree need "label" to train the model first. 
+            After model is trained, a testing set is needed to evaluate the model performance. </p> <br>
+        <p>For Zillow research combined data, there are in total five variables used in the model including sales price/inventory in 2018, 2019, and 2020,  
+            home type of SFR or all homes,  and data type as sales price or inventory. The label is the U.S. Region of each record including 
+            West, Northeast, Midwest, Southeast and Southwest. The data is devided into training set (n=271) and testing set (n=91). 
+        </p><br>        
+        <p>Three different trees are conducted to compare the performance using same training and testing data. The models are shown in Table 1. 
+
+        </p><br>
+
+        <div style="display:inline-block" id="table1">
+            <figure>
+                <figcaption style="color: #0e0d0d;">Table 1. Decision tree model settings </figcaption>
+                <img src="./figure/zillow_3_dt.png" width=500px />
+                
+            </figure>
+        </div> 
+        
+        </div>
+        <br><br>
+            <div id="tree comparison">
+              <h3 style="margin-left: 3%;"><li> Model comparison </li></h3><br>
+              <p>Due to the different settings, model results and performances are different. The differences will be discussed in 
+                  three aspects including tree structure, feature importance, and confusion matrix. 
+                   </p> <br>
+
+                   <ol type="a">
+                    <li style="margin-left: 2%;">Tree structure</li><br>
+                   <p>Figure 2 shows the three models based on the same training dataset. All three models separate "Southeast" data and 
+                       part of "West" data first. The roots used in three models are different. 
+                       In model 1 and 3, "2020" < 328000 is used as the first separation rule, while in the second model with entropy as criterion, 
+                       "2020" < 356000 is used as the separation rule. In model 1 and 2, categorical variable of "data type" is used somewhere in the tree
+                        to separate the data. However, both models have only one separation involves categorical variable. 
+
+                   </p><br>
+
+              <div style="display:inline-block" id="fig2">
+                <figure>
+                    <img src="./figure/region_dt1.png" width=800px />
+                    <figcaption style="color: #0e0d0d;">a</figcaption>
+                </figure>
+                <figure>
+                    <img src="./figure/region_dt2.png" width=800px />
+                    <figcaption style="color: #0e0d0d;">b</figcaption>
+                </figure>
+                <figure>
+                    <img src="./figure/region_dt3.png" width=900px height=600px />
+                    <figcaption style="color: #0e0d0d;">c</figcaption>
+                </figure>
+            </div> 
+            <p>Figure 2. Tree structure comparison. a, Decision tree 1; b, Decision tree 2; c, Decision tree 3. </p><br>
+<br>
+
+            <li style="margin-left: 2%;">Feature importance</li><br>
+            <p>Figure 3 shows the feature importance of three models. Model 1 and Model 2 with all features have similar 
+                feature importance order, "2020" > "2019" > "2018" > data type > home type. Compared to numeric variables, 
+                categorical variables have less influence on model. Model 3 with only numeric variable 
+                has feature importance order as "2019" > "2020" > "2018". 
+            </p><br>
+            <div id="fig3" class="imagecaption">
+                <div style="display:inline-block" >
+                <figure>
+                    <img src="./figure/var_import_dt1_region.png" width=400px />
+                    <figcaption style="color: #0e0d0d;">a</figcaption>
+                </figure>
+            </div>
+            <div style="display:inline-block" >
+                <figure>
+                    <img src="./figure/var_import_dt2_region.png" width=400px />
+                    <figcaption style="color: #0e0d0d;">b</figcaption>
+                </figure>
+            </div>
+                <div style="display:inline-block" >
+                <figure>
+                    <img src="./figure/var_import_dt3_region.png" width=400px/>
+                    <figcaption style="color: #0e0d0d;">c</figcaption>
+                </figure>
+            </div>
+            </div> 
+            <p>Figure 3. Feature importance of different models. a, Decision tree 1; b, Decision tree 2; c, Decision tree 3. </p><br>
+<br>
+
+
+            <li style="margin-left: 2%;">Confusion matrix</li><br>
+            <p>Table 2-4 shows the confusion matrices of three models. Model 1 has correctly predicted 35 out of 91 records. 
+                While this number is 30 out of 91 in Model 2 and 33 out of 91 in Model 3. Thus, in these three models, Model 1 
+                has the best performance predicting testing dataset. However, all three of them only correctly predicted about 1/3 of 
+                the testing dataset. Moreover, compared to Model 3, Model 1 has two more variables while the accuracy only increase 
+                a little. The two categotical variable are highly correlated with the numeric variables (e.g. data type of 
+                "sales" associates with high magnitude of numeric records, while "inventory" associates with low magnitude of numeric records.) 
+                Decision tree cannot take into account of correlations among variables. In other words, even the interaction may provide more 
+                information of the data, Decision Tree model ignores this information. To get better results, more independent variables may 
+                be needed. 
+            </p><br>
+            <div style="display:inline-block" id="table2">
+              <figure>
+                  <figcaption style="color: #0e0d0d;">Table 2. Confusion matrix of Model 1 </figcaption>
+                  <img src="./figure/dt1_zillow_cm.png" width=600px />
+                  
+              </figure>
+            </div> 
+            <div style="display:inline-block" id="table3">
+                <figure>
+                    <figcaption style="color: #0e0d0d;">Table 3. Confusion matrix of Model 2 </figcaption>
+                    <img src="./figure/dt2_zillow_cm.png" width=600px />
+                    
+                </figure>
+              </div>
+              <div style="display:inline-block" id="table4">
+                <figure>
+                    <figcaption style="color: #0e0d0d;">Table 4. Confusion matrix of Model 2 </figcaption>
+                    <img src="./figure/dt3_zillow_cm.png" width=600px />
+                    
+                </figure>
+              </div><br><br>
+
+
+                </ol>
+            </div>
+          </div>
+
+        <span class="anchor" id="rf zillow"></span>
+        <div style="margin: 5%; color: #112e51; ">
+          <h2>Random forest</h2><br>
+            <p> A random forest model is conducted and applied on the same training and testing dataset. randomForest package 
+                in R is used to conduct the model. The model uses Gini impurity as criterion and all five features as modeling 
+                variables. 
+            </p> <br>
+            <ol>
+                <div>
+                    <h3 style="margin-left: 3%;"><li> Feature importance</li></h3><br>
+                    <p>The feature importance plot is shown in Figure 4. As same as desicion tree models, the numerical variables 
+                        have more importance compared to categorical variables. On the contrary, the importance of "home type" 
+                        increases compared to Decision Tree Model 1-3. 
+                    </p> <br>
+    
+                      <div style="display:inline-block" id="fig4">
+                        <figure>
+                            <img src="./figure/rf_region_imp.png" width=600px />
+                        </figure>
+                      </div>
+                          <p> Figure 4. Feature importance of Random Forest Model</p><br>
+                  </div><br><br>
+    
+
+              <div>
+                <h3 style="margin-left: 3%;"><li> Confusion matrix </li></h3><br>
+                <p>Figure 5 shows the confusion matrix of random forest model on testing dataset. From the confusion matrix, the performance of 
+                    random forest model is almost as the same as the simple decision tree models. There are 30 out of 91 correct 
+                    prediction in random forest model. As discussed above, some limitation of decision tree model is also applied 
+                    to random forest model, e.g. feature interaction. 
+                </p> <br>
+  
+                <div style="display:inline-block" id="fig5">
+                    <figure>
+                        <img src="./figure/rf_region_zillow_cm.png" width=600px />
+                    </figure>
+                  </div>
+                      <p> Figure 5. Confusion matrix of Random Forest Model</p><br>
+              </div><br><br>
+  
+            </ol>  
+          </div>
+
+          <span class="anchor" id="conclusion zillow"></span>
+          <div style="margin: 5%; color: #112e51; " >
+            <h2> Conclusion </h2><br>
+            <p> Based on the results, this dataset is not easy to be predicted using either Decision Tree model or Random 
+                Forest model. Within all the U.S. Regions, West region has most distinguished pattern. In other words, the West 
+                Region home sales prices and annual inventory are different from other regions. Another one is Midwest region, 
+                which also has some level of diffrent home sales prices and annual inventory from other three regions. 
+            </p><br>
+
+
+          </div>
+
+          <span class="anchor" id="data zillow"></span>
+          <div style="margin: 5%; color: #112e51; " id="data_zillow">
+          <h2> Data download and analysis code </h2><br>
+          <table >
+            <tr>
+              <th>Name</th>
+              <th>Data Preview</th>
+              <th>Data Download</th>
+              <th>Code</th>
+            </tr>
+            <tr > 
+              <td>Combined Zillow research data for Decision Tree analysis</td>
+              <td>
+                <img class="myImg" src="./figure/zillow_region_dt_df_hd.png" alt="Combined dataset for Decision Tree" width="300" height="100">
+                <img class="myImg" src="./figure/zilow_region_dt_df.png" alt="Combined dataset for Decision Tree" width="250" height="100">
+            </td>          
+              <div id="myModal5" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img05">
+                <div id="caption5" class="modal-caption"></div>
+              </div>
+          
+              <td>                      
+                <a href="./data/zillow_DT_df.csv" target="_blank">Download</a>              </td>
+            
+              <td>
+                <a href="./code/decision_tree_zillow.R" target="_blank">R code</a>              </td>                    
+            </tr>
+          </table><br>
+        </div>
+      
+
+      
+    </div>
+  </div>
+
+
+  <div id="News" class="tabcontent">
+    <div class="sidenav">
+      <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home"></i></button> </a>
+      <p><b>Menu</b> </p> 
+      <a href="#intro news">Data overview</a>
+      <a href="#dt news">Decision Tree</a>
+      <a href="#conclusion news">Conclusion</a>
+      <a href="#data news">Data download and analysis code</a>
+
+    </div>
+
+    <div class="content-container">
+      <span class="anchor" id="intro news"></span>
+      <div style="margin: 5%; color: #112e51;" id="news beginning">
+        <h1>Data Overview </h1><br>             
+        <p> Based on the news inventory obtained from News API (<a href="./data_gathering.html">Data Gathering Session</a>), 
+            full news content are obtained through online news source including Reuters, CNN, BBC and so on. The data cleaning and processing procedures for Decision Tree can be found in 
+            <a href="./data_cleaning.html" target="_blank">Data Cleaning</a> session using <a href="./code/dt_cleaning_full_news.py" target="_blank">Python code</a>. Figure 1
+             shows the data before and after cleaning. 
+            In this session, to perform Decision Tree, Full news content are converted to 
+            document term matrix (DTM) using TfidfVectorizer showning in Figure 2. 
+            There are 51 news in the dataset. 
+          </p><br>
+          <p> To perform Decision Tree model, the labels are set as the keywords used to obtain the news (More details can be 
+            found at <a href="./data_gathering.html" target="_blank">Data Gathering Session</a>. There are three 
+            keywords including "home buying", "mortgage", and "real estate". 
+        </p><br>
+              <div id="fig1" class="imagecaption">
+              <div style="display:inline-block" >
+                  <figure>
+                      <img src="./figure/full_news.png" width=1000px />
+                      <figcaption>a</figcaption>
+                  </figure>
+              </div>
+              <div style="display:inline-block">
+                  <figure>
+                      <img src="./figure/clean_full_news.png" width=450px  />
+                      <figcaption>b</figcaption>
+                  </figure>
+              </div>
+            </div>
+            <p>Figure 1. News content dataset. 
+              a, <a href="./data/full_news.csv" target="_blank">original dataset</a>; b, <a href="./data/full_news_clean.csv" target="_blank">cleaned dataset</a></p><br>
+            
+              <div id="fig2" class="imagecaption">
+                <div style="display:inline-block" >
+                    <figure>
+                        <img src="./figure/tf_fullnews.png" width=600px />
+                    </figure>
+                </div>
+              <p>Figure 2. DTM with label of Full News content dataset. 
+                </p><br>
+            <p>Figure 3 shows the word clouds for three labels. The words in the news with different labels are 
+                distinguished in the word cloud plots. Words like "treasury" and "rate" are dominated in mortage news. 
+                On the contrary, news with keyword of "real estate" seems focus more on oversee market such as China. "housing", 
+                "price", and "sales" are the dominated words in the home buying news. 
+            </p><br>
+            <div id="fig3" class="imagecaption">
+                <div style="display:inline-block" >
+                    <figure>
+                        <img src="./figure/NewClouds.png" width=1000px />                    
+                    </figure>
+                </div>
+              <p>Figure 3. Word clouds for three labels. a, mortgage; b, real estate; c, home buying
+                </p><br>
+              <br>
+</div>
+    </div>
+  </div>
+
+      <span class="anchor" id="dt news"></span>
+      
+        <div style="margin: 5%; color: #112e51; ">
+          
+        <h2> Decision Tree</h2><br>
+
+        <ol>
+          <div id="general setting news">
+          <h3 style="margin-left: 3%;"><li>General setting</li></h3><br>
+        <p> Decision tree is a supervised machine-learning modeling method. It can be used to handle and predict both qualitative and quantitative 
+            variable. There are several metrics measuring the "best" structure, including Gini impurity and Entropy/information. 
+             (<a href="https://en.wikipedia.org/wiki/Decision_tree_learning" target="_blank">Wiki</a>). For text data analysis, 
+             decision tree is applied on numeric dataset (DTM). Based on the frequency of each word, decision tree separate the dataset 
+             based on chosen criterion. All Python code used in Decision tree analysis can be downloaded 
+      <a href="./code/full_news_dt.py" target="_blank">here</a>. <br>
+       As a supervised learning method, Decision Tree need "label" to train the model first. 
+          After model is trained, a testing set is needed to evaluate the model performance. </p> <br>
+      <p>For news content dataset, there are in total 15779 words (variables) used in the model. The label is the 
+          keywords used to obtain the news. 70% of the data are randomly selected as training dataset, while another 30% 
+          is the testing dataset. 
+      Three different trees are conducted to compare the performance using same training and testing data. The models are shown in Table 1. 
+
+      </p><br>
+
+      <div style="display:inline-block" id="table1">
+          <figure>
+              <figcaption style="color: #0e0d0d;">Table 1. Decision tree model settings </figcaption>
+              <img src="./figure/full_news_dt_3model.png" width=400px />
+              
+          </figure>
+      </div> 
+      
+      </div>
+      <br><br>
+          <div id="tree comparison">
+            <h3 style="margin-left: 3%;"><li> Model comparison </li></h3><br>
+            <p>Due to the different settings, model results and performances are different. The differences will be discussed in 
+                three aspects including tree structure, feature importance, and confusion matrix. 
+                 </p> <br>
+
+                 <ol type="a">
+                  <li style="margin-left: 2%;">Tree structure</li><br>
+                 <p>Figure 4 shows the three models based on the same training dataset. Model 1 and Model 2 have same root as 
+                     "housing market" < 0.007. Model 3 with random splitter uses "affordability" to firstly separate some real 
+                     estate news from others. Model 3 have more layers compared to Model 1 and 2, while Model 1 and Model 2 
+                     are similar regarding tree sizes. As the word cloud plots (Figure 3)
+                      indicates, words like "housing market" and "treasury" are indeed can be used to distinguish news with different 
+                      key words. 
+
+
+                 </p><br>
+
+            <div style="display:inline-block" id="fig4">
+              <figure>
+                  <img src="./figure/full_news_tree.png" width=800px />
+                  <figcaption style="color: #0e0d0d;">a</figcaption>
+              </figure>
+              <figure>
+                  <img src="./figure/full_news_tree2.png" width=800px />
+                  <figcaption style="color: #0e0d0d;">b</figcaption>
+              </figure>
+              <figure>
+                  <img src="./figure/full_news_tree3.png" width=800px/>
+                  <figcaption style="color: #0e0d0d;">c</figcaption>
+              </figure>
+          </div> 
+          <p>Figure 4. Tree structure comparison. a, Decision tree 1; b, Decision tree 2; c, Decision tree 3. </p><br>
+<br>
+
+          <li style="margin-left: 2%;">Feature importance</li><br>
+          <p>Figure 5 shows the feature importance of three models. All three of them have different words used to separate 
+              the samples, except Model 1 and Model 2 use same root ("housing market"). From the importance, Model 3 also uses 
+              more feature to develope the tree, which results in larger tree. 
+          </p><br>
+          <div id="fig3" class="imagecaption">
+              <div style="display:inline-block" >
+              <figure>
+                  <img src="./figure/dt1_imp.png" width=500px />
+                  <figcaption style="color: #0e0d0d;">a</figcaption>
+              </figure>
+          </div>
+          <div style="display:inline-block" >
+              <figure>
+                  <img src="./figure/dt2_imp.png" width=400px />
+                  <figcaption style="color: #0e0d0d;">b</figcaption>
+              </figure>
+          </div>
+              <div style="display:inline-block" >
+              <figure>
+                  <img src="./figure/dt3_imp.png" width=500px/>
+                  <figcaption style="color: #0e0d0d;">c</figcaption>
+              </figure>
+          </div>
+          </div> 
+          <p>Figure 5. Feature importance of different models. a, Decision tree 1; b, Decision tree 2; c, Decision tree 3. </p><br>
+<br>
+
+
+          <li style="margin-left: 2%;">Confusion matrix</li><br>
+          <p>Table 2-4 shows the confusion matrices of three models. Figure 6 shows the detailed prediction of each model.
+               Model 1 and Model 3 have same best performance, because they both correctly predict 10 out of 16. Model 1 has overall 
+               best performance, since it uses less words in the model. All three model predict "home buying" news better 
+               compared to the other two kinds of news. Thus, home buying news may be more distinguished from the other two. 
+               Some records are harder to predict. For those records that all three models predict wrong, the news may contain 
+               content from different aspects. 
+          </p><br>
+          <div style="display:inline-block" id="table2">
+            <figure>
+                <figcaption style="color: #0e0d0d;">Table 2. Confusion matrix of Model 1 </figcaption>
+                <img src="./figure/news_dt1_cm.png" width=500px />
+                
+            </figure>
+          </div> 
+          <div style="display:inline-block" id="table3">
+              <figure>
+                  <figcaption style="color: #0e0d0d;">Table 3. Confusion matrix of Model 2 </figcaption>
+                  <img src="./figure/news_dt2_cm.png" width=500px />
+                  
+              </figure>
+            </div>
+            <div style="display:inline-block" id="table4">
+              <figure>
+                  <figcaption style="color: #0e0d0d;">Table 4. Confusion matrix of Model 2 </figcaption>
+                  <img src="./figure/news_dt3_cm.png" width=500px />
+                  
+              </figure>
+            </div>
+            
+            <div style="display:inline-block" id="table5">
+                <figure>
+                    <figcaption style="color: #0e0d0d;">Table 5. Model prediction of each model. </figcaption>
+                    <img src="./figure/news_dt_res.png" width=600px />
+                </figure>
+            </div> 
+              <br><br>
+
+
+              </ol>
+          </div>
+        </div>
+
+
+        <span class="anchor" id="conclusion news"></span>
+        <div style="margin: 5%; color: #112e51; " >
+          <h2> Conclusion </h2><br>
+          <p> Based on the results, the text data is more easy to be modeled by decision tree model compared to record data. 
+              One of the reasons may be that the words associated with other clearly indicate the topic of the article. For example, 
+              article contains "treasury" is highly related to key words "mortgage". In other words, when people use "mortgage" 
+              to find articles, most of them would mention "treasury". Similarly, when people use "home buying" 
+              to find articles, most of them would mention "sales" and "prices". There is a phrase "grew trillion" is associated 
+              with home buying news and real estate news. This is predictable because such magnitude can only happen on the housing market 
+              instead of description of change of mortgage rate. 
+          </p><br>
+
+
+        </div>
+
+        <span class="anchor" id="data news"></span>
+          <div style="margin: 5%; color: #112e51; " id="data_zillow">
+          <h2> Data download and analysis code </h2><br>
+          <table >
+            <tr>
+              <th>Name</th>
+              <th>Data Preview</th>
+              <th>Data Download</th>
+              <th>Code</th>
+            </tr>
+            <tr > 
+              <td>Full news content</td>
+              <td>
+                <img class="myImg" src="./figure/clean_full_news.png" alt="Cleaned full news dataset" width="300" height="100">
+            </td>          
+              <div id="myModal5" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img05">
+                <div id="caption5" class="modal-caption"></div>
+              </div>
+          
+              <td>                      
+                <a href="./data/full_news_clean.csv" target="_blank">Download</a>              </td>
+            
+              <td>
+                <a href="./code/full_news_dt.py" target="_blank">Python code</a>              </td>                    
+            </tr>
+          </table><br>
+        </div>
+
+      </div>
+  </div>
+</div>
+
+
+
+            
+          
+
+
+
+
+<script>
+    //open tab with click
+    function openPage(pageName,elmnt,color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+       ///// Image display modals
+    // All page modals
+    var modals = document.querySelectorAll('.modal');
+
+    // Get the image and insert it inside the modal - use its "alt" 
+    // text as a caption
+    var img = document.querySelectorAll("img.myImg")
+    var modalImg = document.querySelectorAll("img.modal-content")
+    var captionText = document.querySelectorAll(".modal-caption");
+
+    // Get the <span> element that closes the modal
+    var spans = document.getElementsByClassName("close");
+ 
+    // When the user clicks the image, open the modal
+    for (var i = 0; i < img.length; i++) {
+        img[i].onclick = function() {
+            for (var index in modals) {
+            modals[index].style.display = "block";
+            for (var index in modalImg) {
+                modalImg[index].src = this.src;}; 
+            for (var index in captionText) {
+                captionText[index].innerHTML = this.alt;}
+            }
+        }
+    }
+
+
+    // When the user clicks on <span> (x), close the modal
+    for (var i = 0; i < spans.length; i++) {
+    spans[i].onclick = function() {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+    }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+        }
+    }
+
+$(".tablink").on("click", function() {
+$('html, body').animate({scrollTop:0},500);
+}) 
+
+</script>
+</body>
+</html>
+
+
+
+

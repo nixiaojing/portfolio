@@ -1,0 +1,1978 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+     <!-- font and style*/ -->
+     <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+ 
+<style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  font-size: 100%;
+  /*background: url(/figure/pictures/christopher-gower-m_HRfLhgABo-unsplash.jpg)
+  no-repeat center center fixed; */
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+  scroll-padding-top: 200px;
+}
+
+/* home button */
+.btn {
+  background-color:rgba(2, 2, 3, 0);
+  border: none;
+  color: rgb(19, 18, 18);
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+/*one page tabs*/
+/* Style tab links */
+.tablink {
+    position: sticky;
+    background-color: rgba(10, 10, 10, 0.5);
+    background-blend-mode: overlay;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 20px;
+    width: 50%;
+
+}
+
+.tabs-menu {
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px 20px;
+  height: 100%;
+}
+
+#Census {
+    font-size: 100%;
+    background-color: rgba(243, 244, 247, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1200%;
+}
+#COVID {    
+    font-size: 100%;
+    background-color: rgba(222, 241, 215, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#Zillow {
+    font-size: 100%;
+    background-color: rgba(213, 229, 238, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1000%;
+}
+
+#Maps {    
+    font-size: 100%;
+    background-color: rgba(236, 204, 144, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
+#Text {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 200%;
+}
+
+#Tweets {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 150%;
+}
+
+#News {    
+    font-size: 100%;
+    background-color: rgba(210, 238, 201, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 650%;
+}
+
+/* sidebar */
+
+.sidenav {
+  height: 100%;
+  width: 120px;
+  position: fixed;
+  z-index: 1;
+  top: 150;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+
+}
+
+.sidenav p {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sidenav a:hover {
+  color: #0e0d0d;
+  text-decoration: underline black;
+  font-weight:bold;
+}
+
+
+.anchor{
+  height: 305px; /*same height as header*/
+  margin-top: -305pt; /*same height as header*/
+  visibility: hidden;
+  padding-top: 500pt;
+  
+}
+
+
+.main-container {
+  margin-top: 40px;
+}
+
+.content-container {
+  margin-left: 150px;
+  margin-top: 150px;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.material-icons.md-80 { font-size: 80px; }
+
+/*table, from w3schools.com*/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #111010;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/*pop up image, from w3schools.com*/
+.myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+.modal-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, .modal-caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+
+  <div id="buttons" class="tabs-menu">
+      <button class="tablink" onclick="openPage('Census', this, '#112e51')" id="defaultOpen">
+          <span class="material-icons md-80">poll</span>
+          <p>Demography data</p>
+      </button>
+  <!--
+      <button class="tablink" onclick="openPage('COVID', this, 'green')" >
+          <span class="material-icons md-80">
+              coronavirus
+              </span>
+              <div>COVID data</div>
+      </button>
+  -->
+      <button class="tablink" onclick="openPage('Zillow', this, 'blue')">
+          <span class="material-icons md-80">
+              maps_home_work
+              </span>
+              <div>Zillow research data</div>
+      </button>
+  <!--
+      <button class="tablink" onclick="openPage('Maps', this, 'orange')">
+          <span class="material-icons md-80">
+              map
+              </span>
+              <div>Maps</div>
+      </button>
+  -->
+  
+      <button class="tablink" onclick="openPage('Tweets', this, '#1DA1F2')">
+          <span class="material-icons md-80">
+              description
+              </span>
+              <div>Tweets</div>
+      </button>
+  
+      <button class="tablink" onclick="openPage('News', this, 'rgb(0,102,0)')">
+        <span class="material-icons md-80">
+            description
+            </span>
+            <div>News</div>
+    </button>
+  </div>
+
+
+    <div id="Census" class="tabcontent">
+      <div class="sidenav">
+        <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home"></i></button> </a>
+        <p><b>Menu</b> </p> 
+        <a href="#basic">For all purpose</a>
+        <a href="#clustering">Clustering</a>
+      </div>
+
+      <div class="content-container">
+        <div style="margin: 5%; color: #112e51;" id="census beginning">
+          <h1>Demography Dataset </h1><br>             
+              <p> Demography datasets,labeled by regions, including Housing Vacancies and Homeownership 
+                (HV) and New Homes Sales (NHS), are converted from JSON to R data 
+                frame. Based on the characteristics of each dataset, data cleaning 
+                procedures are described below. </p><br>
+          </div>
+        <span class="anchor" id="basic"></span>
+          <div style="margin: 5%; color: #112e51; " id="census data summary">
+          <h2> General Data Cleaning</h2><br>
+            <h3><li>Data cleaning summary</li></h3><br>
+              <table >
+                    <tr>
+                      <th>Name</th>
+                      <th>Data cleaning procedures</th>
+                      <th>Original Data Preview</th>
+                      <th>Clean Data Frame Preview</th>
+                      <th>Resources</th>
+                    </tr>
+                    <tr > 
+                      <td>Housing Vacancies and Homeownership</td>
+                      <td>
+                        <ol style="margin-left: 18;">
+                          <li>Convert to data frame.</li> <br>
+                          <li>Check for and remove NA values.</li> <br> 
+                          <li>Check data type for each column.</li> <br> 
+                          <li>Remove rebundand records, such as records before 2019.</li> <br> 
+                          <li>Devide dataset into two based on data types, e.g. percentage or value.</li> <br> 
+                          <li>Remove rebundand columns, such "category type" as "rate" or "estimate".</li> <br>
+                          <li>Check if rates fall into 0-100.</li> <br>
+                          <li>Check if regional sum is equal to national record for value data.</li> <br>
+                        </ol> 
+                      </td>
+                      <td><img id="myImg" class="myImg" src="./figure/HV_json.png" alt="Housing Vacancies and Homeownership" width="200" height="100">
+                      </td>
+                  
+                      <div id="myModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                        <div id="caption" class="modal-caption"></div>
+                      </div>
+
+                      <td>
+                        <img id="myImg2" class="myImg" src="./figure/HV_df_estimate_2019.png" alt="Housing Vacancies and Homeownership Estimates" width="300" height="100"><br>
+                        <img id="myImg3" class="myImg" src="./figure/HV_df_rate_2019.png" alt="Housing Vacancies and Homeownership Rates" width="300" height="100">
+                      </td>
+                  
+                      <div id="myModal2" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img02">
+                        <div id="caption2" class="modal-caption"></div>
+                      </div>
+                      <div id="myModal3" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img03">
+                        <div id="caption3" class="modal-caption"></div>
+                      </div>
+
+                      <td>
+                        <li><a href="./data/NHS_1990_2021.json" target="_blank">Raw Data Download</a></li>
+                        <li><a href="./data/HV_2019_2021_df_estimate.csv" target="_blank">Clean Estimate Data Download</a></li>
+                        <li><a href="./data/HV_2019_2021_df_rate.csv" target="_blank">Clean Rate Data Download</a></li>
+                        <li><a href="./code/HV_cleaning_exploring.R" target="_blank">R code</a></li>
+                      </td>                    
+                    </tr>
+
+                    <tr>
+                        <td>New Homes Sales</td>
+                        <td>
+                          <ol style="margin-left: 18;">
+                            <li>Convert to data frame.</li> <br>
+                            <li>Check for NA values.</li> <br> 
+                            <li>Check data type for each column.</li> <br> 
+                            <li>Remove rebundand columns, such as error type columns.</li> <br> 
+                            <li>Remove rebundand records, such as records before 2019.</li> <br> 
+                            <li>Check if regional sum is equal to national record.</li> <br>
+                            <li>Add Quarter labels based on month labels. </li> <br>
+                          </ol> 
+                        </td>
+                        <td>
+                          <img id="myImg4" class="myImg" src="./figure/NHS_json.png" alt="New Homes Sales Raw data" width="200" height="100">                        
+                        </td>
+                    
+                        <div id="myModal4" class="modal">
+                          <span class="close">&times;</span>
+                          <img class="modal-content" id="img04">
+                          <div id="caption4" class="modal-caption"></div>
+                        </div>
+
+                        <td><img id="myImg5" class="myImg" src="./figure/NHS_df_2019.png" alt="New Homes Sales Clean data" width="300" height="100">                        
+                        </td>
+                    
+                        <div id="myModal5" class="modal">
+                          <span class="close">&times;</span>
+                          <img class="modal-content" id="img05">
+                          <div id="caption5" class="modal-caption"></div>
+                        </div>
+                        <td>
+                          <li><a href="./data/NHS_1990_2021.json" target="_blank">Raw Data Download</a></li>
+                          <li><a href="./data/NHS_2019_2021_df.csv" target="_blank">Clean Data Download</a></li>
+                          <li><a href="./code/NHS_cleaning_exploring.R" target="_blank">R code</a></li>
+                        </td>
+
+                      </tr>
+                </table><br>
+        
+          </div>
+
+          <div style="margin: 5%; color: #112e51;" id="census data cleaning">
+          <h3><li>Detailed Cleaning procedures</li></h3> <br>
+
+          <ol>
+            <div id="HV procedure">
+            <h4><li style="margin-left: 15;">Housing Vacancies and Homeownership</li></h4><br>
+            <ol type="A" >
+              <li style="margin-left: 15;">Convert to R data frame</li><br>
+              <p>This step convert the JSON file to data frame. </p>
+              <table>
+                <tr>
+                  <th>Before</th>
+                  <th>After</th>
+                </tr>
+                <tr>
+                  <td><img id="myImg6" class="myImg" src="./figure/HV_json.png" alt="Housing Vacancies and Homeownership" width="200" height="100">
+                  </td>
+              
+                  <div id="myModal6" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img06">
+                    <div id="caption6" class="modal-caption"></div>
+                  </div>
+
+                  <td>
+                    <img id="myImg7" class="myImg" src="./figure/HV_dc_1.png" alt="Housing Vacancies and Homeownership Estimates" width="300" height="100"><br>
+                  </td>
+              
+                  <div id="myModal7" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img07">
+                    <div id="caption7" class="modal-caption"></div>
+                  </div>
+
+                </tr>
+              </table><br>
+
+              <li style="margin-left: 15;">Drop extra levels</h3></li><br>
+              <p>Due to read in format, the column name was read as a level 
+                of the factor. After change the first row to column name, empty level of the 
+                column name should be removed. 
+                For example: <br>
+                <img src="./figure/HV_dc_2.png" width="200" height="40"><br><br>
+                After clean, the empty levels are dropped. See the summary beflow. <br>
+                <img src="./figure/HV_dc_3.png" width="500" height="200"><br>
+              </p>
+
+              <li style="margin-left: 15;">Check for missing values</h3></li><br>
+              <p>Using is.na() to check if there is any missing values. <br>
+                <img src="./figure/HV_dc_4.png" width="200" height="40"><br><br>
+                There is no missing values in the original dataset. <br><br>
+              </p>
+
+              <li style="margin-left: 15;">Convert each column to correct type</h3></li><br>
+                <ul style="margin-left: 20;">
+                  <li>Cell_value column from factor to numbers.</li>
+                </ul>
+                <p>The cell_value column contains the value of each record. This column should be numeric. However, after read the data, this column is factor (image above). 
+                  After conversion, the dataset summary is shown below. <br>
+                  <img src="./figure/HV_dc_5.png" width="500" height="180"><br><br>
+                </p>
+
+                <ul style="margin-left: 20;">
+                  <li>Remove NAs</li>
+                </ul>
+                <p>In the last step, some NAs are introduced. This means there are some non-numeric values. 
+                  After removing those values, the dataset summery is shown below. Now the dataset has 8340 rows instead of 8344 rows in the original dataset.<br>
+                  <img src="./figure/HV_dc_6.png" width="500" height="150"><br><br>
+                </p>
+
+                <li style="margin-left: 15;">Remove rebundand columns and rows</h3></li><br>
+
+                <ul style="margin-left: 20;">
+                  <li>Remove rebundand columns</li>
+                </ul>
+                <p>In this step, time_slot_id, error_data and seasonally_adj columns are removed. time_slot_id is rebundand as it is same as time column.
+                   Now the dataset has 5 columns instead of 8 columns(variables) in the original dataset.<br>
+                  <img src="./figure/HV_dc_7.png" width="500" height="120"><br><br>
+                </p>
+
+                <ul style="margin-left: 20;">
+                  <li>Remove rebundand records (rows)</li>
+                </ul>
+                <p>In this step, dataset are trimmed based on the time variable. Only data after 2019 are kept.
+                   Now the dataset has 890 rows instead of 8340 rows in the last version.<br>
+                  <img src="./figure/HV_dc_8.png" width="500" height="120"><br><br>
+                </p>
+
+                <li style="margin-left: 15;">Devide the dataset into two datasets</h3></li><br>
+
+                <ul style="margin-left: 20;">
+                  <li>Devide the data</li>
+                </ul>
+                <p>In this step, dataset is devided into two datasets based on the cell_value type, which is indicated in "category_code" 
+                  varible (rate or estimate). <br>
+                  Now the estimate dataset has 700 rows, while the rate dataset has 190 rows. <br>
+                  <img src="./figure/HV_dc_9.png" width="500" height="120"><br>
+                  <img src="./figure/HV_dc_10.png" width="500" height="120"><br><br>
+                </p>
+
+                <ul style="margin-left: 20;">
+                  <li>Remove rebundand columns</li>
+                </ul>
+                <p>In this step, category_code (rate or estimate) is removed since the dataset has been devided based on this. 
+                  Now the datasets have 4 variables each.<br>
+                  <img src="./figure/HV_dc_11.png" width="500" height="200"><br><br>
+                </p>
+
+                <ul style="margin-left: 20;">
+                  <li>Remove empty levels</li>
+                </ul>
+                <p>Beacuse the dataset has beed revised, there are some empty levels containing no data. After remove those levels,
+                 the dataset summary is shown below.
+                  <br>
+                  <img src="./figure/HV_dc_12.png" width="500" height="150"><br><br>
+                </p>
+
+              <li style="margin-left: 15;">Check data quality</h3></li><br>
+                <ul style="margin-left: 20;">
+                  <li>Check if rates fall in the range 0-100.</li>
+                </ul>
+                <p>In the rate dataset, all cell_value should fall in 0-100. After checking, all values are from 0 to 100. <br>
+                  <img src="./figure/HV_dc_13.png" width="500" height="50"><br><br>
+                </p>
+
+                <ul style="margin-left: 20;">
+                  <li>Check if regional values sum up as US values </li><br>
+                </ul>
+                <p>In this step, the regional values are sumed up to see if the sums matche the reported national
+                   values. Due to rounding up operation, there may be some differences. This difference should be small. 
+                   After verification, the sums match the reported national value. <br>
+                  <img src="./figure/HV_dc_14.png" width="500" height="400"><br><br>
+                </p>
+
+                <ul style="margin-left: 20;">
+                  <li>Visually check potential outliers </li><br>
+                </ul>
+                <p>In this step, scatter plot is used to check if there is any potential 
+                  outlier in the data. <br>
+                  <img src="./figure/HV_dc_15.png" width="500" height="400"><br><br>
+                  The figure shows the lines are smooth indicating they all close to each other. This 
+                  could be interpreted as there is no potential outliers. 
+                </p>
+            </div>
+
+            <div id="NHS procedure">
+            <h4><li style="margin-left: 15;">New Homes Sales</li></h4><br>
+            <ol type="A" >
+              <li style="margin-left: 15;">Convert to R data frame</li><br>
+              <p>This step convert the JSON file to data frame. </p>
+              <table>
+                <tr>
+                  <th>Before</th>
+                  <th>After</th>
+                </tr>
+                <tr>
+                  <td><img id="myImg8" class="myImg" src="./figure/NHS_json.png" alt="New home sales original data" width="200" height="100">
+                  </td>
+              
+                  <div id="myModal8" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img08">
+                    <div id="caption8" class="modal-caption"></div>
+                  </div>
+
+                  <td>
+                    <img id="myImg9" class="myImg" src="./figure/NHS_dc_1.png" alt="NHS R initial data frame" width="300" height="100"><br>
+                  </td>
+              
+                  <div id="myModal9" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img09">
+                    <div id="caption9" class="modal-caption"></div>
+                  </div>
+
+                </tr>
+              </table><br>
+
+              <li style="margin-left: 15;">Drop extra levels</h3></li><br>
+              <p>Due to read in format, the column name was read as a level 
+                of the factor. After change the first row to column name, empty level of the 
+                column name should be removed. 
+                For example: <br>
+                <img src="./figure/NHS_dc_2.png" width="500" height="40"><br><br>
+                After clean, the empty levels are dropped. See the summary beflow. <br>
+                <img src="./figure/NHS_dc_3.png" width="500" height="150"><br>
+              </p>
+
+              <li style="margin-left: 15;">Check for missing values</h3></li><br>
+              <p>Using is.na() to check if there is any missing values. <br>
+                <img src="./figure/NHS_dc_4.png" width="500" height="40"><br><br>
+                There is no missing values in the original dataset. <br><br>
+              </p>
+
+              <li style="margin-left: 15;">Convert each column to correct type</h3></li><br>
+                <ul style="margin-left: 20;">
+                  <li>Cell_value column from factor to numbers.</li>
+                </ul>
+                <p>The cell_value column contains the value of each record. This column should be numeric. However, after read the data, this column is factor (image above). 
+                  After conversion, the dataset summary is shown below. <br>
+                  <img src="./figure/NHS_dc_5.png" width="500" height="150"><br><br>
+                </p>
+
+                <li style="margin-left: 15;">Remove rebundand columns and rows</h3></li><br>
+
+                <ul style="margin-left: 20;">
+                  <li>Remove rebundand columns</li>
+                </ul>
+                <p>In this step, time_slot_id, error_data and seasonally_adj columns are removed. time_slot_id is rebundand as it is same as time column.
+                   Now the dataset has 5 columns instead of 8 columns(variables) in the original dataset.<br>
+                  <img src="./figure/NHS_dc_7.png" width="500" height="120"><br><br>
+                </p>
+
+                <ul style="margin-left: 20;">
+                  <li>Remove rebundand records (rows)</li>
+                </ul>
+                <p>In this step, dataset are trimmed based on the time variable. Only data after 2019 are kept.
+                   Now the dataset has 1856 rows instead of 18392 rows in the last version.<br>
+                  <img src="./figure/NHS_dc_8.png" width="500" height="120"><br><br>
+                </p>
+
+                <ul style="margin-left: 20;">
+                  <li>Delete records with data_type_code start with E- as they indicate error type</li>
+                </ul>
+                <p>In this step, any records with data_type_code start with E- as they indicate error type are removed. In this analysis, data error will not be used.<br>
+                  Now the dataset has 1056 rows. <br>
+                  <img src="./figure/NHS_dc_9.png" width="500" height="120"><br>
+                </p>
+
+                <li style="margin-left: 15;">Add a column "Quarter" based on time</h3></li><br>
+                <ul style="margin-left: 20;">
+                <li>Add the column</li>
+                </ul>
+                <p>In this step, a column named "Quarter" is added to the dataset. This column is calculated based on the value of time. If 
+                  the time is Jan-Mar, Quarter is Q1; Apr-Jun, Quarter is Q2; Jul-Sep, Quarter is Q3; Oct-Dec, Quarter is Q4. There will be 4 
+                  quaters in each year. Meanwhile, the monthly data are kept for potential future analysis. The dataset after changing the type is shown below. <br>
+                  <img src="./figure/NHS_dc_10.png" width="500" height="120"><br><br>
+                </p>
+
+                <ul style="margin-left: 20;">
+                  <li>Change the data type</li>
+                  </ul>
+                  <p>The new column is defaultly as "chr" type. In this step, "Quarter" column is changed to "factor" type.  <br>
+                    Now the estimate dataset has 700 rows, while the rate dataset has 190 rows. <br>
+                    <img src="./figure/NHS_dc_11.png" width="500" height="120"><br><br>
+                  </p>
+
+                <ul style="margin-left: 20;">
+                  <li>Remove empty levels</li>
+                </ul>
+                <p>Beacuse the dataset has beed revised, there are some empty levels containing no data. After remove those levels,
+                 the dataset summary is shown below.
+                  <br>
+                  <img src="./figure/NHS_dc_12.png" width="500" height="100"><br><br>
+                </p>
+
+              <li style="margin-left: 15;">Check data quality</h3></li><br>
+                <li>Check if regional values sum up as US values </li><br>
+                <p>In this step, the regional values are sumed up to see if the sums matche the reported national
+                   values. Due to rounding up operation, there may be some differences. This difference should be small. 
+                   After verification, the sums match the reported national value. <br>
+                  <img src="./figure/NHS_dc_13.png" width="500" height="400"><br><br>
+                </p>
+            </ol>
+            </div>
+          </ol>
+          </div>
+       
+
+
+        <div id="clustering" style="margin: 5%; color: #112e51; " id="clustering data summary">
+          <h2> Data Processing for Clustering analysis</h2><br>
+          <h3><li>Data cleaning summary</li></h3><br>
+          <table >
+            <tr>
+              <th>Name</th>
+              <th>Data cleaning procedures</th>
+              <th>Original Data Preview</th>
+              <th>Clean Data Frame Preview</th>
+              <th>Resources</th>
+            </tr>
+            <tr > 
+              <td>HV-NHS combined data</td>
+              <td>
+                <ol style="margin-left: 18;">
+                  <li>Select four(4) variables from HV estimate data.</li> <br>
+                  <li>Select one(1) variables from HV rate data.</li> <br> 
+                  <li>Select three(3) variables from NHS data.</li> <br> 
+                  <li>Trim the data to 2014 to 2021.</li> <br> 
+                  <li>Reshape the data as numeric dataframe.</li> <br> 
+                  <li>Merge three datasets into one based on reported time.</li> <br>
+                  <li>Seperate 3 records from 2014 data as prediction dataset in clustering analysis.</li> <br>
+                </ol> 
+              </td>
+
+              <td>
+                <img id="myImg2" class="myImg" src="./figure/HV_df_estimate_2019.png" alt="Housing Vacancies and Homeownership Estimates" width="300" height="100"><br>
+                <img id="myImg3" class="myImg" src="./figure/HV_df_rate_2019.png" alt="Housing Vacancies and Homeownership Rates" width="300" height="100">
+                <img id="myImg5" class="myImg" src="./figure/NHS_df_2019.png" alt="New Homes Sales Clean data" width="300" height="100">
+              </td>
+          
+              <div id="myModal5" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img05">
+                <div id="caption5" class="modal-caption"></div>
+              </div>
+            
+
+              <td><img class="myImg" src="./figure/cluster_data.png" alt="Dataset for clustering" width="200" height="100">
+              </td>
+          
+              <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption" class="modal-caption"></div>
+              </div>
+
+              <td>
+                <li><a href="./data/NHS_2014_2021_df.csv" target="_blank">Input Data Download--NHS</a></li>
+                <li><a href="./data/HV_2014_2021_df_estimate.csv" target="_blank">Input Data Download--HV-Estimate</a></li>
+                <li><a href="./data/HV_2014_2021_df_rate.csv" target="_blank">Input Data Download--HV-Rate</a></li>
+                <li><a href="./data/NHS_HV_cluster_df.csv" target="_blank">Processed Data Download</a></li>
+                <li><a href="./data/pred_clust.csv" target="_blank">Prediction Data Download</a></li>
+                <li><a href="./code/NHS_HV_clustering_data.R" target="_blank">R code</a></li>
+              </td>                    
+            </tr>
+          </table><br>
+        </div>
+
+  
+            <!--<ol>
+              TO BE FILLED...
+              
+              <div id="HV procedure">
+              <h4><li style="margin-left: 15;">Housing Vacancies and Homeownership</li></h4><br>
+              <ol type="A" >
+                <li style="margin-left: 15;">Convert to R data frame</li><br>
+                <p>This step convert the JSON file to data frame. </p>
+                <table>
+                  <tr>
+                    <th>Before</th>
+                    <th>After</th>
+                  </tr>
+                  <tr>
+                    <td><img id="myImg6" class="myImg" src="/figure/HV_json.png" alt="Housing Vacancies and Homeownership" width="200" height="100">
+                    </td>
+                
+                    <div id="myModal6" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img06">
+                      <div id="caption6" class="modal-caption"></div>
+                    </div>
+  
+                    <td>
+                      <img id="myImg7" class="myImg" src="/figure/HV_dc_1.png" alt="Housing Vacancies and Homeownership Estimates" width="300" height="100"><br>
+                    </td>
+                
+                    <div id="myModal7" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img07">
+                      <div id="caption7" class="modal-caption"></div>
+                    </div>
+  
+                  </tr>
+                </table><br>
+  
+                <li style="margin-left: 15;">Drop extra levels</h3></li><br>
+                <p>Due to read in format, the column name was read as a level 
+                  of the factor. After change the first row to column name, empty level of the 
+                  column name should be removed. 
+                  For example: <br>
+                  <img src="/figure/HV_dc_2.png" width="200" height="40"><br><br>
+                  After clean, the empty levels are dropped. See the summary beflow. <br>
+                  <img src="/figure/HV_dc_3.png" width="500" height="200"><br>
+                </p>
+  
+                <li style="margin-left: 15;">Check for missing values</h3></li><br>
+                <p>Using is.na() to check if there is any missing values. <br>
+                  <img src="/figure/HV_dc_4.png" width="200" height="40"><br><br>
+                  There is no missing values in the original dataset. <br><br>
+                </p>
+  
+                <li style="margin-left: 15;">Convert each column to correct type</h3></li><br>
+                  <ul style="margin-left: 20;">
+                    <li>Cell_value column from factor to numbers.</li>
+                  </ul>
+                  <p>The cell_value column contains the value of each record. This column should be numeric. However, after read the data, this column is factor (image above). 
+                    After conversion, the dataset summary is shown below. <br>
+                    <img src="/figure/HV_dc_5.png" width="500" height="180"><br><br>
+                  </p>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Remove NAs</li>
+                  </ul>
+                  <p>In the last step, some NAs are introduced. This means there are some non-numeric values. 
+                    After removing those values, the dataset summery is shown below. Now the dataset has 8340 rows instead of 8344 rows in the original dataset.<br>
+                    <img src="/figure/HV_dc_6.png" width="500" height="150"><br><br>
+                  </p>
+  
+                  <li style="margin-left: 15;">Remove rebundand columns and rows</h3></li><br>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Remove rebundand columns</li>
+                  </ul>
+                  <p>In this step, time_slot_id, error_data and seasonally_adj columns are removed. time_slot_id is rebundand as it is same as time column.
+                     Now the dataset has 5 columns instead of 8 columns(variables) in the original dataset.<br>
+                    <img src="/figure/HV_dc_7.png" width="500" height="120"><br><br>
+                  </p>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Remove rebundand records (rows)</li>
+                  </ul>
+                  <p>In this step, dataset are trimmed based on the time variable. Only data after 2019 are kept.
+                     Now the dataset has 890 rows instead of 8340 rows in the last version.<br>
+                    <img src="/figure/HV_dc_8.png" width="500" height="120"><br><br>
+                  </p>
+  
+                  <li style="margin-left: 15;">Devide the dataset into two datasets</h3></li><br>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Devide the data</li>
+                  </ul>
+                  <p>In this step, dataset is devided into two datasets based on the cell_value type, which is indicated in "category_code" 
+                    varible (rate or estimate). <br>
+                    Now the estimate dataset has 700 rows, while the rate dataset has 190 rows. <br>
+                    <img src="/figure/HV_dc_9.png" width="500" height="120"><br>
+                    <img src="/figure/HV_dc_10.png" width="500" height="120"><br><br>
+                  </p>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Remove rebundand columns</li>
+                  </ul>
+                  <p>In this step, category_code (rate or estimate) is removed since the dataset has been devided based on this. 
+                    Now the datasets have 4 variables each.<br>
+                    <img src="/figure/HV_dc_11.png" width="500" height="200"><br><br>
+                  </p>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Remove empty levels</li>
+                  </ul>
+                  <p>Beacuse the dataset has beed revised, there are some empty levels containing no data. After remove those levels,
+                   the dataset summary is shown below.
+                    <br>
+                    <img src="/figure/HV_dc_12.png" width="500" height="150"><br><br>
+                  </p>
+  
+                <li style="margin-left: 15;">Check data quality</h3></li><br>
+                  <ul style="margin-left: 20;">
+                    <li>Check if rates fall in the range 0-100.</li>
+                  </ul>
+                  <p>In the rate dataset, all cell_value should fall in 0-100. After checking, all values are from 0 to 100. <br>
+                    <img src="/figure/HV_dc_13.png" width="500" height="50"><br><br>
+                  </p>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Check if regional values sum up as US values </li><br>
+                  </ul>
+                  <p>In this step, the regional values are sumed up to see if the sums matche the reported national
+                     values. Due to rounding up operation, there may be some differences. This difference should be small. 
+                     After verification, the sums match the reported national value. <br>
+                    <img src="/figure/HV_dc_14.png" width="500" height="400"><br><br>
+                  </p>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Visually check potential outliers </li><br>
+                  </ul>
+                  <p>In this step, scatter plot is used to check if there is any potential 
+                    outlier in the data. <br>
+                    <img src="/figure/HV_dc_15.png" width="500" height="400"><br><br>
+                    The figure shows the lines are smooth indicating they all close to each other. This 
+                    could be interpreted as there is no potential outliers. 
+                  </p>
+              </div>
+  
+              <div id="NHS procedure">
+              <h4><li style="margin-left: 15;">New Homes Sales</li></h4><br>
+              <ol type="A" >
+                <li style="margin-left: 15;">Convert to R data frame</li><br>
+                <p>This step convert the JSON file to data frame. </p>
+                <table>
+                  <tr>
+                    <th>Before</th>
+                    <th>After</th>
+                  </tr>
+                  <tr>
+                    <td><img id="myImg8" class="myImg" src="/figure/NHS_json.png" alt="New home sales original data" width="200" height="100">
+                    </td>
+                
+                    <div id="myModal8" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img08">
+                      <div id="caption8" class="modal-caption"></div>
+                    </div>
+  
+                    <td>
+                      <img id="myImg9" class="myImg" src="/figure/NHS_dc_1.png" alt="NHS R initial data frame" width="300" height="100"><br>
+                    </td>
+                
+                    <div id="myModal9" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img09">
+                      <div id="caption9" class="modal-caption"></div>
+                    </div>
+  
+                  </tr>
+                </table><br>
+  
+                <li style="margin-left: 15;">Drop extra levels</h3></li><br>
+                <p>Due to read in format, the column name was read as a level 
+                  of the factor. After change the first row to column name, empty level of the 
+                  column name should be removed. 
+                  For example: <br>
+                  <img src="/figure/NHS_dc_2.png" width="500" height="40"><br><br>
+                  After clean, the empty levels are dropped. See the summary beflow. <br>
+                  <img src="/figure/NHS_dc_3.png" width="500" height="150"><br>
+                </p>
+  
+                <li style="margin-left: 15;">Check for missing values</h3></li><br>
+                <p>Using is.na() to check if there is any missing values. <br>
+                  <img src="/figure/NHS_dc_4.png" width="500" height="40"><br><br>
+                  There is no missing values in the original dataset. <br><br>
+                </p>
+  
+                <li style="margin-left: 15;">Convert each column to correct type</h3></li><br>
+                  <ul style="margin-left: 20;">
+                    <li>Cell_value column from factor to numbers.</li>
+                  </ul>
+                  <p>The cell_value column contains the value of each record. This column should be numeric. However, after read the data, this column is factor (image above). 
+                    After conversion, the dataset summary is shown below. <br>
+                    <img src="/figure/NHS_dc_5.png" width="500" height="150"><br><br>
+                  </p>
+  
+                  <li style="margin-left: 15;">Remove rebundand columns and rows</h3></li><br>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Remove rebundand columns</li>
+                  </ul>
+                  <p>In this step, time_slot_id, error_data and seasonally_adj columns are removed. time_slot_id is rebundand as it is same as time column.
+                     Now the dataset has 5 columns instead of 8 columns(variables) in the original dataset.<br>
+                    <img src="/figure/NHS_dc_7.png" width="500" height="120"><br><br>
+                  </p>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Remove rebundand records (rows)</li>
+                  </ul>
+                  <p>In this step, dataset are trimmed based on the time variable. Only data after 2019 are kept.
+                     Now the dataset has 1856 rows instead of 18392 rows in the last version.<br>
+                    <img src="/figure/NHS_dc_8.png" width="500" height="120"><br><br>
+                  </p>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Delete records with data_type_code start with E- as they indicate error type</li>
+                  </ul>
+                  <p>In this step, any records with data_type_code start with E- as they indicate error type are removed. In this analysis, data error will not be used.<br>
+                    Now the dataset has 1056 rows. <br>
+                    <img src="/figure/NHS_dc_9.png" width="500" height="120"><br>
+                  </p>
+  
+                  <li style="margin-left: 15;">Add a column "Quarter" based on time</h3></li><br>
+                  <ul style="margin-left: 20;">
+                  <li>Add the column</li>
+                  </ul>
+                  <p>In this step, a column named "Quarter" is added to the dataset. This column is calculated based on the value of time. If 
+                    the time is Jan-Mar, Quarter is Q1; Apr-Jun, Quarter is Q2; Jul-Sep, Quarter is Q3; Oct-Dec, Quarter is Q4. There will be 4 
+                    quaters in each year. Meanwhile, the monthly data are kept for potential future analysis. The dataset after changing the type is shown below. <br>
+                    <img src="/figure/NHS_dc_10.png" width="500" height="120"><br><br>
+                  </p>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Change the data type</li>
+                    </ul>
+                    <p>The new column is defaultly as "chr" type. In this step, "Quarter" column is changed to "factor" type.  <br>
+                      Now the estimate dataset has 700 rows, while the rate dataset has 190 rows. <br>
+                      <img src="/figure/NHS_dc_11.png" width="500" height="120"><br><br>
+                    </p>
+  
+                  <ul style="margin-left: 20;">
+                    <li>Remove empty levels</li>
+                  </ul>
+                  <p>Beacuse the dataset has beed revised, there are some empty levels containing no data. After remove those levels,
+                   the dataset summary is shown below.
+                    <br>
+                    <img src="/figure/NHS_dc_12.png" width="500" height="100"><br><br>
+                  </p>
+  
+                <li style="margin-left: 15;">Check data quality</h3></li><br>
+                  <li>Check if regional values sum up as US values </li><br>
+                  <p>In this step, the regional values are sumed up to see if the sums matche the reported national
+                     values. Due to rounding up operation, there may be some differences. This difference should be small. 
+                     After verification, the sums match the reported national value. <br>
+                    <img src="/figure/NHS_dc_13.png" width="500" height="400"><br><br>
+                  </p>
+              </ol>
+              </div>
+              -->
+            </ol>
+
+            </div>
+
+
+
+
+          
+
+      
+      </div>
+
+    </div>
+  
+
+
+            
+          
+            <!--
+            <li>Demography data, census</li>
+            <ol type="a">
+                <li>Type: API</li>
+            </ol>
+            <li>zip area</li>
+            <li>covid number</li>
+            <li>historical interest rates</li>
+            <li>other investment: education, stock market</li> --> 
+
+
+<!--
+    <div id="COVID" class="tabcontent">
+        <div style="margin: 5%; color: rgb(2, 56, 2);">
+            <h1>COVID Dataset </h1><br>             
+                <p>COVID number in U.S. including summary and time series data.</p><br>
+                <ol type="a" style="margin-left: 60px">
+                    <li>Type: json data, csv record data</li><br>
+                    <li>Source: Covid ActNow at 
+                    <a href="https://apidocs.covidactnow.org/" target="_blank">https://apidocs.covidactnow.org/</a></li><br>
+                    <li>Collecting method: API (<a href="\code\covid_API.py" target="_blank">Python Code</a>)</li><br>
+                    <li>Dataset</li><br>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Data Preview</th>
+                            <th>Get data</th>
+                        </tr>
+
+                        <tr>
+                            <td>Covid numbers CSV</td>
+                            <td>Summary of Covid numbers of all counties in the U.S. <br> 
+                                The column defination is available at <a href="https://apidocs.covidactnow.org/data-definitions" target="_blank">https://apidocs.covidactnow.org/data-definitions</a> </td>
+                            <td>
+                                <img id="myImg3" class="myImg" src="/figure/covid_csv_1.png" alt="covid csv" width="400" height="100">
+
+                                <img id="myImg4" class="myImg" src="/figure/covid_csv_2.png" alt="covid csv" width="400" height="100">
+                            </td>
+
+                                <div id="myModal3" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img03">
+                                    <div id="caption3" class="caption"></div>
+                                </div>
+                                <div id="myModal4" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img04">
+                                    <div id="caption4" class="caption"></div>
+                                </div>
+
+                            
+            
+                            <td><a href="/data/covid_county_summary.csv">Download</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Covid numbers JSON</td>
+                            <td>New York state time-series data, json file. <br>
+                                The column defination is available at <a href="https://apidocs.covidactnow.org/data-definitions" target="_blank">https://apidocs.covidactnow.org/data-definitions</a></td>
+                            <td><img id="myImg5" class="myImg" src="/figure/covid_NY_json.png" alt="covid json" width="400" height="100">                        </td>
+                            
+                            <div id="myModal5" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img05">
+                                <div id="caption5" class="caption"></div>
+                            </div>
+                            <td><a href="/data/county_time_series_NY.json" target="_blank">Download</a></td>
+                        </tr>
+                            
+                    </table>
+                </ol>
+        </div>
+            
+    </div>
+-->
+    <div id="Zillow" class="tabcontent">
+      <div class="sidenav">
+        <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home"></i></button> </a>
+        <p><b>Menu</b> </p> 
+        <a href="#basic_zillow">For all purpose</a>
+        <a href="#decision tree zillow">Decision Tree</a>
+        <a href="#NB and SVM">Naive Bayes and Support Vector Machine</a>
+      </div>
+
+      <div class="content-container">
+        <div style="margin: 5%;color: rgb(4, 4, 71);">
+          <div style="margin: 5%; color: #112e51;" id="zillow beginning">
+            <h1>Zillow Research Dataset </h1><br>             
+                <p> <a href="./data_gathering.html#Zillow" target="_blank">Zillow Research datasets</a>, labeled by regions, are converted from csv to Pandas data 
+                  frame. Based on the characteristics of each dataset, data cleaning 
+                  procedures are described below. </p><br>
+          </div>
+
+          <span class="anchor" id="basic_zillow"></span>
+          <div style="margin: 5%; color: #112e51;" id="zillow data summary">
+            <h2> General Data Cleaning</h2><br>
+            <h3><li>Data cleaning summary</li></h3><br>
+              <table >
+                    <tr>
+                      <th>Name</th>
+                      <th>Data cleaning procedures</th>
+                      <th>Original Data Preview</th>
+                      <th>Clean Data Frame Preview</th>
+                      <th>Resources</th>
+                    </tr>
+                    <tr > 
+                      <td>Median Sales Price (raw, SFR, monthly)</td>
+                      <td>
+                        <ol style="margin-left: 18;">
+                          <li>Convert to data frame.</li> <br>
+                          <li>Check for and remove NA values.</li> <br> 
+                          <li>Check data type for each column.</li> <br> 
+                          <li>Remove rebundand records, such as records before 2019.</li> <br> 
+                          <li>Remove rebundand columns, such "SizeRank" and "RegionType".</li> <br>
+                          <li>Check outliers.</li> <br>
+                        </ol> 
+                      </td>
+                      <td><img id="myImg10" class="myImg" src="./figure/sale_price_sfr.png" alt="SFR sale price" width="200" height="100">
+                      </td>
+                  
+                      <div id="myModal10" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img10">
+                        <div id="caption10" class="modal-caption"></div>
+                      </div>
+
+                      <td>
+                        <img id="myImg11" class="myImg" src="./figure/MSP_all_df.png" alt="Cleaned data frame" width="300" height="100"><br>
+                      </td>
+                  
+                      <div id="myModal11" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img11">
+                        <div id="caption11" class="modal-caption"></div>
+                      </div>
+
+                      <td>
+                        <li><a href="./data/Metro_median_sale_price_uc_sfrcondo_month.csv" target="_blank">Raw Data Download</a></li>
+                        <li><a href="./data/zillow_MSP_All_df.csv" target="_blank">Clean Data Download</a></li>
+                        <li><a href="./code/zillow_cleaning_MSP.py" target="_blank">Python code</a></li>
+                      </td>                    
+                    </tr>
+                </table><br>
+        
+          </div>
+
+          <div style="margin: 5%; color: #112e51;" id="zillow data cleaning">
+            <h3><li>Detailed Cleaning procedures</li></h3> <br>
+  
+            <ol>
+              <div id="MSP all procedure">
+              <h4><li style="margin-left: 15;">Median Sales Price (raw, SFR, monthly)</li></h4><br>
+              <ol type="A" >
+                <li style="margin-left: 15;">Convert to R data frame</li><br>
+                <p>This step convert the CSV file to data frame. The data frame has 166 columns and 97 rows. </p>
+                <table>
+                  <tr>
+                    <th>Before</th>
+                    <th>After</th>
+                  </tr>
+                  <tr>
+                    <td><img id="myImg12" class="myImg" src="./figure/sale_price_sfr.png" alt="Original CSV" width="200" height="100">
+                    </td>
+                
+                    <div id="myModal12" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img12">
+                      <div id="caption12" class="modal-caption"></div>
+                    </div>
+  
+                    <td>
+                      <img id="myImg13" class="myImg" src="./figure/z_msp_dc_1.png" alt="Python Data Frame" width="300" height="100"><br>
+                    </td>
+                
+                    <div id="myModal13" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img13">
+                      <div id="caption13" class="modal-caption"></div>
+                    </div>
+  
+                  </tr>
+                </table><br>
+  
+                <li style="margin-left: 15;">Check for missing values</h3></li><br>
+                <p>The data preview reveals that there are some missing values in the dataset. To check where the missing values are 
+                  Python code is applied. </p>
+                  <ul style="margin-left: 20;">
+                    <li>Row numbers of missing values</li>
+                  </ul>
+                  <p>Below shows the missing values row number. There are three rows with missing values. </p><br>
+                  <img src="./figure/z_msp_dc_2.png" width="400" height="110"><br><br>
+                  <p>Each row has 1, 47, and 29 missing values.  </p><br>
+                  <img src="./figure/z_msp_dc_3.png" width="400" height="110"><br><br>
+
+                  <ul style="margin-left: 20;">
+                    <li>Column numbers of missing values</li>
+                  </ul>
+                  <p>Below shows the missing values columns number. There are three rows with missing values. </p><br>
+                  <img src="./figure/z_msp_dc_4.png" width="80" height="200"><br><br>
+                
+                <li style="margin-left: 15;">Fill out missing values.</h3></li><br>
+                  <p>From above, both row 0 and column "StateName" has nan, "US" is used to fill out this missing value
+                  </p>
+                  After filling out, the dataset summary is shown beflow. <br>
+                  <img src="./figure/z_msp_dc_5.png" width="500" height="200"><br><br>
+                
+                  <ul style="margin-left: 20;">
+                    <li>Remove rebundand columns.</li>
+                  </ul>
+                  <p>In this step, dataset are trimmed based on the column names indicating the reporting time. Only data after 2019 are kept.
+                     Now the dataset has 35 colomns instead of 166 columns in the last version. The summary is shown below.<br>
+                    <img src="./figure/z_msp_dc_6.png" width="200" height="400"><br><br>
+                    <img src="./figure/z_msp_dc_7.png" width="500" height="200"><br><br>
+                  </p>
+  
+                <li style="margin-left: 15;">Check for missing values again.</h3></li><br>
+                <p>After trimming the data, there is no more missing values.<br>
+                  <img src="./figure/z_msp_dc_8.png" width="400" height="100"><br><br>
+                </p>
+                
+                <li style="margin-left: 15;">Remove other rebundand columns</h3></li><br>
+                <p>In this step, columns that will not be used are removed, such as SizeRank and RegionType 
+                  Now the datasets have 33 columns.<br>
+                  <img src="./figure/z_msp_dc_9.png" width="200" height="400"><br><br>
+                  <img src="./figure/z_msp_dc_10.png" width="500" height="200"><br><br>                </p>
+
+                <li style="margin-left: 15;">Add an "average" column.</h3></li><br>
+                  <p>To compare among area, an monthly average column is added calculated by average all reported records
+                     with different time. <br>
+              
+                    After adding, the dataset summary is shown below. <br>
+                    <img src="./figure/z_msp_dc_11.png" width="200" height="400"><br><br>
+                  </p>
+  
+  
+                  <li style="margin-left: 15;">Check if there is any outliers</h3></li><br>
+                    <p>In this step, line plot is used for check trends of each city. It is also 
+                      used to identify outliers, if any. <br>
+                    <img src="./figure/MSP_all_allcity.png" width="1000" height="800"><br><br>
+                    The plot shows that there is no line with very dramatic change with time. This could 
+                    indicate there is no potential outliers. There are some area with higher numbers that should 
+                    be examed more. <br><br>
+                  </p>
+              </ol>
+  
+            </ol>
+          </div>
+
+          <span class="anchor" id="decision tree zillow"></span>
+          <div style="margin: 5%; color: #112e51; " id="dt zillow data summary">
+            <h2> Data Processing for Decision Tree analysis</h2><br>
+            <h3><li>Data cleaning summary</li></h3><br>
+            <table >
+              <tr>
+                <th>Name</th>
+                <th>Data cleaning procedures</th>
+                <th>Original Data Preview</th>
+                <th>Clean Data Frame Preview</th>
+                <th>Resources</th>
+              </tr>
+              <tr > 
+                <td>Zillow research data for Decision Tree analysis</td>
+                <td>
+                  <ol style="margin-left: 18;">
+                    <li>Remove records containing NA.</li> <br>
+                    <li>Trim data to 2018 to 2020.</li> <br>
+                    <li> Calculate average sales price and total inventory for each year.
+                    </li> <br> 
+                    <li>Combine For-sale SFR Inventory, For-sale All Homes Inventory, Median SFR Sales Price,
+                      and Median All Homes Sales Price data into one dataset.</li> <br> 
+                    <li>Add variables as Region, type (inventory or sales price), and home type (SFR or all homes).</li> <br> 
+                    <li>Based on the states, add Region as a variable (Northeast, Midwest, West, Southeast, and Southwest).</li> <br> 
+                  </ol> 
+                </td>
+  
+                <td>
+                  <img class="myImg" src="./figure/sale_price_sfr.png" alt="SFR sale price" width="300" height="100">
+                  <img class="myImg" src="./figure/sale_price_all.png" alt="All sale price" width="300" height="100">
+                  <img class="myImg" src="./figure/for_sale_inventory_all.png" alt="All inventory" width="300" height="100">
+                  <img class="myImg" src="./figure/for_sale_inventory_sfr.png" alt="SFR inventory" width="300" height="100">
+                </td>
+            
+                <div id="myModal5" class="modal">
+                  <span class="close">&times;</span>
+                  <img class="modal-content" id="img05">
+                  <div id="caption5" class="modal-caption"></div>
+                </div>
+              
+  
+                <td>
+                  <img class="myImg" src="./figure/zillow_region_dt_df_hd.png" alt="Combined dataset for Decision Tree" width="300" height="100">
+                  <img class="myImg" src="./figure/zilow_region_dt_df.png" alt="Combined dataset for Decision Tree" width="250" height="100">
+                </td>
+              
+                <td>
+                  Orignial data: 
+                  <li><a href="./data/Metro_median_sale_price_uc_sfr_month.csv" target="_blank"> Median SFR Sales Price Download</a></li>
+                  <li><a href="./data/Metro_median_sale_price_uc_sfrcondo_month.csv" target="_blank">Median All Homes Sales Price Download</a></li>
+                  <li><a href="./data/Metro_invt_fs_uc_sfr_month.csv" target="_blank">For-sale SFR Inventory Download</a></li>
+                  <li><a href="./data/Metro_invt_fs_uc_sfrcondo_month.csv" target="_blank">For-sale All Homes Download</a></li><br>
+                  Processed data: 
+                  <li><a href="./data/zillow_DT_df.csv" target="_blank">Combined Data Download</a></li><br>
+                  Code: 
+                  <li><a href="./code/zillow_cleaning_DT.R" target="_blank">R code</a></li>
+                </td>                    
+              </tr>
+            </table><br>
+          </div>
+  
+
+            <span class="anchor" id="NB and SVM"></span>
+            <div style="margin: 5%; color: #112e51; " id="dt zillow data summary">
+              <h2> Data Processing for Naive Bayes and Support Vector Machine</h2><br>
+              <h3><li>Data cleaning summary</li></h3><br>
+              <table >
+                <tr>
+                  <th>Name</th>
+                  <th>Data cleaning procedures</th>
+                  <th>Original Data Preview</th>
+                  <th>Clean Data Frame Preview</th>
+                  <th>Resources</th>
+                </tr>
+                <tr > 
+                  <td>Zillow research data for Decision Tree analysis</td>
+                  <td>
+                    <ol style="margin-left: 18;">
+                      <li>Remove records containing NA.</li> <br>
+                      <li>Trim data to 2018 to 2020.</li> <br>
+                      <li> Calculate average ZORI, list price, sales price, inventory for each place.
+                      </li> <br> 
+                      <li> Add a column indicating the political party of the state based on 2016 election.
+                      </li> <br>
+                      <li>Combine For-sale ZORI, Median All Homes Listing Price, All Homes Inventory, Median All Homes Sales Price data into one dataset.</li> <br> 
+                      <li>Based on the states, add U.S. Region as a variable (Northeast, Midwest, West, Southeast, and Southwest).</li> <br> 
+                    </ol> 
+                  </td>
+    
+                  <td>
+                    <img class="myImg" src="./figure/ZORI.png" alt="ZORI" width="300" height="100">
+                    <img class="myImg" src="./figure/sale_price_all.png" alt="All sale price" width="300" height="100">
+                    <img class="myImg" src="./figure/for_sale_inventory_all.png" alt="All inventory" width="300" height="100">
+                    <img class="myImg" src="./figure/list_price_all.png" alt="All list price" width="300" height="100">
+                  </td>
+              
+                  <div id="myModal5" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img05">
+                    <div id="caption5" class="modal-caption"></div>
+                  </div>
+                
+    
+                  <td><img class="myImg" src="./figure/nb_svm_df.png" alt="Combined dataset for NB and SVM" width="300" height="100">
+                  </td>
+                
+                  <td>
+                    Orignial data: 
+                    <li><a href="./data/Metro_ZORI_AllHomesPlusMultifamily_Smoothed.csv" target="_blank"> Metro Area Zillow Observed Rent Index (ZORI) Download</a></li>
+                    <li><a href="./data/Metro_median_sale_price_uc_sfrcondo_month.csv" target="_blank">Median All Homes Sales Price Download</a></li>
+                    <li><a href="./data/Metro_mlp_uc_sfrcondo_month.csv" target="_blank">For-sale SFR Inventory Download</a></li>
+                    <li><a href="./data/Metro_invt_fs_uc_sfrcondo_month.csv" target="_blank">Median List Price All Homes Download</a></li><br>
+                    Processed data: 
+                    <li><a href="./data/zillow_NB_df.csv" target="_blank">Combined Data for NB Download</a></li><br>
+                    <li><a href="./data/zillow_SVM_df.csv" target="_blank">Combined Data for SVM Download</a></li><br>
+                    Code: 
+                    <li><a href="./code/NB_SVM_record_cleaning.R" target="_blank">R code</a></li>
+                  </td>                    
+                </tr>
+              </table><br>
+            </div>
+    
+  
+    </div>
+<!--
+    <div id="Maps" class="tabcontent">
+        <div style="margin: 5%;color:rgb(124, 70, 3)">
+            <h1>Maps </h1><br>
+            <ol type="a" style="margin-left: 60px">
+                <li> Type: Maps (shapefile) </li><br>
+                <li> Collecting method: Directly download <br>
+                    Source: United States Census Bureau at <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html" target="_blank" >https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html</a></li><br>
+                <li>Dataset</li><br>
+                <table>
+                    <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Dataset preview</th>
+                    <th>Get data</th>
+                    </tr>
+                    <tr>
+                    <td>United States county map</td>
+                    <td>shape file including information of U.S. counties such as county name, area, county code.</a></td>
+                    <td><img id="myImg13" class="myImg" src="/figure/county_map.png" alt="county map" width="300" height="200"></td>
+                    
+                    <div id="myModal13" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img13">
+                        <div id="caption13" class="caption"></div>
+                    </div>
+
+                    <td><a href="/data/cb_2018_us_county_20m.zip">Download</a></td>
+                    </tr>
+                </table>
+            </ol>
+        </div>
+-->
+  
+    </div>
+  </div>
+
+    <div id="Tweets" class="tabcontent">
+      <div class="sidenav">
+        <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home"></i></button> </a>
+        <p><b>Menu</b> </p> 
+        <a href="#arm_tweet">ARM and Networking</a>
+      </div>
+
+      <div class="content-container">
+        <div style="margin: 5%; color: #112e51;" id="tweets beginning">
+          <h1>Tweets Data </h1><br>             
+              <p> Twitter dataset is obtained using Twitter API with #homebuying. </p><br>
+          </div>       
+
+
+        <div id="arm_tweet" style="margin: 5%; color: #112e51; " id="clustering data summary">
+          <h2> Data Processing for ARM analysis</h2><br>
+          <h3><li>Data cleaning summary</li></h3><br>
+          <table >
+            <tr>
+              <th>Name</th>
+              <th>Data cleaning procedures</th>
+              <th>Original Data Preview</th>
+              <th>Clean Data Frame Preview</th>
+              <th>Resources</th>
+            </tr>
+            <tr > 
+              <td>Tweets data</td>
+              <td>
+                <ol style="margin-left: 18;">
+                  <li>Extract tweet text.</li> <br>
+                  <li>Tokenize tweets and convert to transaction data.</li> <br>
+                  <li>Remove numbers.</li> <br> 
+                  <li>Remove URLs.</li> <br> 
+                  <li>Remove words starting with "@".</li> <br> 
+                  <li>Remove non-ASCII characters including Emoji.</li> <br> 
+                  <li>Remove words less than 4 letters or more than 11 letters. </li> <br>
+                </ol> 
+              </td>
+
+              <td>
+                <img id="myImg2" class="myImg" src="./figure/tweets_example.png" alt="Twitter data example" width="300" height="100"><br>
+              </td>
+          
+              <div id="myModal5" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img05">
+                <div id="caption5" class="modal-caption"></div>
+              </div>
+            
+
+              <td>
+                <img class="myImg" src="./figure/tweets_transaction.png" alt="Tweet transaction data" width="200" height="100">
+              </td>
+          
+              <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption" class="modal-caption"></div>
+              </div>
+
+              <td>
+                <li><a href="./data/homebuying_twitter.csv" target="_blank">Input Data Download</a></li>
+                <li><a href="./data/UpdatedTweetFile.csv" target="_blank">Cleaned Transaction Data Download</a></li>
+                <li><a href="./code/twitter_arm_cleaning.R" target="_blank">R code</a></li>
+              </td>                    
+            </tr>
+          </table><br>
+        </div>
+
+
+
+
+
+          
+
+      
+      </div>
+        
+ 
+    </div>
+
+    <div id="News" class="tabcontent">
+
+      <div class="sidenav">
+        <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home"></i></button> </a>
+        <p><b>Menu</b> </p> 
+        <a href="#news_basic">For all purpose</a>
+        <a href="#news_clustering">Clustering</a>
+        <a href="#full news decision tree">Decision Tree, Naive Bayes and Support vector machine</a>
+      </div>
+
+      <div class="content-container">
+        <div style="margin: 5%; color: #112e51;" id="News beginning">
+          <h1>Home buying news </h1><br>             
+              <p> <a href="./data_gathering.html#Text" target="_blank">Home buying news</a>, are converted from JSON to CSV, and using 
+                CountVectorizer() in Python to obtain the document term matrix (DTM).
+                Data cleaning procedures are described below. </p><br>
+              <p> <a href="./data_gathering.html#Text" target="_blank">Mortgage news</a>, are converted from JSON to Corpus, and using 
+                  CountVectorizer() in Python to obtain the document term matrix (DTM).
+                  Data cleaning procedures are described below. </p><br>
+              <p> <a href="./data_gathering.html#Text" target="_blank">Real Estate news</a>, are converted from JSON to Corpus, and using 
+                  CountVectorizer() in Python to obtain the document term matrix (DTM).
+                  Data cleaning procedures are described below. </p><br>
+  
+   
+        </div>
+        <span class="anchor" id="news_basic"></span>
+
+        <div style="margin: 5%; color: #112e51;" id="news data summary">
+          <h2> General Data Cleaning</h2><br>
+          <h3><li>Data cleaning summary</li></h3><br>
+            <table >
+                  <tr>
+                    <th>Name</th>
+                    <th>Data cleaning procedures</th>
+                    <th>Original Data Preview</th>
+                    <th>Clean Data Frame Preview</th>
+                    <th>Resources</th>
+                  </tr>
+                  <tr > 
+                    <td>Home buying news</td>
+                    <td>
+                      <ol style="margin-left: 18;">
+                        <li>Convert to CSV.</li> <br>
+                        <li>Convert to document term matrix.</li> <br> 
+                      </ol> 
+                    </td>
+                    <td><img id="myImg14" class="myImg" src="./figure/homebuying_news.png" alt="Home buying news" width="200" height="100">
+                    </td>
+                
+                    <div id="myModal14" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img14">
+                      <div id="caption14" class="modal-caption"></div>
+                    </div>
+
+                    <td>
+                      <img id="myImg15" class="myImg" src="./figure/news_dc_1.png" alt="Cleaned DTM" width="300" height="100"><br>
+                    </td>
+                
+                    <div id="myModal15" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img15">
+                      <div id="caption15" class="modal-caption"></div>
+                    </div>
+
+                    <td>
+                      <li><a href="./data/homebuying_news.json" target="_blank">Raw JSON Data Download</a></li>
+                      <li><a href="./data/news_homebuying.csv" target="_blank">Raw CSV Data Download</a></li>
+                      <li><a href="./data/News_CSV_count.csv" target="_blank">DTM Download</a></li>
+                      <li><a href="./code/news_homebuying_clean.py" target="_blank">Python code</a></li>
+                    </td>                    
+                  </tr>
+
+                  <tr > 
+                    <td>Mortgage news</td>
+                    <td>
+                      <ol style="margin-left: 18;">
+                        <li>Convert to Corpus</li> <br>
+                        <li>Convert to document term matrix.</li> <br> 
+                      </ol> 
+                    </td>
+                    <td><img id="myImg16" class="myImg" src="./figure/mortgage.png" alt="Mortgage news json" width="200" height="100">
+                        <img id="myImg17" class="myImg" src="./figure/news_dc_4.png" alt="Mortgage news corpus" width="200" height="100">
+                    </td>
+                
+                    <div id="myModal16" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img16">
+                      <div id="caption16" class="modal-caption"></div>
+                    </div>
+
+
+
+
+
+                    <td>
+                      <img id="myImg18" class="myImg" src="./figure/news_dc_5.png" alt="Cleaned DTM" width="300" height="100"><br>
+                    </td>
+                    <div id="myModal18" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img18">
+                      <div id="caption18" class="modal-caption"></div>
+                    </div>
+
+
+                    <td>
+                      <li><a href="./data/mortgage.json" target="_blank">Raw JSON Data Download</a></li>
+                      <li><a href="./data/mortgage_corpus.zip" target="_blank">Raw Corpus Data Download</a></li>
+                      <li><a href="./data/mortgage_CSV_Data.csv" target="_blank">DTM Download</a></li>
+                      <li><a href="./code/news_mortgage_clean.py" target="_blank">Python code</a></li>
+                    </td>                    
+                  </tr>
+
+              </table><br>
+      
+        </div>
+
+        <div style="margin: 5%; color: #112e51;" id="news data cleaning">
+          <h3><li>Detailed Cleaning procedures</li></h3> <br>
+
+          <ol>
+            <div id="Home buying procedure">
+            <h4><li style="margin-left: 15;">Home buying news</li></h4><br>
+            <ol type="A" >
+              <li style="margin-left: 15;">Convert to CSV</li><br>
+              <p>This step convert the JSON file to CSV file. Only the press name and article description 
+                are extracted from the JSON file. The CSV file contains
+                 two columns. One is "label" converted from press name, the other one is "content" which is the 
+                 article descriptiion. After conversion, the CSV file is shown below.</p>
+              <table>
+                <tr>
+                  <th>Before</th>
+                  <th>After</th>
+                </tr>
+                <tr>
+                  <td><img id="myImg19" class="myImg" src="./figure/homebuying_news.png" alt="Original JSON" width="200" height="100">
+                  </td>
+              
+
+                  <div id="myModal19" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img19">
+                    <div id="caption19" class="modal-caption"></div>
+                  </div>
+
+                  <td>
+                    <img id="myImg20" class="myImg" src="./figure/news_dc_2.png" alt="CSV file" width="300" height="100"><br>
+                  </td>
+
+                  <div id="myModal20" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img20">
+                    <div id="caption20" class="modal-caption"></div>
+                  </div>
+
+                </tr>
+              </table><br>
+
+              <li style="margin-left: 15;">Convert to data frame</li><br>
+              <p>This step convert the CSV file to dataframe. The data frame is shown below.</p><br>
+              <img src="./figure/news_dc_3.png" width="400" height="110"><br><br>
+
+
+              <li style="margin-left: 15;">Convert to document term matrix. </h3></li><br>
+              <p>The data frame is converted to document term matrix using CountVectorizer(). The 
+                DTM is shown below.  There are total 283 words in the file. </p>
+                <img src="./figure/news_dc_1.png" width="400" height="400"><br><br>
+            
+              </ol>
+            </div>
+
+            <div id="Mortgage procedure">
+              <h4><li style="margin-left: 15;">Mortgage news</li></h4><br>
+              <ol type="A" >
+                <li style="margin-left: 15;">Convert to Corpus</li><br>
+                <p>This step convert the JSON file to Corpus. Only the press names, article description, and article titles  
+                  are extracted from the JSON file. The file title will be the article titles. The Corpus contains
+                   19 TXT files. The corpus is shown below.</p><br>
+                   <img src="./figure/news_dc_4.png" width="400" height="300"><br><br>
+  
+                <li style="margin-left: 15;">Convert to document term matrix. </h3></li><br>
+                <ul>
+                  <li>Create labels</li>
+                  <p>The label is the press name, which is the first several words before ":". After
+                     extracting the label, the label is shown below. </p>
+                     <img src="./figure/news_dc_6.png" width="100" height="200"><br><br>
+                  
+                  <li>Convert content to document term matrix</li>
+                  <p>The corpus data is converted to document term matrix using CountVectorizer(). The 
+                  DTM is shown below. There are total 268 words in the file. </p><br>
+                  <p>The stopwords used in CountVectorizer() are revised. The words in the "labels"
+                    are added as stop words to eliminate the impact of repeatly presence of press name. After
+                     conversion, the DTM columns are shown below. 
+                  </p><br>
+                  <img src="./figure/news_dc_7.png" width="400" height="300"><br><br>
+
+                  <li>Convert DTM to data frame and add labels</li>
+                  <p>After adding labels to data frame, the data frame is shown below.
+                  </p><br>
+                  <img src="./figure/news_dc_5.png" width="400" height="300"><br><br>
+
+                </ul>
+              </ol>
+              </div>
+          </ol>
+        </div>
+
+        <span class="anchor" id="news_clustering"></span>
+        <div style="margin: 5%; color: #112e51;" id="news cluster data summary">
+          <h2> Data Processing for Clustering analysis</h2><br>
+          <h3><li>Data cleaning summary</li></h3><br>
+            <table >
+                  <tr>
+                    <th>Name</th>
+                    <th>Data cleaning procedures</th>
+                    <th>Original Data Preview</th>
+                    <th>Clean Data Frame Preview</th>
+                    <th>Resources</th>
+                  </tr>
+                  <tr > 
+                    <td>News combined data</td>
+                    <td>
+                      <ol style="margin-left: 18;">
+                        <li>Combine news descriptions obtained by three key words: home buying, 
+                          mortgage, and real estate.
+                        </li> <br>
+                        <li>Add customized stop words.</li> <br> 
+                        <li>Define a processor to remove numbers in content.</li> <br> 
+                        <li>Convert to document term matrix using CountVectorizer() and TfidfVectorizer().</li> <br> 
+                      </ol> 
+                    </td>
+                    <td><img id="myImg14" class="myImg" src="./figure/homebuying_news.png" alt="Home buying news" width="200" height="100">
+                      <img id="myImg14" class="myImg" src="./figure/mortgage.png" alt="Mortgage news" width="200" height="100">
+                      <img id="myImg14" class="myImg" src="./figure/real_estate.png" alt="Real estate news" width="200" height="100">
+                    </td>
+
+                    <td>
+                      <img id="myImg15" class="myImg" src="./figure/news_merge_dtm_cv.png" alt="Cleaned DTM using CV" width="300" height="100"><br>
+                      <img id="myImg15" class="myImg" src="./figure/news_merge_dtm_tf.png" alt="Cleaned DTM using Tfidf" width="300" height="100"><br>
+                    </td>
+
+                    <td>
+                      <li><a href="./data/homebuying_news.json" target="_blank">Raw Home buying news JSON Data Download</a></li>
+                      <li><a href="./data/mortgage.json" target="_blank">Raw Mortgage JSON Data Download</a></li>
+                      <li><a href="./data/real_estate.json" target="_blank">Raw Real Estate JSON Data Download</a></li>
+                      <li><a href="./data/news_cv_dtm.csv" target="_blank">CV DTM Download</a></li>
+                      <li><a href="./data/news_tf_dtm.csv" target="_blank">Tfidf DTM Download</a></li>
+                      <li><a href="./code/text_clustering.py" target="_blank">Python code</a></li>
+                    </td>                    
+                  </tr>
+
+              </table><br>
+      
+        </div>
+
+          </ol>
+        
+      
+        <span class="anchor" id="full news decision tree"></span>
+
+        <div style="margin: 5%; color: #112e51; " id="full news data summary">
+          <h2> Data Processing for Decision Tree, Naive Bayes and Support Vector Machine analysis</h2><br>
+          <h3><li>Data cleaning summary</li></h3><br>
+          <table >
+            <tr>
+              <th>Name</th>
+              <th>Data cleaning procedures</th>
+              <th>Original Data Preview</th>
+              <th>Clean Data Frame Preview</th>
+              <th>Resources</th>
+            </tr>
+            <tr > 
+              <td>Full news dataset</td>
+              <td>
+                <ol style="margin-left: 18;">
+                  <li>Remove numbers and special characters.</li> <br> 
+                  <li>Use keywords that obtaining the news as labels.</li> <br> 
+                </ol> 
+              </td>
+
+              <td>
+                <img class="myImg" src="./figure/full_news.png" alt="Full news content" width="300" height="100"><br>
+              </td>
+
+              <td><img class="myImg" src="./figure/clean_full_news.png" alt="Full news data" width="200" height="100">
+                <img class="myImg" src="./figure/clean_full_news_dim.png" alt="Data dimensions" width="200" height="100">
+              </td>
+          
+
+              <td>
+                <li><a href="./data/full_news.csv" target="_blank">Original Data Download</a></li>
+                <li><a href="./data/full_news_clean.csv" target="_blank">Cleaned Data Download</a></li>
+                <li><a href="./code/dt_cleaning_full_news.py" target="_blank">Python code</a></li>
+              </td>                    
+            </tr>
+          </table><br>
+        </div>
+      
+    </div>
+
+
+  </div>
+
+    
+  
+
+</div>
+</div>
+
+
+
+
+<script>
+    //open tab with click
+    function openPage(pageName,elmnt,color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+
+
+       ///// Image display modals
+    // All page modals
+    var modals = document.querySelectorAll('.modal');
+
+    // Get the image and insert it inside the modal - use its "alt" 
+    // text as a caption
+    var img = document.querySelectorAll("img.myImg")
+    var modalImg = document.querySelectorAll("img.modal-content")
+    var captionText = document.querySelectorAll(".modal-caption");
+
+    // Get the <span> element that closes the modal
+    var spans = document.getElementsByClassName("close");
+ 
+    // When the user clicks the image, open the modal
+    for (var i = 0; i < img.length; i++) {
+        img[i].onclick = function() {
+            for (var index in modals) {
+            modals[index].style.display = "block";
+            for (var index in modalImg) {
+                modalImg[index].src = this.src;}; 
+            for (var index in captionText) {
+                captionText[index].innerHTML = this.alt;}
+            }
+        }
+    }
+
+
+    // When the user clicks on <span> (x), close the modal
+    for (var i = 0; i < spans.length; i++) {
+    spans[i].onclick = function() {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+    }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+        }
+    }
+
+$(".tablink").on("click", function() {
+$('html, body').animate({scrollTop:0},500);
+}) 
+
+</script>
+</body>
+</html>
+
+
+
+

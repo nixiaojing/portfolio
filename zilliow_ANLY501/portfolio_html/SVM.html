@@ -1,0 +1,826 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+     <!-- font and style*/ -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+<style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  font-size: 100%;
+  /*background: url(./figure/pictures/christopher-gower-m_HRfLhgABo-unsplash.jpg)
+  no-repeat center center fixed; */
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+  scroll-padding-top: 200px;
+}
+
+/* home button */
+.btn {
+  background-color:rgba(2, 2, 3, 0);
+  border: none;
+  color: rgb(19, 18, 18);
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+/*one page tabs*/
+/* Style tab links */
+.tablink {
+    position: sticky;
+    background-color: rgba(10, 10, 10, 0.5);
+    background-blend-mode: overlay;
+    color: rgb(247, 242, 242);
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 20px;
+    width: 100%;
+
+}
+
+.tabs-menu {
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px 20px;
+  height: 100%;
+}
+
+#Census {
+    font-size: 100%;
+    background-color: rgba(243, 244, 247, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1200%;
+}
+#COVID {    
+    font-size: 100%;
+    background-color: rgba(222, 241, 215, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#Zillow {
+    font-size: 100%;
+    background-color: rgba(213, 229, 238, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 520%;
+}
+
+#Maps {    
+    font-size: 100%;
+    background-color: rgba(236, 204, 144, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
+#Text {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 200%;
+}
+
+#Tweets {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1000%;
+}
+
+#News {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 580%;
+}
+
+/* sidebar */
+
+.sidenav {
+  height: 100%;
+  width: 120px;
+  position: fixed;
+  z-index: 1;
+  top: 150;
+  left: 0;
+  background-color:rgba(182, 219, 241, 0);
+  overflow-x: hidden;
+  padding-top: 20px;
+
+}
+
+.sidenav p {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font: weight 100px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+}
+
+.sidenav a:hover {
+  color: #0e0d0d;
+  text-decoration: underline black;
+  font-weight:bold;
+}
+
+
+.anchor{
+  height: 305px; /*same height as header*/
+  margin-top: -305pt; /*same height as header*/
+  visibility: hidden;
+  padding-top: 500pt;
+  
+}
+
+
+.main-container {
+  width: 80%;
+  margin-top: 50px;
+}
+
+.content-container {
+  width: 80%;
+  margin-left: 150px;
+  margin-top: 150px;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.material-icons.md-80 { font-size: 80px; }
+
+/*table, from w3schools.com*/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #111010;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/*pop up image, from w3schools.com*/
+.myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+.modal-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, .modal-caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+.imagecaption {
+    text-align: left;
+}
+figcaption {
+    margin: 10px 0 0 0;
+    font-family: Arial;
+    font-weight: bold;
+    color: #bb3333;
+}
+figure {
+    padding: 5px;
+}
+
+p{
+  line-height: 1.5;
+  text-indent: 30px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+  <div id="buttons" class="tabs-menu">
+      <!--
+      <button class="tablink" onclick="openPage('Census', this, '#112e51')" id="defaultOpen">
+          <span class="material-icons md-80">poll</span>
+          <p>Demography data</p>
+      </button>
+  
+      <button class="tablink" onclick="openPage('COVID', this, 'green')" >
+          <span class="material-icons md-80">
+              coronavirus
+              </span>
+              <div>COVID data</div>
+      </button>
+  -->
+      <button class="tablink" onclick="openPage('Zillow', this, 'blue')" id="defaultOpen">
+          <span class="material-icons md-80">
+              maps_home_work
+              </span>
+              <div>Zillow research data</div>
+      </button>
+  <!--
+      <button class="tablink" onclick="openPage('Maps', this, 'orange')">
+          <span class="material-icons md-80">
+              map
+              </span>
+              <div>Maps</div>
+      </button>
+  
+  
+      <button class="tablink" onclick="openPage('Tweets', this, '#1DA1F2')" >
+          <span class="material-icons md-80">
+              description
+              </span>
+              <div>Tweets</div>
+      </button>
+  -->
+      <button class="tablink" onclick="openPage('News', this, '#1DA1F2')">
+        <span class="material-icons md-80">
+            description
+            </span>
+            <div>News</div>
+    </button>
+    
+  </div>
+
+    <div id="Zillow" class="tabcontent">
+      <div class="sidenav">
+        <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home"></i></button> </a>
+        <p><b>Menu</b> </p> 
+        <a href="#intro 1 zillow">Data overview</a>
+        <a href="#svm zillow">Support Vector Machine</a>
+        <a href="#summary svm zillow">Summary</a>
+        <a href="#conclusion svm zillow">Conclusion</a>
+        <a href="#data svm zillow">Data download and analysis code</a>
+
+      </div>
+
+      <div class="content-container">
+        <span class="anchor" id="intro 1 zillow"></span>
+        <div style="margin: 5%; color: #112e51;" id="zillow beginning">
+          <h2>Data Overview </h2><br>             
+              <p> The datasets obtained from <a href="https://www.zillow.com/research/data/" target="_blank">Zillow Research</a> in <a href="./data_gathering.html">Data Gathering Session</a> 
+                are combined as one dataset with label of U.S. Region (West, Northeast, Midwest, Southeast, Southwest). 
+                The data cleaning and processing procedures for Naive Bayes analysis can be found in 
+                <a href="./data_cleaning.html" target="_blank">Data Cleaning</a> session using <a href="./code/NB_SVM_record_cleaning.R" target="_blank">R code</a>. 
+                The processed dataset is shown in Figure 1. 
+                There are 70 records (different metropolitan regions)in the dataset with  
+                four numerical variables of ZORI, Sales price, List price, and Inventory. 
+              </p><br>
+              <div id="fig1" class="imagecaption">
+                <div style="display:inline-block" >
+                    <figure>
+                        <img src="./figure/svm_df.png" width=450px />
+                    </figure>
+                </div>
+              </div>
+              <p>Figure 1. Metropolitan region combined dataset overview. (<a href="./data/zillow_SVM_df.csv">Download</a>). 
+                </p><br>
+        </div>
+
+        <span class="anchor" id="svm zillow"></span>
+        
+          <div style="margin: 5%; color: #112e51; ">
+            
+          <h2> Support Vector Machine</h2><br>
+
+          <ol>
+            <div id="general setting nb zillow">
+            <h3 style="margin-left: 3%;"><li>General setting</li></h3><br>
+          <p> Support Vector Machine (SVM) is a supervised machine-learning modeling method based on regression analysis. It can only be used on qualitative 
+              variables. One SVM can construct a hyperplane to devide a dataset into two sectors. To classify a dataset into several sections, multiple SVM 
+              are usually applied. SVM is also a robust method that only some of the points determine the 
+              location of hyperplane, which also means it is not sensitive to the outliers. In addition to linear classification, 
+              combining with different kernel transformations, SVM can be applied to more complex
+               (<a href="https://en.wikipedia.org/wiki/Support-vector_machine" target="_blank">Wiki</a>). 
+               </p> <br>
+        <p>For Zillow research combined data, there are in total four numerical variables of ZORI, Sales price, List price, and Inventory. The label is the U.S. Region of each record including 
+            West, Northeast, Midwest, Southeast and Southwest. As a supervised learning method, Support Vector Machine classifier need "label" to train the model first. 
+            After model is trained, a testing set is needed to evaluate the model performance. The data is devided into training set (n=53) and testing set (n=17). 
+            All R code used in Support Vector Machine analysis can be downloaded 
+            <a href="./code/zillow_NB.R" target="_blank">here</a>.  
+        </p><br>        
+        <p>Three models with different kernel transformations (linear, polynomial, and Gaussian radial based function (RBF)) 
+            are conducted to compare the performance using same training and testing data. The best cost is adjusted to 5 using 
+            tune() function in R for all three kernels. 
+
+        </div>
+        <br><br>
+            <div id="svm zillow results">
+              <h3 style="margin-left: 3%;"><li> Model Comparison </li></h3><br>
+
+                   <ol type="a">
+                    <li style="margin-left: 2%;">Confusion Matrix</li><br>
+                   <p>Figure 2 shows the confusion matrix of the model predictions for all three models. The overall accuracy of 
+                       the three models are 47% (8 out of 17), 29%(5 out of 17), and  47% (8 out of 17) for SVM with linear kernel, 
+                       polynomial kernal, and RBF kernel. respectively. The one with polynomial kernal has worst performance compared to 
+                       the other two. Results of SVM with RBF kernal are similar to Linear kernel. Midwest and West have 
+                       best performance with 100% accuracy, while Northeast and Southwest has the worst with 0 accuracy. <br>
+                       The results indicate that Polynomial kernel is not an approporiate kernel transformation for this dataset. 
+
+                   </p><br>
+
+                   <div style="display:inline-block" id="fig2">
+                    <figure>
+                        <img src="./figure/cm_SVM_zillow_linear.png" width=600px />
+                        <figcaption style="color: #0e0d0d;">a</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./figure/cm_SVM_zillow_poly.png" width=600px />
+                        <figcaption style="color: #0e0d0d;">b</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./figure/cm_SVM_zillow_radical.png" width=600px />
+                        <figcaption style="color: #0e0d0d;">c</figcaption>
+                    </figure>
+                </div> 
+                <p>Figure 2. Confusion Matrix comparison. a, Linear kernel; b, Polynomial kernel; c, RBF kernel. </p><br>
+    <br>
+    
+
+
+
+                </ol>
+            </div>
+          </div>
+
+        <span class="anchor" id="summary svm zillow"></span>
+        <div style="margin: 5%; color: #112e51; ">
+          <h2>Summary</h2><br>
+            <p> Support Vector Machine works better on this dataset compared to Naive Bayes classifier, which is 
+                an indication of that SVM is a more robust method compared to Naive Bayes classifier. Besides, SVM 
+                can handle the correlation among features that violates the assumptions of Naive Bayes classifier. Moreover, 
+                different kernel transfromation performed various on this datset. Linear and RBF kernel are more compatible with 
+                this dataset compared to polynomial kernel. Polynomial kernel classifys all class into Southeast region, which 
+                does not make sense for this dataset. 
+            </p> <br>
+          </div>
+
+          <span class="anchor" id="conclusion svm zillow"></span>
+          <div style="margin: 5%; color: #112e51; " >
+            <h2> Conclusion </h2><br>
+            <p>
+                From the result,  Midwest and West region real estate markets, represted by all home inventory, 
+                median sales prices, median list prices, are different from other regions. Northeast market is close to 
+                 Southeast real estate market. Southeast and Southwest real estate markets are more 
+                close to Midwest other than Northeast and West market. Similar to NB resutls, when investors choose location to invest, 
+                instead of considering metropolitan region, whether to invest on a market like Northest and West, or a markt like
+                Southeast, Southwest, or Midwest can be another option to consider. Different region would have other 
+                feature determine the market, such as real estate regulation or other housing benifits. To investigate more, more 
+                data on different U.S. region are required. 
+            </p><br>
+
+
+          </div>
+
+          <span class="anchor" id="data svm zillow"></span>
+          <div style="margin: 5%; color: #112e51; " id="data_svm_zillow">
+          <h2> Data download and analysis code </h2><br>
+          <table >
+            <tr>
+              <th>Name</th>
+              <th>Data Preview</th>
+              <th>Data Download</th>
+              <th>Code</th>
+            </tr>
+            <tr > 
+              <td>Metropolitan region combined dataset</td>
+              <td>
+                <img class="myImg" src="./figure/svm_df.png" alt="Metropolitan region combined dataset" width="300" height="100">
+            </td>          
+              <div id="myModal5" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img05">
+                <div id="caption5" class="modal-caption"></div>
+              </div>
+          
+              <td>                      
+                <a href="./data/zillow_SVM_df.csv" target="_blank">Download</a>              </td>
+            
+              <td>
+                <a href="./code/zillow_NB.R" target="_blank">R code</a>              </td>                    
+            </tr>
+          </table><br>
+        </div>
+
+      
+    </div>
+  </div>
+
+
+  <div id="News" class="tabcontent">
+    <div class="sidenav">
+      <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home"></i></button> </a>
+      <p><b>Menu</b> </p> 
+      <a href="#intro news">Data overview</a>
+      <a href="#svm news">Support Vector Machine</a>
+      <a href="#conclusion news">Conclusion</a>
+      <a href="#data svm news">Data download and analysis code</a>
+
+    </div>
+
+    <div class="content-container">
+      <span class="anchor" id="intro news"></span>
+      <div style="margin: 5%; color: #112e51;" id="news beginning">
+        <h2>Data Overview </h2><br>             
+        <p> Based on the news inventory obtained from News API (<a href="./data_gathering.html">Data Gathering Session</a>), 
+            full news content are obtained through online news source including Reuters, CNN, BBC and so on. The data cleaning and processing procedures for Support Vector Machine can be found in 
+            <a href="./data_cleaning.html" target="_blank">Data Cleaning</a> session using <a href="./code/dt_cleaning_full_news.py" target="_blank">Python code</a>. Figure 1
+             shows the data before and after cleaning. 
+            In this session, to perform Support Vector Machine, Full news content are converted to 
+            document term matrix (DTM) using TfidfVectorizer showning in Figure 2. 
+            There are 51 news in the dataset. 
+          </p><br>
+          <p> To perform Support Vector Machine model, the labels are set as the keywords used to obtain the news (More details can be 
+            found at <a href="./data_gathering.html" target="_blank">Data Gathering Session</a>. There are three 
+            keywords including "home buying", "mortgage", and "real estate". 
+        </p><br>
+        <p>The word clouds for three labels can be found in <a href="./decision_trees.html" target="_blank">Decision Tree Session</a> . 
+            The words in the news with different labels are distinguished in the word cloud plots. Words like "treasury" and "rate" are dominated in mortage news. 
+            On the contrary, news with keyword of "real estate" seems focus more on oversee market such as China. "housing", 
+            "price", and "sales" are the dominated words in the home buying news. 
+        </p><br>
+              <div id="fig1" class="imagecaption">
+              <div style="display:inline-block" >
+                  <figure>
+                      <img src="./figure/full_news.png" width=1000px />
+                      <figcaption>a</figcaption>
+                  </figure>
+              </div>
+              <div style="display:inline-block">
+                  <figure>
+                      <img src="./figure/clean_full_news.png" width=450px  />
+                      <figcaption>b</figcaption>
+                  </figure>
+              </div>
+            </div>
+            <p>Figure 1. News content dataset. 
+              a, <a href="./data/full_news.csv" target="_blank">original dataset</a>; b, <a href="./data/full_news_clean.csv" target="_blank">cleaned dataset</a></p><br>
+            
+              <div id="fig2" class="imagecaption">
+                <div style="display:inline-block" >
+                    <figure>
+                        <img src="./figure/tf_fullnews.png" width=600px />
+                    </figure>
+                </div>
+              <p>Figure 2. DTM with label of Full News content dataset. 
+                </p><br>
+    </div>
+</div>
+
+      <span class="anchor" id="svm news"></span>
+      
+        <div style="margin: 5%; color: #112e51; ">
+          
+        <h2> Support Vector Machine</h2><br>
+
+        <ol>
+          <div id="general setting news">
+          <h3 style="margin-left: 3%;"><li>General setting</li></h3><br>
+          <p> Support Vector Machine (SVM) is a supervised machine-learning modeling method based on regression analysis. It can only be used on qualitative 
+            variables. One SVM can construct a hyperplane to devide a dataset into two sectors. To classify a dataset into several sections, multiple SVM 
+            are usually applied. SVM is also a robust method that only some of the points determine the 
+            location of hyperplane, which also means it is not sensitive to the outliers. In addition to linear classification, 
+            combining with different kernel transformations, SVM can be applied to more complex
+             (<a href="https://en.wikipedia.org/wiki/Support-vector_machine" target="_blank">Wiki</a>). 
+             </p> <br>
+    <p>For news content dataset, there are in total 15779 words (variables) used in the model. The label is the 
+          keywords used to obtain the news. 70% of the data are randomly selected as training dataset, while another 30% 
+          is the testing dataset. 
+      Three different SVM with various kernel transformations are conducted to compare the performance using same training and testing data. 
+      The code performing SVM can be download <a href="./code/fullnews_NB_SVM.py" target="_blank">here</a>.
+
+      </p><br>
+      
+      </div>
+      <br><br>
+          <div id="model comparison">
+            <h3 style="margin-left: 3%;"><li> Model Comparison </li></h3><br>
+
+            <ol type="a">
+             <li style="margin-left: 2%;">Confusion Matrix</li><br>
+            <p>Figure 3 shows the confusion matrix of the model predictions for all three models. The overall accuracy of 
+                the three models are 69% (11 out of 16), 38%(6 out of 16), and  50% (8 out of 15) for SVM with linear kernel, 
+                polynomial kernal, and RBF kernel. respectively. SVM with linear kernel is the one perform the best. 
+                The one with polynomial kernal has worst performance compared to 
+                the other two. Both polynomial kernel and RBF kernel failed to predict data with "real estate" label. 
+                This is as same as the Naive Bayes result. 
+                The results indicate that Polynomial kernel is not an approporiate kernel transformation for this dataset. 
+
+            </p><br>
+
+            <div style="display:inline-block" id="fig2">
+             <figure>
+                 <img src="./figure/SVM_ConfMatrix_li_news.png" width=600px />
+                 <figcaption style="color: #0e0d0d;">a</figcaption>
+             </figure>
+             <figure>
+                 <img src="./figure/SVM_ConfMatrix_poly_news.png" width=600px />
+                 <figcaption style="color: #0e0d0d;">b</figcaption>
+             </figure>
+             <figure>
+                 <img src="./figure/SVM_ConfMatrix_rd_news.png" width=600px />
+                 <figcaption style="color: #0e0d0d;">c</figcaption>
+             </figure>
+         </div> 
+         <p>Figure 3. Confusion Matrix comparison. a, Linear kernel; b, Polynomial kernel; c, RBF kernel. </p><br>
+<br>
+
+
+
+
+         </ol>
+   </div>
+        </div>
+
+
+        <span class="anchor" id="conclusion news"></span>
+        <div style="margin: 5%; color: #112e51; " >
+          <h2> Conclusion </h2><br>
+          <p> Based on the results, the text data can be modeled by support vector machine. 
+              The overall performance of SVM is better than Naive Bayes classifier considering both record and 
+              text data. For the news data, the real estate news is kind of mixed together with the other two. In 
+              other words, Mortgage news and Home buying news are distincted from each other, while they both are related 
+              to real estate. Many real estate 
+              news likely mentions words in mortgage news. This is also an indication of that how important "mortgage" 
+              is to real estate market. In the other session, regions are found to be important for home buyers 
+            and investors to make purchase. Thus, for home buyer and other investors, considering overall mortgage rate and local 
+              mortage rate is critical for the decision to purchase a home.  
+          </p><br>
+
+
+        </div>
+
+        <span class="anchor" id="data svm news"></span>
+        <div style="margin: 5%; color: #112e51; " id="data_svm_zillow">
+        <h2> Data download and analysis code </h2><br>
+        <table >
+          <tr>
+            <th>Name</th>
+            <th>Data Preview</th>
+            <th>Data Download</th>
+            <th>Code</th>
+          </tr>
+          <tr > 
+            <td>Full news content dataset</td>
+            <td>
+              <img class="myImg" src="./figure/clean_full_news.png" alt="Full news content dataset" width="300" height="100">
+          </td>          
+            <div id="myModal5" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img05">
+              <div id="caption5" class="modal-caption"></div>
+            </div>
+        
+            <td>                      
+              <a href="./data/full_news_clean.csv" target="_blank">Download</a>              </td>
+          
+            <td>
+              <a href="./code/fullnews_NB_SVM.py" target="_blank">Python code</a>              </td>                    
+          </tr>
+        </table><br>
+      </div>
+
+      </div>
+  </div>
+</div>
+
+
+
+            
+          
+
+
+
+
+<script>
+    //open tab with click
+    function openPage(pageName,elmnt,color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+       ///// Image display modals
+    // All page modals
+    var modals = document.querySelectorAll('.modal');
+
+    // Get the image and insert it inside the modal - use its "alt" 
+    // text as a caption
+    var img = document.querySelectorAll("img.myImg")
+    var modalImg = document.querySelectorAll("img.modal-content")
+    var captionText = document.querySelectorAll(".modal-caption");
+
+    // Get the <span> element that closes the modal
+    var spans = document.getElementsByClassName("close");
+ 
+    // When the user clicks the image, open the modal
+    for (var i = 0; i < img.length; i++) {
+        img[i].onclick = function() {
+            for (var index in modals) {
+            modals[index].style.display = "block";
+            for (var index in modalImg) {
+                modalImg[index].src = this.src;}; 
+            for (var index in captionText) {
+                captionText[index].innerHTML = this.alt;}
+            }
+        }
+    }
+
+
+    // When the user clicks on <span> (x), close the modal
+    for (var i = 0; i < spans.length; i++) {
+    spans[i].onclick = function() {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+    }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+        }
+    }
+
+$(".tablink").on("click", function() {
+$('html, body').animate({scrollTop:0},500);
+}) 
+
+</script>
+</body>
+</html>
+
+
+
+

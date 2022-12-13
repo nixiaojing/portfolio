@@ -1,0 +1,722 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+     <!-- font and style*/ -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+<style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  font-size: 100%;
+  /*background: url(./figure/pictures/christopher-gower-m_HRfLhgABo-unsplash.jpg)
+  no-repeat center center fixed; */
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+  scroll-padding-top: 200px;
+}
+
+/* home button */
+.btn {
+  background-color:rgba(2, 2, 3, 0);
+  border: none;
+  color: rgb(19, 18, 18);
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+/*one page tabs*/
+/* Style tab links */
+.tablink {
+    position: sticky;
+    background-color: rgba(10, 10, 10, 0.5);
+    background-blend-mode: overlay;
+    color: rgb(247, 242, 242);
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 20px;
+    width: 100%;
+
+}
+
+.tabs-menu {
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px 20px;
+  height: 100%;
+}
+
+#Census {
+    font-size: 100%;
+    background-color: rgba(243, 244, 247, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1200%;
+}
+#COVID {    
+    font-size: 100%;
+    background-color: rgba(222, 241, 215, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#Zillow {
+    font-size: 100%;
+    background-color: rgba(213, 229, 238, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 700%;
+}
+
+#Maps {    
+    font-size: 100%;
+    background-color: rgba(236, 204, 144, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
+#Text {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 200%;
+}
+
+#Tweets {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 900%;
+}
+
+#News {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 800%;
+}
+
+/* sidebar */
+
+.sidenav {
+  height: 100%;
+  width: 120px;
+  position: fixed;
+  z-index: 1;
+  top: 150;
+  left: 0;
+  background-color:rgba(182, 219, 241, 0);
+  overflow-x: hidden;
+  padding-top: 20px;
+
+}
+
+.sidenav p {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font: weight 100px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+}
+
+.sidenav a:hover {
+  color: #0e0d0d;
+  text-decoration: underline black;
+  font-weight:bold;
+}
+
+
+.anchor{
+  height: 305px; /*same height as header*/
+  margin-top: -305pt; /*same height as header*/
+  visibility: hidden;
+  padding-top: 500pt;
+  
+}
+
+
+.main-container {
+  width: 80%;
+  margin-top: 50px;
+}
+
+.content-container {
+  width: 80%;
+  margin-left: 150px;
+  margin-top: 150px;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.material-icons.md-80 { font-size: 80px; }
+
+/*table, from w3schools.com*/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #111010;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/*pop up image, from w3schools.com*/
+.myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+.modal-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, .modal-caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+.imagecaption {
+    text-align: left;
+}
+figcaption {
+    margin: 10px 0 0 0;
+    font-family: Arial;
+    font-weight: bold;
+    color: #bb3333;
+}
+figure {
+    padding: 5px;
+}
+
+p{
+  line-height: 1.5;
+  text-indent: 30px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+  <div id="buttons" class="tabs-menu">
+      <!--
+      <button class="tablink" onclick="openPage('Census', this, '#112e51')" id="defaultOpen">
+          <span class="material-icons md-80">poll</span>
+          <p>Demography data</p>
+      </button>
+  
+      <button class="tablink" onclick="openPage('COVID', this, 'green')" >
+          <span class="material-icons md-80">
+              coronavirus
+              </span>
+              <div>COVID data</div>
+      </button>
+  
+      <button class="tablink" onclick="openPage('Zillow', this, 'blue')">
+          <span class="material-icons md-80">
+              maps_home_work
+              </span>
+              <div>Zillow research data</div>
+      </button>
+  
+      <button class="tablink" onclick="openPage('Maps', this, 'orange')">
+          <span class="material-icons md-80">
+              map
+              </span>
+              <div>Maps</div>
+      </button>
+  -->
+  
+      <button class="tablink" onclick="openPage('Tweets', this, '#1DA1F2')" id="defaultOpen">
+          <span class="material-icons md-80">
+              description
+              </span>
+              <div>Tweets</div>
+      </button>
+  <!--
+      <button class="tablink" onclick="openPage('News', this, '#1DA1F2')">
+        <span class="material-icons md-80">
+            description
+            </span>
+            <div>News</div>
+    </button>
+    -->
+  </div>
+
+    <div id="Tweets" class="tabcontent">
+      <div class="sidenav">
+        <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home"></i></button> </a>
+        <p><b>Menu</b> </p> 
+        <a href="#intro tweets">Data overview</a>
+        <a href="#ARM">Association Rule Mining (ARM)</a>
+        <a href="#network">Network</a>
+        <a href="#conclusion">Conclusion</a>
+        <a href="#data">Data download and analysis code</a>
+      </div>
+
+      <div class="content-container">
+        <span class="anchor" id="intro tweets"></span>
+        <div style="margin: 5%; color: #112e51;" id="tweet beginning">
+          <h1>Data Overview </h1><br>             
+              <p> Tweets are obtained from Twitter API. In this session, to perform Association Rule Mining (ARM) and Networking, Tweets are converted to 
+                  transaction data format showning in Figure 1b. The data cleaning and processing procedures for ARM can be found in 
+                <a href="./data_cleaning.html" target="_blank">Data Cleaning</a> session using <a href="/code/twitter_arm_cleaning.R" target="_blank">R code</a>. 
+                There are 1785 tweets (transactions) and 3647 words (items) in the dataset. 
+              </p><br>
+              <div id="fig1" class="imagecaption">
+                <div style="display:inline-block" >
+                    <figure>
+                        <img src="./figure/tweets_example.png" width=500px />
+                        <figcaption>a</figcaption>
+                    </figure>
+                </div>
+                <div style="display:inline-block">
+                    <figure>
+                        <img src="./figure/tweets_transaction.png" width=500px  />
+                        <figcaption>b</figcaption>
+                    </figure>
+                </div>
+              </div>
+              <p>Figure 1. Tweets transaction data cleaning. a, <a href="./data/homebuying_twitter.csv" target="_blank">original data</a>; b, <a href="./data/UpdatedTweetFile.csv" target="_blank">transaction format</a> used in ARM.</p><br>
+        </div>
+
+        <span class="anchor" id="ARM"></span>
+        
+          <div style="margin: 5%; color: #112e51; ">
+            
+          <h2> Association Rule Mining (ARM)</h2><br>
+
+          <ol>
+            <div id="general setting">
+            <h3 style="margin-left: 3%;"><li>General setting</li></h3><br>
+          <p> Association Rule Mining (ARM) or Association Rule Learning is a machine learning data mining method. The objective of the method 
+            is to discover patterns among items in a large dataset, so that only those group of items with strong relationships to each other have potential 
+            to be further analyzed. 
+               (<a href="https://en.wikipedia.org/wiki/Association_rule_learning" target="_blank">Wiki</a>). All R code used in ARM analysis can be downloaded 
+        <a href="./code/twitter_arm.R" target="_blank">here</a>. </p> <br>
+        <p>In ARM analysis, rules are defined as paired or grouped of items with order. For example, in a shopping transaction data, customers bought 
+            coffee, milk, and soybean. A rule can be coffee -> milk, which means that custormers buy them together. There are three common measures 
+            of the relationship among items in a group (rule). Those are "Support", "Confidence", and "Lift". There defination can be found at <a href="https://en.wikipedia.org/wiki/Association_rule_learning" target="_blank">Wiki</a>.
+        </p><br>
+        <p>For tweets data, the rules are defined as relationship among words occuring in a tweet. Using support of 0.07 and confidence 0.8 results in 
+            10 rules left. However, in order to explore more pattern between items, thresholds are set to keep total rules over 30. Thus, threshold of 0.04 support and 0.8 
+            confidence are used to make the total rules left to be 34. Table 1 shows the range of three measures for these 34 rules. 
+        </p><br>
+        <div style="display:inline-block" id="table1">
+            <figure>
+                <figcaption style="color: #0e0d0d;">Table 1. Range of measures of 34 rules using threshold of 0.04 support and 0.8 confidence. </figcaption>
+                <img src="./figure/tweets_rule_range_table_0.04_0.8.png" width=300px />
+                
+            </figure>
+        </div> 
+        
+        </div>
+        <br><br>
+            <div id="15 rules">
+              <h3 style="margin-left: 3%;"><li> Top 15 Rules </li></h3><br>
+              <p>After sorting the filtered rules with thresholds mentioned above based on three measures, top 15 of the rules of each measure are obtained. 
+                   </p> <br>
+                   <ol type="a">
+                    <li style="margin-left: 2%;">Confidence</li><br>
+                   <p>Table 2 shows the top 15 rules with highest confidence. Higher confidence is an indication of the true rules. Many of the elements in the rules are hashtags. This means when people 
+                       post a tweet, multiple hashtags are used in order to increasing recognition among other tweets. Those hashtags usually have minor differences or 
+                       related meanings. For example, #homebuying, #homebuyer, and #homebuyers. #REtips, instanding for real estate tips, frequently occurrs with #homebuying. 
+                       This hashtag is usually used by realtor or medias to increasing the popularity of their tweets. 
+                   </p><br>
+                   <p>Using ARM, homebuying, real estate, and mortgage often occurr together. This is a possible reason that the clustering analysis 
+                       didn't work well in <a href="./clustering.html" target="_blank">Clustering Analysis</a>. 
+                   </p><br>
+
+              <div style="display:inline-block" id="table2">
+                <figure>
+                    <figcaption style="color: #0e0d0d;">Table 2. Top 15 rules with highest confidence. </figcaption>
+                    <img src="./figure/top15_table_conf.png" width=600px />
+                    
+                </figure>
+            </div> <br><br>
+
+            <li style="margin-left: 2%;">Support</li><br>
+            <p>Table 3 shows the top 15 rules with highest support. As same as in the confidence results, many of the items in the rules are 
+              hashtags. Higher support means higher frequency the items occuring together in the tweet data. Some combinations have changed their order 
+              compared to the results of confidence. For example, {#mortgage} => {#homebuying} has high frequency being together. Some combinations are 
+              new compared to the results of confidence. For example, #realtor does not occur in the rules with highest confidence. This word indicates 
+              the tweet has high probability to be a commercial advertisement. 
+            </p><br>
+            <div style="display:inline-block" id="table3">
+              <figure>
+                  <figcaption style="color: #0e0d0d;">Table 3. Top 15 rules with highest support. </figcaption>
+                  <img src="./figure/top15_table_sup.png" width=600px />
+                  
+              </figure>
+          </div> <br><br>
+
+            <li style="margin-left: 2%;">Lift</li><br>
+            <p>Table 4 shows the top 15 rules with highest lift. As same as in the confidence and support results, many of the items in the rules are 
+              hashtags. Higher lift means higher dependence the items to each other in the tweet data. For example, "real" and "estate" are dependent 
+              to each other in this context. They usually ocurr together. Their lift values are the same and the highest among all rules.  
+            </p><br>
+            <div style="display:inline-block" id="table4">
+              <figure>
+                  <figcaption style="color: #0e0d0d;">Table 4. Top 15 rules with highest lift. </figcaption>
+                  <img src="./figure/top15_table_lift.png" width=600px />
+                  
+              </figure>
+            </div> <br><br>
+
+
+                </ol>
+            </div>
+          </div>
+
+        <span class="anchor" id="network"></span>
+        <div style="margin: 5%; color: #112e51; ">
+          <h2> Network</h2><br>
+            <p> Network is one of the ways to visualize the results of ARM. In this session, three networks are shown to visualize 
+              the results of ARM based on different measures. All R code used in Network analysis can be downloaded 
+              <a href="./code/twitter_arm.R" target="_blank">here</a>. </p> <br>
+            <ol>
+              <div id="aruleViz">
+                <h3 style="margin-left: 3%;"><li> Overall network of support and confidence </li></h3><br>
+                <p>aruleViz is used to conduct an interactive plot using the top 30 rules with highest support (size of the nodes). The figure also includes the information 
+                  of confidence (the shade of the nodes). All the words (nodes) are connected with #homebuying. This is not suprised due to 
+                  that the keyword of "#homebuying" was used to obtain the dataset. Relationship among other words are minor, except "realtor" => 
+                  "realestate" and "real" <=> "estate". These words are basically same meaning. In other words, each word (nodes) surrounding #homebuying 
+                  can represent a single topic. Homebuying tweets can include topics like mortgage, realtor, or house. 
+                </p> <br>
+  
+                  <iframe src="./aruleViz.html" title="Network of top support and confidence" width=80% height="500" align="center" >
+                  </iframe><br>
+                  <p> Figure 2. Network of overall rules</p><br>
+              </div>
+  
+              <div id="networkD3">
+                <h3 style="margin-left: 3%;"><li> Network of top 30 rules with highest support</li></h3><br>
+                <p>NetworkD3 package in R is used to conduct this network. Node is each word with size indicating the betweeness. Edge length is the support values.  
+                  Longer distance between words indicates larger support value of the rule. From the figure, it shows only the support results. 
+                  All the words (nodes) are connected with #homebuying. Figure 2 gives more inforamtion compared to Figure 3.</p> <br>
+
+                <iframe src="./twitter_HB_networkd3.html" title="Network of top 30 support rules" width=60% height="500" align="center" >
+                </iframe><br>
+                <p> Figure 3. Network of top 30 support rules</p><br>
+
+            </div>
+
+            <div id="igraph">
+              <h3 style="margin-left: 3%;"><li> Network of top 30 rules with highest lift</li></h3><br>
+              <p>The result of top 30 rules with highest lift is different from the others. First, not all words (nodes) 
+                are connected with #homebuying. There are small session with three nodes surrounding "home". Moreover, "realestate" 
+                has it's own family with some rules. The lift measures the independency of the rules. The seperation could be an 
+                indication of different sub-topic and emphasis of different tweets. For example, some tweets focus on advertizing 
+                home as a dream, while some tweets focus on adding related hashtags in order to get more recognition. 
+              </p> <br>
+
+              <div style="display:inline-block" id="fig4">
+                <figure>
+                    <img src="./figure/hb_lift.png" width=600px />
+                    <figcaption style="color: #0e0d0d;">Table 4. Top 15 rules with highest lift. </figcaption>
+                    
+                </figure>
+            </div> <br><br>
+  
+          </div>
+
+            
+
+            </ol>  
+          </div>
+
+          <span class="anchor" id="conclusion"></span>
+          <div style="margin: 5%; color: #112e51; " >
+            <h2> Conclusion </h2><br>
+            <p> Based on the results, on one hand, most twitter account using adding related hashtags to get more recognition. For example, 
+              tweets with #homebuying are highly likely with #realestate or #homebuyer. In this way, when people try to find 
+              information on Twitter, not only the content of interests would come out, other related information would also be shown. 
+              However, not all contents come out in searching results are realted to people's need. Thus, when users using keywords to 
+              search the information, more detailed screening of the contents are also needed. For example, users may be interested in 
+              home buying tips. In this case, only sub-topic with #REtips may be useful. </p><br>
+              <p>
+              On the other hand, added hashtag can indicate the topic of 
+              the tweet. Lenders advertize using tweets may add hashtag of "mortgage", while realtors advertize through tweets could add #REtips or 
+              #realtor. Based on who is advertizing, the hashtags are different, althrough all the tweets are focusing on the same topic of 
+              "homebuying". This is useful for advertizers when customers use more than one hashtag to locate information they needed. 
+            </p> <br>
+            <p>Based on the advertising topics, for recent home buying and real estate market, mortgage is still one of the main topics for both advertizers including 
+              lenders and home buyers. This indicates the importance of mortgage that affects the market.
+            </p><br>
+
+
+          </div>
+
+          <span class="anchor" id="data"></span>
+    <div style="margin: 5%; color: #112e51; " id="data_census">
+    <h2> Data download and analysis code </h2><br>
+    <table >
+      <tr>
+        <th>Name</th>
+        <th>Data Preview</th>
+        <th>Data Download</th>
+        <th>Code</th>
+      </tr>
+      <tr > 
+        <td>Tweets data</td>
+        <td>
+          <img id="myImg2" class="myImg" src="./figure/tweets_example.png" alt="Twitter data example" width="300" height="100"><br>
+          <img class="myImg" src="./figure/tweets_transaction.png" alt="Tweet transaction data" width="200" height="100">
+        </td>
+<div id="myModal5" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img05">
+          <div id="caption5" class="modal-caption"></div>
+        </div>
+    
+        <td>                      
+          <li><a href="./data/homebuying_twitter.csv" target="_blank">Input Data Download</a></li>
+          <li><a href="./data/UpdatedTweetFile.csv" target="_blank">Cleaned Transaction Data Download</a></li>
+  </td>
+      
+        <td>
+          <a href="./code/twitter_arm.R" target="_blank">R code</a>
+                 </td>                    
+      </tr>
+    </table><br>
+  </div>
+
+    </div>
+  </div>
+            
+          
+
+
+
+
+<script>
+    //open tab with click
+    function openPage(pageName,elmnt,color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+       ///// Image display modals
+    // All page modals
+    var modals = document.querySelectorAll('.modal');
+
+    // Get the image and insert it inside the modal - use its "alt" 
+    // text as a caption
+    var img = document.querySelectorAll("img.myImg")
+    var modalImg = document.querySelectorAll("img.modal-content")
+    var captionText = document.querySelectorAll(".modal-caption");
+
+    // Get the <span> element that closes the modal
+    var spans = document.getElementsByClassName("close");
+ 
+    // When the user clicks the image, open the modal
+    for (var i = 0; i < img.length; i++) {
+        img[i].onclick = function() {
+            for (var index in modals) {
+            modals[index].style.display = "block";
+            for (var index in modalImg) {
+                modalImg[index].src = this.src;}; 
+            for (var index in captionText) {
+                captionText[index].innerHTML = this.alt;}
+            }
+        }
+    }
+
+
+    // When the user clicks on <span> (x), close the modal
+    for (var i = 0; i < spans.length; i++) {
+    spans[i].onclick = function() {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+    }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+        }
+    }
+
+$(".tablink").on("click", function() {
+$('html, body').animate({scrollTop:0},500);
+}) 
+
+</script>
+</body>
+</html>
+
+
+
+

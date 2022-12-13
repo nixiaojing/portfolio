@@ -1,0 +1,849 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+     <!-- font and style*/ -->
+     <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  font-size: 100%;
+  /*background: url(./figure/pictures/christopher-gower-m_HRfLhgABo-unsplash.jpg)
+  no-repeat center center fixed; */
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+  scroll-padding-top: 200px;
+}
+
+/* home button */
+.btn {
+  background-color:rgba(2, 2, 3, 0);
+  border: none;
+  color: rgb(19, 18, 18);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+/*one page tabs*/
+/* Style tab links */
+.tablink {
+    position: sticky;
+    background-color: rgba(10, 10, 10, 0.5);
+    background-blend-mode: overlay;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 20px;
+    width: 50%;
+
+}
+
+.tabs-menu {
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px 20px;
+  height: 100%;
+}
+
+#Census {
+    font-size: 100%;
+    background-color: rgba(243, 244, 247, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+#COVID {    
+    font-size: 100%;
+    background-color: rgba(222, 241, 215, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#Zillow {
+    font-size: 100%;
+    background-color: rgba(213, 229, 238, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 200%;
+}
+
+#Maps {    
+    font-size: 100%;
+    background-color: rgba(236, 204, 144, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
+#Text {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 200%;
+}
+
+#Tweets {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
+#News {    
+    font-size: 100%;
+    background-color: rgba(210, 238, 201, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 170%;
+}
+
+/* sidebar */
+
+.sidenav {
+  height: 100%;
+  width: 120px;
+  position: fixed;
+  z-index: 1;
+  top: 150;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+
+}
+
+.sidenav p {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sidenav a:hover {
+  color: #0e0d0d;
+  text-decoration: underline black;
+  font-weight:bold;
+}
+
+
+.anchor{
+  height: 305px; /*same height as header*/
+  margin-top: -305pt; /*same height as header*/
+  visibility: hidden;
+  padding-top: 500pt;
+  
+}
+
+
+.main-container {
+  margin-top: 0px;
+  font-family:'Montserrat', sans-serif;
+
+}
+
+.content-container {
+  margin-left: 150px;
+  margin-top: 150px;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.material-icons.md-80 { font-size: 80px; }
+
+/*table, from w3schools.com*/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #111010;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/*pop up image, from w3schools.com*/
+.myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+.modal-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, .modal-caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+
+<div class="main-container">
+
+    <div id="buttons" class="tabs-menu">
+
+        <button class="tablink" onclick="openPage('Census', this, '#112e51')" id="defaultOpen">
+            <span class="material-icons md-80">poll</span>
+            <p>Demography data</p>
+        </button>
+<!--
+        <button class="tablink" onclick="openPage('COVID', this, 'green')" >
+            <span class="material-icons md-80">
+                coronavirus
+                </span>
+                <div>COVID data</div>
+        </button>
+        -->
+
+        <button class="tablink" onclick="openPage('Zillow', this, 'blue')">
+            <span class="material-icons md-80">
+                maps_home_work
+                </span>
+                <div>Zillow research data</div>
+        </button>
+
+        <button class="tablink" onclick="openPage('Maps', this, 'orange')">
+            <span class="material-icons md-80">
+                map
+                </span>
+                <div>Maps</div>
+        </button>
+
+        <button class="tablink" onclick="openPage('Tweets', this, '#1DA1F2')">
+            <span class="material-icons md-80">
+                description
+                </span>
+                <div>Tweets</div>
+        </button>
+
+        <button class="tablink" onclick="openPage('News', this, '#1DA1F2')">
+            <span class="material-icons md-80">
+                description
+                </span>
+                <div>News</div>
+        </button>
+
+    </div>
+
+    <div id="Census" class="tabcontent">
+        <div style="margin: 5%;margin-top: 150px; color: #112e51;" id="census beginning">
+        <a href="./cover_501.html"><button class="btn" ><i class="fa fa-home" ></i></button> </a>
+
+        <h1 >Demography Dataset </h1><br>             
+            <p> Demography Datasets are retrieved using U.S. Census API.</p><br>
+            <ol type="a" style="margin-left: 60px">
+                <li>Type: json data, category and numeric</li><br>
+                <li>Source: United States Census Bureau <br> 
+                    For available API: <a href="https://www.census.gov/data/developers/data-sets.html" target="_blank" >https://www.census.gov/data/developers/data-sets.html</a><br>
+                    Dataset: Economic Indicators (Time Series: various years - present):
+                    <a href="https://www.census.gov/data/developers/data-sets/economic-indicators.html" target="_blank" >https://www.census.gov/data/developers/data-sets/economic-indicators.html</a><br>
+                    Register: <a href="https://api.census.gov/data/key_signup.html" target="_blank" >https://api.census.gov/data/key_signup.html</a></li><br>
+                <li>Collecting method: API (<a href=".\code\census_API.R" target="_blank" >R Code</a>)</li><br>
+                <li>Dataset</li><br>
+                <table >
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>Data Preview</th>
+                      <th>Get data</th>
+                    </tr>
+                    <tr > 
+                      <td>Housing Vacancies and Homeownership</td>
+                      <td>Reported by Quarters, json file</td>
+                      <td><img id="myImg" class="myImg" src="./figure/HV_json.png" alt="Housing Vacancies and Homeownership" width="200" height="100">
+                      </td>
+                  
+                      <div id="myModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                        <div id="caption" class="modal-caption"></div>
+                      </div>
+    
+                      <td><a href="./data/HV_1990_2021.json">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>New Homes Sales</td>
+                        <td>Reported by month, json file</td>
+                        <td><img id="myImg2" class="myImg" src="./figure/NHS_json.png" alt="New Homes Sales" width="200" height="100">                        </td>
+                    
+                        <div id="myModal2" class="modal">
+                          <span class="close">&times;</span>
+                          <img class="modal-content" id="img02">
+                          <div id="caption2" class="modal-caption"></div>
+                        </div>
+                        <td><a href="./data/NHS_1990_2021.json" target="_blank">Download</a></td>
+                      </tr>
+                </table>
+            </ol>
+        </div>
+        
+    </div>
+
+
+<!--
+    <div id="COVID" class="tabcontent">
+        <div style="margin: 5%; color: rgb(2, 56, 2);">
+            <h1>COVID Dataset </h1><br>             
+                <p>COVID number in U.S. including summary and time series data.</p><br>
+                <ol type="a" style="margin-left: 60px">
+                    <li>Type: json data, csv record data</li><br>
+                    <li>Source: Covid ActNow at 
+                    <a href="https://apidocs.covidactnow.org/" target="_blank">https://apidocs.covidactnow.org/</a></li><br>
+                    <li>Collecting method: API (<a href="\code\covid_API.py" target="_blank">Python Code</a>)</li><br>
+                    <li>Dataset</li><br>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Data Preview</th>
+                            <th>Get data</th>
+                        </tr>
+
+                        <tr>
+                            <td>Covid numbers CSV</td>
+                            <td>Summary of Covid numbers of all counties in the U.S. <br> 
+                                The column defination is available at <a href="https://apidocs.covidactnow.org/data-definitions" target="_blank">https://apidocs.covidactnow.org/data-definitions</a> </td>
+                            <td>
+                                <img id="myImg3" class="myImg" src="/figure/covid_csv_1.png" alt="covid csv" width="400" height="100">
+
+                                <img id="myImg4" class="myImg" src="/figure/covid_csv_2.png" alt="covid csv" width="400" height="100">
+                            </td>
+
+                                <div id="myModal3" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img03">
+                                    <div id="caption3" class="modal-caption"></div>
+                                </div>
+                                <div id="myModal4" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img04">
+                                    <div id="caption4" class="modal-caption"></div>
+                                </div>
+
+                            
+            
+                            <td><a href="/data/covid_county_summary.csv">Download</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Covid numbers JSON</td>
+                            <td>New York state time-series data, json file. <br>
+                                The column defination is available at <a href="https://apidocs.covidactnow.org/data-definitions" target="_blank">https://apidocs.covidactnow.org/data-definitions</a></td>
+                            <td><img id="myImg5" class="myImg" src="/figure/covid_NY_json.png" alt="covid json" width="400" height="100">                        </td>
+                            
+                            <div id="myModal5" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img05">
+                                <div id="caption5" class="modal-caption"></div>
+                            </div>
+                            <td><a href="/data/county_time_series_NY.json" target="_blank">Download</a></td>
+                        </tr>
+                            
+                    </table>
+                </ol>
+        </div>
+            
+    </div>
+-->
+    <div id="Zillow" class="tabcontent">
+        <div style="margin: 5%;margin-top: 150px;color: rgb(4, 4, 71);">
+            <a href="./cover_501.html"><button class="btn" ><i class="fa fa-home" ></i></button> </a>
+
+            <h1>Zillow Research Dataset </h1><br>
+                <ol type="a" style="margin-left: 60px">
+                    <li> Type: record labeled data, numeric </li><br>
+                    <li> Collecting method: Directly download <br>
+                        Source: Zillow Research at <a href="https://www.zillow.com/research/data/" target="_blank" >https://www.zillow.com/research/data/</a></li><br>
+                    <li>Dataset</li><br>
+                    <table>
+                        <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Dataset preview</th>
+                        <th>Get data</th>
+                        </tr>
+                        <tr>
+                        <td>Metro Area Zillow Observed Rent Index (ZORI)</td>
+                        <td>A smoothed measure of the typical observed market rate rent across a given region. </td>
+                        <td><img id="myImg6" class="myImg" src="./figure/ZORI.png" alt="ZORI" width="400" height="100"></td>
+                        
+                        <div id="myModal6" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img06">
+                            <div id="caption6" class="modal-caption"></div>
+                        </div>
+
+                        <td><a href="./data/Metro_ZORI_AllHomesPlusMultifamily_Smoothed.csv">Download</a></td>
+                        </tr>
+                        
+                        <tr>
+                        <td>For-sale Inventory (raw, SFR, monthly)</td>
+                        <td>The count of single family homes (SFR) that were active at any time in a given month.</td>
+                        <td><img id="myImg7" class="myImg" src="./figure/for_sale_inventory_sfr.png" alt="SFR inventory" width="400" height="100"></td>
+                        
+                        <div id="myModal7" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img07">
+                            <div id="caption7" class="modal-caption"></div>
+                        </div>
+
+                        <td><a href="./data/Metro_invt_fs_uc_sfr_month.csv">Download</a></td>
+                        </tr>
+                        
+                        <tr>
+                        <td>For-sale Inventory (raw, all homes, monthly)</td>
+                        <td>The count of all homes that were active at any time in a given month.</td>
+                        <td><img id="myImg8" class="myImg" src="./figure/for_sale_inventory_all.png" alt="All inventory" width="400" height="100"></td>
+                        
+                        <div id="myModal8" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img08">
+                            <div id="caption8" class="modal-caption"></div>
+                        </div>
+
+                        <td><a href="./data/Metro_invt_fs_uc_sfrcondo_month.csv">Download</a></td>
+                        </tr>
+                        
+                        <tr>
+                        <td>Median List Price (raw, SFR, monthly)</td>
+                        <td>The median price at SFR across various geographies were listed.</td>
+                        <td><img id="myImg9" class="myImg" src="./figure/list_price_sfr.png" alt="SFR list price" width="400" height="100"></td>
+                        
+                        <div id="myModal9" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img09">
+                            <div id="caption9" class="modal-caption"></div>
+                        </div>
+
+                        <td><a href="./data/Metro_mlp_uc_sfr_month.csv">Download</a></td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Median List Price (raw, all homes, monthly)</td>
+                            <td>The median price at all homes across various geographies were listed.</td>
+                            <td><img id="myImg10" class="myImg" src="./figure/list_price_all.png" alt="All list price" width="400" height="100"></td>
+                        
+                            <div id="myModal10" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img10">
+                                <div id="caption10" class="modal-caption"></div>
+                            </div>
+        
+                            <td><a href="./data/Metro_mlp_uc_sfrcondo_month.csv">Download</a></td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Median Sales Price (raw, SFR, monthly)</td>
+                            <td>The median price at SFR across various geographies were sold.</td>
+                            <td><img id="myImg11" class="myImg" src="./figure/sale_price_sfr.png" alt="SFR sale price" width="400" height="100"></td>
+                        
+                            <div id="myModal11" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img11">
+                                <div id="caption11" class="modal-caption"></div>
+                            </div>
+
+                            <td><a href="./data/Metro_median_sale_price_uc_sfr_month.csv">Download</a></td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Median Sales Price (raw, all homes, monthly)</td>
+                            <td>The median price at all homes across various geographies were sold.</td>
+                            <td><img id="myImg12" class="myImg" src="./figure/sale_price_all.png" alt="All sale price" width="400" height="100"></td>
+                        
+                            <div id="myModal12" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img12">
+                                <div id="caption12" class="modal-caption"></div>
+                            </div>
+                            <td><a href="./data/Metro_median_sale_price_uc_sfrcondo_month.csv">Download</a></td>
+                        </tr>
+                    </table>
+                </ol>
+            </div>
+
+    </div>
+
+    <div id="Maps" class="tabcontent">
+        <div style="margin: 5%;margin-top: 150px;color:rgb(124, 70, 3)">
+            <a href="./cover_501.html"><button class="btn" ><i class="fa fa-home" ></i></button> </a>
+
+            <h1>Maps </h1><br>
+            <ol type="a" style="margin-left: 60px">
+                <li> Type: Maps (shapefile) </li><br>
+                <li> Collecting method: Directly download <br>
+                    Source: United States Census Bureau at <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html" target="_blank" >https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html</a></li><br>
+                <li>Dataset</li><br>
+                <table>
+                    <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Dataset preview</th>
+                    <th>Get data</th>
+                    </tr>
+                    <tr>
+                    <td>United States Region and State map</td>
+                    <td>shape file including information of U.S. states and corresponding Regions.</a></td>
+                    <td><img id="myImg13" class="myImg" src="./figure/u.s.map_region.png" alt="county map" width="300" height="200"></td>
+                    
+                    <div id="myModal13" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img13">
+                        <div id="caption13" class="modal-caption"></div>
+                    </div>
+
+                    <td><a href="./data/cb_2018_us_region_20m.zip">Download</a></td>
+                    </tr>
+                </table>
+            </ol>
+        </div>
+
+  
+    </div>
+
+    <div id="Tweets" class="tabcontent">
+        <div style="margin: 5%;margin-top: 150px;color:rgb(26, 27, 29)">
+            <a href="./cover_501.html"><button class="btn" ><i class="fa fa-home" ></i></button> </a>
+
+            <h1>Tweets </h1><br>
+                    <ol type="a", style="margin-left: 60px">
+                        <li> Type: text data (TXT) </li><br>
+                        <li>Source: Twitter API <br> 
+                            For API document: <a href="https://developer.twitter.com/en/docs/twitter-api" target="_blank" >https://developer.twitter.com/en/docs/twitter-api</a></li><br>
+                        <li> Collecting method: API (<a href="./code/twitter_api.R" target="_blank">R Code 1</a> and 
+                            <a href="./code/twitter_arm_cleaning.R" target="_blank">R Code 2</a>)</li><br>
+                        <li>Dataset</li><br>
+                        <table>
+                            <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Dataset preview</th>
+                            <th>Get data</th>
+                            </tr>
+                            <tr>
+                            <td>Homebuying tweets</td>
+                            <td>Tweets data from January 1st, 2020 to September 25th, 2021 with hashtag #homebuying</a></td>
+                            <td><img id="myImg14" class="myImg" src="./figure/homebuying_tweets.png" alt="Homebuying tweets" width="300" height="200"></td>
+                            
+                            <div id="myModal14" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img14">
+                                <div id="caption14" class="modal-caption"></div>
+                            </div>
+
+                            <td><a href="./data/homebuying_twitter.txt">Download</a></td>
+                            </tr>
+
+            
+                        </table><br>
+                    </ol>
+
+        </div>
+ 
+    </div>
+
+    <div id="News" class="tabcontent">
+        <div style="margin: 5%;margin-top: 150px;color:rgb(26, 27, 29)">
+            <a href="./cover_501.html"><button class="btn" ><i class="fa fa-home" ></i></button> </a>
+
+            <h1>News </h1><br>
+            <ol type="A">
+                    <li><h2>News abstract</h2></li><br>
+                    <ol type="a", style="margin-left: 60px">
+                        <li> Type: text data (JSON) </li><br>
+                        <li>Source: News API <a href="https://newsapi.org/" target="_blank" >https://newsapi.org/</a></li><br>
+                        <li> Collecting method: API (<a href=".\code\news_API.py" target="_blank">Python Code</a>)</li><br>
+                        <li>Dataset</li><br>
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Dataset preview</th>
+                                <th>Get data</th>
+                            </tr>
+
+                            <tr>
+                                <td>Homebuying articles</td>
+                                <td>News articles from August 5th, 2021 to September 25th, 2021 with keywords of "home buying" OR "buying a home" OR "housing market".</a></td>
+                                <td><img id="myImg15" class="myImg" src="./figure/homebuying_news.png" alt="Homebuying News" width="300" height="200"></td>
+                                
+                                <div id="myModal15" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img15">
+                                    <div id="caption15" class="modal-caption"></div>
+                                </div>
+
+                                <td><a href="./data/homebuying_news.json">Download</a></td>
+                            </tr>
+
+                            <tr>
+                                <td>Mortgage articles</td>
+                                <td>News articles from August 5th, 2021 to September 25th, 2021 with keywords of "mortgage rate".</a></td>
+                                <td><img id="myImg16" class="myImg" src="./figure/mortgage.png" alt="Mortgage rate news" width="300" height="200"></td>
+                                
+                                <div id="myModal16" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img16">
+                                    <div id="caption16" class="modal-caption"></div>
+                                </div>
+    
+                                <td><a href="./data/mortgage.json">Download</a></td>
+                            </tr>
+
+                            <tr>
+                                <td>Real estate articles</td>
+                                <td>News articles from August 5th, 2021 to September 25th, 2021 with keywords of "real estate market".</a></td>
+                                <td><img id="myImg17" class="myImg" src="./figure/real_estate.png" alt="Real estate news" width="300" height="200"></td>
+                                    
+                                <div id="myModal17" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img17">
+                                    <div id="caption17" class="modal-caption"></div>
+                                </div>
+        
+                                <td><a href="./data/real_estate.json">Download</a></td>
+                            </tr>
+        
+                        </table><br>
+
+                        
+                    </ol>
+                    <li><h2>Full news</h2></li><br>
+                    <p>Based on the news title obtained from NewsAPI as above, the full content news are downloaded online from 
+                        individual news sources. Original data can be downloaded <a href="./data/full_news.csv" target="_blank">here</a>. 
+                    </p>
+                
+
+            </ol>
+        </div>
+ 
+    </div>
+
+
+
+    
+  
+
+</div>
+
+<script>
+    //open tab with click
+    function openPage(pageName,elmnt,color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+       ///// Image display modals
+    // All page modals
+    var modals = document.querySelectorAll('.modal');
+
+    // Get the image and insert it inside the modal - use its "alt" 
+    // text as a caption
+    var img = document.querySelectorAll("img.myImg")
+    var modalImg = document.querySelectorAll("img.modal-content")
+    var captionText = document.querySelectorAll(".modal-caption");
+
+    // Get the <span> element that closes the modal
+    var spans = document.getElementsByClassName("close");
+ 
+    // When the user clicks the image, open the modal
+    for (var i = 0; i < img.length; i++) {
+        img[i].onclick = function() {
+            for (var index in modals) {
+            modals[index].style.display = "block";
+            for (var index in modalImg) {
+                modalImg[index].src = this.src;}; 
+            for (var index in captionText) {
+                captionText[index].innerHTML = this.alt;}
+            }
+        }
+    }
+
+
+    // When the user clicks on <span> (x), close the modal
+    for (var i = 0; i < spans.length; i++) {
+    spans[i].onclick = function() {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+    }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+        }
+    }
+
+$(".tablink").on("click", function() {
+$('html, body').animate({scrollTop:0},500);
+}) 
+  
+</script>
+</body>
+</html>
+
+
+
+

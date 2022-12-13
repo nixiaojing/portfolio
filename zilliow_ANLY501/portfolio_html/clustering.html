@@ -1,0 +1,1219 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+     <!-- font and style*/ -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+<style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  font-size: 100%;
+  /*background: url(./figure/pictures/christopher-gower-m_HRfLhgABo-unsplash.jpg)
+  no-repeat center center fixed; */
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+  scroll-padding-top: 200px;
+}
+
+/* home button */
+.btn {
+  background-color:rgba(2, 2, 3, 0);
+  border: none;
+  color: rgb(19, 18, 18);
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+/*one page tabs*/
+/* Style tab links */
+.tablink {
+    position: sticky;
+    background-color: rgba(10, 10, 10, 0.5);
+    background-blend-mode: overlay;
+    color: rgb(247, 242, 242);
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 20px;
+    width: 50%;
+
+}
+
+.tabs-menu {
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px 20px;
+  height: 100%;
+}
+
+#Census {
+    font-size: 100%;
+    background-color: rgba(243, 244, 247, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1350%;
+}
+#COVID {    
+    font-size: 100%;
+    background-color: rgba(222, 241, 215, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#Zillow {
+    font-size: 100%;
+    background-color: rgba(213, 229, 238, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 700%;
+}
+
+#Maps {    
+    font-size: 100%;
+    background-color: rgba(236, 204, 144, 0.8);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
+#Text {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 200%;
+}
+
+#Tweets {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 200%;
+}
+
+#News {    
+    font-size: 100%;
+    background-color: rgba(182, 219, 241, 0.5);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 800%;
+}
+
+/* sidebar */
+
+.sidenav {
+  height: 100%;
+  width: 120px;
+  position: fixed;
+  z-index: 1;
+  top: 150;
+  left: 0;
+  background-color:rgba(182, 219, 241, 0);
+  overflow-x: hidden;
+  padding-top: 20px;
+
+}
+
+.sidenav p {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font: weight 100px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color:rgb(85, 82, 82);
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+}
+
+.sidenav a:hover {
+  color: #0e0d0d;
+  text-decoration: underline black;
+  font-weight:bold;
+}
+
+
+.anchor{
+  height: 305px; /*same height as header*/
+  margin-top: -305pt; /*same height as header*/
+  visibility: hidden;
+  padding-top: 500pt;
+  
+}
+
+
+.main-container {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.content-container {
+  margin-left: 150px;
+  margin-top: 150px;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.material-icons.md-80 { font-size: 80px; }
+
+/*table, from w3schools.com*/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #111010;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/*pop up image, from w3schools.com*/
+.myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+.modal-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, .modal-caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+.imagecaption {
+    text-align: left;
+}
+figcaption {
+    margin: 10px 0 0 0;
+    font-family: Arial;
+    font-weight: bold;
+    color: #bb3333;
+}
+figure {
+    padding: 5px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+  <div id="buttons" class="tabs-menu">
+      <button class="tablink" onclick="openPage('Census', this, '#112e51')" id="defaultOpen">
+          <span class="material-icons md-80">poll</span>
+          <p>Demography data</p>
+      </button>
+  <!--
+      <button class="tablink" onclick="openPage('COVID', this, 'green')" >
+          <span class="material-icons md-80">
+              coronavirus
+              </span>
+              <div>COVID data</div>
+      </button>
+  
+      <button class="tablink" onclick="openPage('Zillow', this, 'blue')">
+          <span class="material-icons md-80">
+              maps_home_work
+              </span>
+              <div>Zillow research data</div>
+      </button>
+  
+      <button class="tablink" onclick="openPage('Maps', this, 'orange')">
+          <span class="material-icons md-80">
+              map
+              </span>
+              <div>Maps</div>
+      </button>
+  -->
+  <!--
+      <button class="tablink" onclick="openPage('Tweets', this, '#1DA1F2')">
+          <span class="material-icons md-80">
+              description
+              </span>
+              <div>Tweets</div>
+      </button>
+  -->
+      <button class="tablink" onclick="openPage('News', this, '#1DA1F2')">
+        <span class="material-icons md-80">
+            description
+            </span>
+            <div>News</div>
+    </button>
+  </div>
+
+    <div id="Census" class="tabcontent">
+      <div class="sidenav">
+        <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home"></i></button> </a>
+        <p><b>Menu</b> </p> 
+        <a href="#intro census">Data overview</a>
+        <a href="#k-means census">k-means clustering</a>
+        <a href="#hc census">Hierarchical clustering</a>
+        <a href="#optimal k census">Optimal k</a>
+        <a href="#prediction">Prediction</a>
+        <a href="#summary census">Summary</a>
+        <a href="#data census">Data download and analysis code</a>
+      </div>
+
+      <div class="content-container">
+        <span class="anchor" id="intro census"></span>
+        <div style="margin: 5%; color: #112e51;" id="census beginning">
+          <h1>Data Overview </h1><br>             
+              <p> Demography datasets, labeled by regions, include two datasets of Housing Vacancies and Homeownership 
+                (HV) and New Homes Sales (NHS). Five variables from HV dataset and three variables from NHS dataset 
+                are combined into one numeric data set with labels of regions in 
+                <a href="./data_cleaning.html" target="_blank">Data Cleaning</a> session. 
+              </p><br>
+              <p>In <a href="./data_exploring.html" target="_blank">Exploring data analysis</a>, the regional differences 
+              among variables are demonstrated. In order to explore whether variables including Homeownership Rate (HOR), 
+              Occupied Housing Units (OCC), Owner Occupied Housing Units (OWNOCC), 
+              Renter Occupied Housing Units (RNTOCC), Vacant Housing Units Held Off the Market (OFFMAR) from HV dataset, and New Single-family Houses Sold (SOLD), 
+              Annual Rate for Monthly New Single-family Houses Sold (ASOLD),  Monthly New Single-family Houses For Sale (FORSALE) from NHS 
+              dataset have overall clearly regional differences, k-means clustering and hierarchical clustering 
+              are performed to verify the differences among regions.</p><br>
+              <p></p><br>
+              <p><a href="./data/NHS_HV_cluster_df.csv" target="_blank">Merged HV-NHS data</a>, which is obtained in 
+                <a href="./data_cleaning.html" target="_blank">Data Cleaning Session</a> containing 104 records and 8 variables as mentioned above, is analyzed in R (<a href="./code/NHS_HV_clustering.R" target="_blank">R Code</a>) 
+                to perform the clustering analysis.  
+                The Figure 1 shows two 3D plots using two sets of three variables. One set is OCC, ASOLD, and HOR. 
+                The other is SOLD, OWNOCC, and OFFMAR. The figure shows how regions could affect
+                 the distribution of the scaled data. Some of the variables such as the first sets are more distincted by regions compared to others, such as the second set.
+              </p><br>
+              <div id="fig1" style="display:inline-table; width: 90%;">
+              <iframe src="./kmean_3d_cluster.html" title="Data 3D plot by Plotly" width=45% height="500" align="left" >
+              </iframe>
+              <iframe src="./kmean_3d_cluster2.html" title="Data 3D plot by Plotly" width=45% height="500" align="right" >
+              </iframe>
+              </div>
+
+              <div style="display:inline-table; width: 100%">
+                <div style="float:left">a</div> 
+                <p align = "center">b</p> 
+              </div>
+            
+              <p>Figure 1. 3-D plots in different regions. a, with OCC, ASOLD, and HOR; b, with OFFMAR OWNOCC and SOLD.</p>
+              <p style="font-size: 12px;">
+                <i> Note: <ul style="font-size: 12px; list-style-type: none;"> 
+                <li> OCC, Occupied Housing Units; ASOLD, Annual Rate for New Single-family Houses Sold; HOR, Homeownership Rate. </li>
+                <li> SO, South; MW, Midwest; NE, Northeast; WE, West. </li>
+              </ul></i> </p> <br>
+              <p> Figure 2 shows the Euclidean distance heatmap of the data. It shows the distances among records in the 
+                same regions are indeed close to each other. In other words, the data 
+                have the potential to labeled by regions, which is also shown in <a href="./data_exploring.html" target="_blank">Exploring data analysis</a>. 
+                Moreover,  the NE, MW, and WE regions are more close to each other compared to to SO. 
+
+              </p><br>
+              <img id="fig2" class="center" src="./figure/euc_explor_NHSHV.png" alt="heatmap_NHSHV" width="500" height="500">
+              <p>Figure 2. Euclidean distance heatmap. </p>
+              <p style="font-size: 12px;"><br>
+
+              <p> Figure 3 shows the heatmap (using Euclidean distance in hierarchical clustering) of the scaled data. From Figure 2, the Euclidean distance of some of the variables, such as 
+                HOR are clearly divided by different regions. However, variables such as OFFMAR and RNTOCC, are relatively consistant throughout regions. 
+              </p>
+              <img id="fig3" class="center" src="./figure/heatmap_explor_NHSHV.png" alt="heatmap_NHSHV" width="500" height="500">
+              <p>Figure 3. Heatmap using Euclidean distance in hierarchical clustering. </p>
+              <p style="font-size: 12px;"><br>
+               <p> In this session, data are clustered
+                 using different clustering methods, such as k-means clustering and hierarchical clustering,
+                 are demonstrated. Optimal k value is also discussed. Finally, a small dataset contains three(3) records are classified to 
+                 test the k-means classification. 
+              </p> <br>
+        </div>
+
+        <span class="anchor" id="k-means census"></span>
+          <div style="margin: 5%; color: #112e51; " id="kmeans">
+          <h2> K-means clustering</h2><br>
+          <p> K-means clustering is a wide used partitioning method to classify data based on pairwised within-cluster distance. The goal of k-means clustering 
+          is to minimizing within-cluster variances (<a href="https://en.wikipedia.org/wiki/K-means_clustering" target="_blank">Wiki</a>). All code can be found 
+        <a href="./code/NHS_HV_clustering.R" target="_blank">here</a>. </p> <br>
+          <ol>
+            <div id="euc-group">
+              <h3 style="margin-left: 3%;"><li> How group numbers affect K-means results? </li></h3><br>
+              <p>Three group numbers of k=2, k=3, and k=4 are tested in k-means clustering with Euclidean distance. 
+                Figure 4 shows the comparson of k-means clustering with different group numbers. The labels are the correct classification of each 
+              data point. First, data points from same regions are clustered together. When there is only two groups, SO records are isolated from other regions. 
+            When there are three groups, WE and NE data are grouped together. This is consistant with heatmap shown in <a href="#fig2">Figure 2</a>. 
+          Using group number of four perfectly devides data into four groups. </p> <br>
+
+                <div id="fig4" class="imagecaption">
+                  <div style="display:inline-block" >
+                      <figure>
+                          <img src="./figure/k2_e.png" width=330px />
+                          <figcaption>a</figcaption>
+                      </figure>
+                  </div>
+                  <div style="display:inline-block">
+                      <figure>
+                          <img src="./figure/k3_e.png" width=330px  />
+                          <figcaption>b</figcaption>
+                      </figure>
+                  </div>
+                  <div style="display:inline-block">
+                    <figure>
+                        <img src="./figure/k4_e.png" width=330px />
+                        <figcaption>c</figcaption>
+                    </figure>
+                  </div>
+                </div>
+                <p>Figure 4. Different group numbers in k-means clustering using Euclidean distance. a, k=2; b, k=3; c, k=4.</p><br>
+            </div>
+
+            <div id="euc-manh">
+              <h3 style="margin-left: 3%;"><li> How Manhattan distance affect K-means results? </li></h3><br>
+              <p>At the same manner, three group numbers of k=2, k=3, and k=4 are tested in k-means clustering with Manhattan distance. 
+                Figure 5 shows the comparson of k-means clustering with different group numbers. The labels are the correct classification of each 
+              data point. When there are two and three groups, the differences between results of k-means using Euclidean distance and Manhattan distance are negligible. 
+            However, when there are four groups, the result is different between the k-means using two distances. 
+            k-menas using Manhattan distance group NE and MW together, while WE is devided into two sections. Compared with Manhattan distance, 
+          Euclidean distance is more compatible with k-means clustering. </p> <br>
+
+                <div id="fig5" class="imagecaption">
+                  <div style="display:inline-block" >
+                      <figure>
+                          <img src="./figure/k2_m.png" width=330px />
+                          <figcaption>a</figcaption>
+                      </figure>
+                  </div>
+                  <div style="display:inline-block">
+                      <figure>
+                          <img src="./figure/k3_m.png" width=330px  />
+                          <figcaption>b</figcaption>
+                      </figure>
+                  </div>
+                  <div style="display:inline-block">
+                    <figure>
+                        <img src="./figure/k4_m.png" width=330px />
+                        <figcaption>c</figcaption>
+                    </figure>
+                  </div>
+                </div>
+                <p>Figure 5. Different group numbers in k-means clustering using Manhattan distance. a, k=2; b, k=3; c, k=4.</p><br>
+            </div>
+          
+          </ol>  
+          </div>
+
+        <span class="anchor" id="hc census"></span>
+          <div style="margin: 5%; color: #112e51; " id="hierarchical">
+            <h2> Hierarchical clustering</h2><br>
+            <p> Hierarchical clustering is another wide used method to classify data based on pairwised within-cluster distance. Different from 
+              k-means clustering, hierarchical clustering do not need the hyperparameter of the number of groups. However, based on the results of 
+              clustering, the number of clustering can be decided for further analysis. Moreover, due to it requires 
+              measurement of dissimilarity between sets of observations, different distances representing this dissimilarity could affect 
+              the results of the Hierarchical clustering. (<a href="https://en.wikipedia.org/wiki/Hierarchical_clustering" target="_blank">Wiki</a>). All code can be found 
+          <a href="./code/NHS_HV_clustering.R" target="_blank">here</a>. </p> <br>
+            <ol>
+              <div id="hc-euc">
+                <h3 style="margin-left: 3%;"><li> Group numbers based on Hierarchical clustering results </li></h3><br>
+                <p>Three group numbers of k=2, k=3, k=4, and k=5 are applied to the results of in hierarchical clustering with Euclidean distance. 
+                  Figure 6 shows the comparson of clustering with different group numbers. The labels are the correct classification of each 
+                data point. First, data points from same regions are clustered together. From the dendrogram, most of the records are more alike with 
+                the ones in same regions. Some of the records, such as records in SO, are considered dissimilar with other records in SO region. 
+                This dissimilarity is larger than the dissimilarity between NE and WE. <br>
+                 When there is only two groups, SO records are isolated from other regions. 
+              When there are three groups, WE and NE data are grouped together. So far, the clustering results are as same as using 
+              k-means clustering. On the other hand, using group number of four devides data into four groups: NE and WE, MW, and SO1 and SO2. 
+             Further clustering with group number of five can seperate NE and WE. </p> <br>
+  
+                  <div id="fig6" class="imagecaption">
+                    <div style="display:inline-block" >
+                        <figure>
+                            <img src="./figure/dendro_k2_Euclidean.png" width=500px />
+                            <figcaption>a</figcaption>
+                        </figure>
+                    </div>
+                    <div style="display:inline-block">
+                        <figure>
+                            <img src="./figure/dendro_k3_Euclidean.png" width=500px  />
+                            <figcaption>b</figcaption>
+                        </figure>
+                    </div>
+                    <div style="display:inline-block">
+                      <figure>
+                          <img src="./figure/dendro_k4_Euclidean.png" width=500px />
+                          <figcaption>c</figcaption>
+                      </figure>
+                    </div>
+                    <div style="display:inline-block">
+                      <figure>
+                          <img src="./figure/dendro_k5_Euclidean.png" width=500px />
+                          <figcaption>d</figcaption>
+                      </figure>
+                    </div>
+
+                  </div>
+                  <p>Figure 6. Dendrogrames of different group numbers in hierarchical clustering using Euclidean distance. a, k=2; b, k=3; c, k=4; d, k=5.</p><br>
+              </div>
+  
+              <div id="hc-manh">
+                <h3 style="margin-left: 3%;"><li> How Manhattan distance affect hierarchical clustering results? </li></h3><br>
+                <p>At the same manner, four group numbers of k=2, k=3, k=4 and k=5 are applied to the results of in hierarchical clustering with Manhattan distance. 
+                  Figure 7 shows the comparson of the clusters with different group numbers. The labels are the correct classification of each 
+                data point. When there are two groups, as same as previous methods, SO is isolated from others. However, starting from group number of three, 
+                there are small portion of SO is considered more dissimilar to other SO than the similarity between other groups and SO. 
+                Further clustering with group number of five can seperate NE and WE. </p> <br>
+  
+            <div id="fig7" class="imagecaption">
+              <div style="display:inline-block" >
+                  <figure>
+                      <img src="./figure/dendro_k2_manhattan.png" width=500px />
+                      <figcaption>a</figcaption>
+                  </figure>
+              </div>
+              <div style="display:inline-block">
+                  <figure>
+                      <img src="./figure/dendro_k3_manhattan.png" width=500px  />
+                      <figcaption>b</figcaption>
+                  </figure>
+              </div>
+              <div style="display:inline-block">
+                <figure>
+                    <img src="./figure/dendro_k4_manhattan.png" width=500px />
+                    <figcaption>c</figcaption>
+                </figure>
+              </div>
+              <div style="display:inline-block">
+                <figure>
+                    <img src="./figure/dendro_k5_manhattan.png" width=500px />
+                    <figcaption>d</figcaption>
+                </figure>
+              </div>
+
+            </div>
+            <p>Figure 7. Hierarchical clustering using Manhattan distance. a, k=2; b, k=3; c, k=4; d, k=5.</p><br>
+              </div>
+
+              <div id="hc-can">
+                <h3 style="margin-left: 3%;"><li> How Canberra distance affect hierarchical clustering results? </li></h3><br>
+                <p>Canberra distance (<a href="https://en.wikipedia.org/wiki/Canberra_distance" target="_blank">Wiki</a>) considers the dissimilarity as sum of the ratio of differences between 
+                  vectors and their absolute summation. It standarizes the dissimilarity between vectors, so that dissimilarity between two close-magnitude variables can be detected. 
+                  Four group numbers of k=2, k=3, k=4 and k=5 are applied to the results of in hierarchical clustering with Canberra distance. 
+                  Figure 8 shows the comparson of the clusters with different group numbers. Again, the labels are the correct classification of each 
+                data point. The dendrogram is appearently diffrent from hierarchical clustering using other distances. WE records have 
+                fluctuated heights, which is not shown in other dendrograms. One possibility is that WE data have more in-group variation. 
+                When there are two groups, as same as previous methods, SO is isolated from others. However, starting from group number of four, 
+                WE is devided into two and three in group number of four and five, respectively. 
+                </p> <br>
+  
+            <div id="fig8" class="imagecaption">
+              <div style="display:inline-block" >
+                  <figure>
+                      <img src="./figure/dendro_k2_can.png" width=500px />
+                      <figcaption>a</figcaption>
+                  </figure>
+              </div>
+              <div style="display:inline-block">
+                  <figure>
+                      <img src="./figure/dendro_k3_can.png" width=500px  />
+                      <figcaption>b</figcaption>
+                  </figure>
+              </div>
+              <div style="display:inline-block">
+                <figure>
+                    <img src="./figure/dendro_k4_can.png" width=500px />
+                    <figcaption>c</figcaption>
+                </figure>
+              </div>
+              <div style="display:inline-block">
+                <figure>
+                    <img src="./figure/dendro_k5_can.png" width=500px />
+                    <figcaption>d</figcaption>
+                </figure>
+              </div>
+
+            </div>
+            <p>Figure 8. Hierarchical clustering using Canberra distance. a, k=2; b, k=3; c, k=4; d, k=5.</p>
+              </div>
+
+            
+
+            </ol>  
+          </div>
+
+          <span class="anchor" id="optimal k census"></span>
+          <div style="margin: 5%; color: #112e51; " id="groupk">
+            <h2> Optimal Number of Groups</h2><br>
+            <p> Whether in k-means clustering or hierarchical clustering, number of groups are needed as hyperparameter or for decision making. 
+              There are many methods can be applied to obtain the optimal number of groups. There, three methods are tested for k-means clustering and 
+              hierarchical clustering using Euclidean distance. All code can be found 
+          <a href="./code/NHS_HV_clustering.R" target="_blank">here</a>. </p> <br>
+            <ol>
+              <div id="kmean-group">
+                <h3 style="margin-left: 3%;"><li> Hyperparameter of number of groups in k-means</li></h3><br>
+                <p>Three methods of Elbow, Silhouette, and Gap-statistic are applied to determine the optimal number of groups in k-means 
+                  clustering using Euclidean distance. Figure 9 shows the results using different methods. Only the Silhouette method give four groups, 
+                which is the data labeled as. This is a result from large dissimilarity between SO and other groups. </p> <br>
+  
+                  <div id="fig9" class="imagecaption">
+                    <div style="display:inline-block" >
+                        <figure>
+                            <img src="./figure/kmean_elbow.png" width=330px />
+                            <figcaption>a</figcaption>
+                        </figure>
+                    </div>
+                    <div style="display:inline-block">
+                        <figure>
+                            <img src="./figure/silhouette_kmean_cluster.png" width=330px  />
+                            <figcaption>b</figcaption>
+                        </figure>
+                    </div>
+                    <div style="display:inline-block">
+                      <figure>
+                          <img src="./figure/gap_kmean_cluster.png" width=330px />
+                          <figcaption>c</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+
+                  <p>Figure 9. Optimal number of k for k-means clustering. a, Elbow method; b, Silhouette method; c, Gap-statistic method</p><br>
+              </div>
+  
+              <div id="hc-group">
+                <h3 style="margin-left: 3%;"><li> Determine number of groups in hierarchical clustering </li></h3><br>
+                <p>At the same manner, three methods of Elbow, Silhouette, and Gap-statistic are applied to determine the optimal number of groups in k-means 
+                  clustering using Euclidean distance. Figure 10 shows the results using different methods. As same as in k-means clustering, only the Silhouette method give four groups, 
+                which is the data labeled as. This is a result from large dissimilarity between SO and other groups. There are some differences between Elbow and Gap-statistic results. 
+              For Elbow methods, the curve is more smooth, which is due to compared to the randomness of starting points in k-means clustering, hierarchical clustering is more robust. 
+             Gap-statistic give optimal k as five. As shown in Figure 6d, this considers isolating small portion of SO make the clustering optimal.</p> <br>
+  
+            <div id="fig10" class="imagecaption">
+              <div style="display:inline-block" >
+                  <figure>
+                      <img src="./figure/elbow_hcut.png" width=330px />
+                      <figcaption>a</figcaption>
+                  </figure>
+              </div>
+              <div style="display:inline-block">
+                  <figure>
+                      <img src="./figure/sil_hclust.png" width=330px  />
+                      <figcaption>b</figcaption>
+                  </figure>
+              </div>
+              <div style="display:inline-block">
+                <figure>
+                    <img src="./figure/gap_hclust.png" width=330px />
+                    <figcaption>c</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <p>Figure 10. Optimal number of k for hierarchical clustering. a, Elbow method; b, Silhouette method; c, Gap-statistic method</p><br>
+            </div>
+
+            
+
+            </ol>  
+          </div>
+
+          <span class="anchor" id="prediction"></span>
+          <div style="margin: 5%; color: #112e51; " id="pred">
+            <h2> Classification using result from hierarchical clustering </h2><br>
+            <p> Three records from 2014 data are extracted for testing using hierarchical clustering for classification using number of 
+              groups of four. The data were generated 
+              in <a href="./data_cleaning.html" target="_blank">"Data processing for clustring"</a> in Data Cleaning session. Figure 11 shows where are 
+              the three records should be. Figure 12 shows the dataset. 
+            </p> <br>
+            <iframe src="./kmean_3d_cluster_pred.html" title="Data 3D plot by Plotly" width=60% height="500" align="center" >
+            </iframe><br>
+            <p> Figure 11. 3D plot of predicted data</p><br>
+
+            <img id="fig12" src="./figure/pred_data.png" alt="predicteddata" width="500" height="80">
+            <p>Figure 12. Predict dataset </p><br>
+
+            <p>Figure 13 indicates the code used. Using knn() method, the three records are successfully predicted (Figure 14). Figure 15 
+              shows the hierarchical clustering results with k = 4. </p><br>
+            <img id="fig13" src="./figure/predi_code.png" alt="predictedcode" width="400" height="100">
+            <p>Figure 13. Code for prediction </p><br>
+
+            <img id="fig14" src="./figure/pred_res.png" alt="predictedres" width="120" height="40">
+            <p>Figure 14. Predict results </p><br>
+
+            <img id="fig15" src="./figure/pred_groups.png" alt="predictedgroup" width="500" height="100">
+            <p>Figure 15. Hierarchical clustering results </p><br>
+          
+
+          </div>
+
+          <span class="anchor" id="summary census"></span>
+          <div style="margin: 5%; color: #112e51; " id="summary_census">
+            <h2> Summary </h2><br>
+            <p> For k-means clustering, Euclidean distance is more compatible with this method. This is resulted from 
+              the nature of k-means clustering is to minimizing within-cluster variance that are the values from Euclidean distance. For Hierarchical clustering, 
+              all distances can be used to cluster the data. However, a good knowledge of the nature of the data is required. For example, 
+              when small portion of SO are seperated from SO groups, whether they are outliers or real group need to be determined by users. Both methods can be used to 
+              clustring this dataset while k-means cluster gave more accurate results compared to hierarchical clustering. Silhouette method gave 
+              the optimal number of groups matched the labels. 
+              Hierarchical clustering with number of groups of four and Euclidean distance gave good prediction of extra records. 
+           
+            </p> <br>
+
+          </div>
+
+          <span class="anchor" id="data census"></span>
+          <div style="margin: 5%; color: #112e51; " id="data_census">
+          <h2> Data download and analysis code </h2><br>
+          <table >
+            <tr>
+              <th>Name</th>
+              <th>Data Preview</th>
+              <th>Data Download</th>
+              <th>Code</th>
+            </tr>
+            <tr > 
+              <td>Merged HV-NHS data</td>
+              <td><img class="myImg" src="./figure/cluster_data.png" alt="Dataset for clustering" width="200" height="100">
+              </td>          
+              <div id="myModal5" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img05">
+                <div id="caption5" class="modal-caption"></div>
+              </div>
+          
+              <td><a href="./data/NHS_HV_cluster_df.csv" target="_blank">Download</a>
+              </td>
+            
+              <td>
+                <a href="./code/NHS_HV_clustering.R" target="_blank">R Code</a>              </td>                    
+            </tr>
+          </table><br>
+        </div>
+
+
+
+
+      
+    </div>
+  </div>
+            
+          
+    
+  <div id="News" class="tabcontent">
+
+    <div class="sidenav">
+      <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home"></i></button> </a>
+      <p><b>Menu</b> </p> 
+      <a href="#intro news">Data overview</a>
+      <a href="#k-means news">k-means clustering</a>
+      <a href="#DBSCAN news"> DBSCAN clustering</a>
+      <a href="#hc news">Hierarchical</a>
+      <a href="#optimal k news">Optimal k</a>
+      <a href="#summary news">Summary</a>
+      <a href="#data news">Data download and analysis code</a>
+    </div>
+
+    <div class="content-container">
+      <span class="anchor" id="intro news"></span>
+      <div style="margin: 5%; color: #112e51;" id="census beginning">
+        <h1>Data Overview </h1><br>             
+            <p> News datasets, labeled by key words (mortgage, home buying, and real estate), include three datasets from NewsAPI using different key words (
+              <a href="./data_gathering.html" target="_blank">Data Gathering Details</a> ). Three datasets are merged to obtain 
+              the dataset containing 55 news descriptions used in this session (<a href="./data_cleaning.html" target="_blank">Data Processing Details</a>). All the python code 
+              can be found <a href="./code/text_clustering.py" target="_blank">here</a>.
+            </p><br>
+            <p>The word clouds for different key words are shown below (Figure 1). The word clouds show that there are some differences on word frequency in 
+              news with different key words. 
+            </p><br>
+
+          <div id="fig16" class="imagecaption">
+            <div style="display:inline-block" >
+                <figure>
+                    <img src="./figure/mortgage_news_wc.png" width=330px />
+                    <figcaption>a</figcaption>
+                </figure>
+            </div>
+            <div style="display:inline-block">
+                <figure>
+                    <img src="./figure/hb_news_wc.png" width=330px  />
+                    <figcaption>b</figcaption>
+                </figure>
+            </div>
+            <div style="display:inline-block">
+              <figure>
+                  <img src="./figure/re_news_wc.png" width=330px />
+                  <figcaption>c</figcaption>
+              </figure>
+            </div>
+
+          </div>
+          <p>Figure 1. Word clouds for data with different labels. a, mortgage; b, home buying; c, real estate</p><br>
+
+
+          <p>The news data are first converted into document term matrix (DTM) using CountVectorizer() and TfidfVectorizer(). To reduce the demensions of 
+            data, common words in English such as "a", "I", are removed from vocabulary. Moreover, phrases such as "www" and days (e.g. "monday", 
+            "tuesday" are also removed since many of the online news contain those words without meaningful content. Numbers are removed by create 
+            a processor in CountVectorizer() and TfidfVectorizer(). The analysis code can be downloaded <a href="./code/text_clustering.py" target="_blank">here</a>. <br>
+            As same as record data, DTM can be analyzed using different clustering methods. Ideally, this labeled news data can be devided into 
+            three groups based on different key words. K-means clustering with Euclidean distance, 
+            DBSCAN clustering, and hierarchical clustering with Euclidean distance are introduced to test their performances below. </p><br>
+        </div>
+
+      <span class="anchor" id="k-means news"></span>
+        <div style="margin: 5%; color: #112e51; " id="kmeans">
+        <h2> K-means clustering</h2><br>
+        <p> K-means clustering is a wide used partitioning method to classify data based on pairwised within-cluster distance. The goal of k-means clustering 
+        is to minimizing within-cluster variances (<a href="https://en.wikipedia.org/wiki/K-means_clustering" target="_blank">Wiki</a>). All code can be found 
+      <a href="./code/text_clustering.py" target="_blank">here</a>. </p> <br>
+        <ol>
+          <div id="k_cv">
+            <h3 style="margin-left: 3%;"><li> How group numbers affect K-means results? </li></h3><br>
+            <p>Three group numbers of k=2, k=3, and k=4 are tested in k-means clustering with Euclidean distance. DTM is generated 
+              by CountVectorizer(). 
+              Figure 2 shows the labels in the data. Figure 3 shows the comparison using k=2, k=3, and k=4. The classification cannot 
+            devide the data into groups as labeled. Only some of the news isolated from the data. </p> <br>
+        <img id="fig18" src="./figure/text_cluster_true.png" width=330px />
+        <p>Figure 2. Text data labels</p><br>
+
+
+              <div id="fig19" class="imagecaption">
+                <div style="display:inline-block" >
+                    <figure>
+                        <img src="./figure/text_cl_cv_k2.png" width=330px />
+                        <figcaption>a</figcaption>
+                    </figure>
+                </div>
+                <div style="display:inline-block">
+                    <figure>
+                        <img src="./figure/text_cl_cv_k3.png" width=330px  />
+                        <figcaption>b</figcaption>
+                    </figure>
+                </div>
+                <div style="display:inline-block">
+                  <figure>
+                      <img src="./figure/text_cl_cv_k4.png" width=330px />
+                      <figcaption>c</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <p>Figure 3. Different group numbers in k-means clustering using Euclidean distance. a, k=2; b, k=3; c, k=4.</p><br>
+          </div>
+
+          <div id="k_tf">
+            <h3 style="margin-left: 3%;"><li> Using TfidfVectorizer() </li></h3><br>
+            <p>TfidfVectorizer() normalizes the data when calculating DTM. To test whether normalization make any differences, three group numbers of k=2, k=3, and k=4 are tested in k-means clustering with Euclidean distance
+              using TfidfVectorizer() results. 
+              Figure 4 shows the comparson of k-means clustering with different group numbers. The results from TfidfVectorizer() shows 
+            more devided groups compared to CountVectorizer(). When k=3, 19 out or 55 news are correctly classified. </p> <br>
+
+              <div id="fig20" class="imagecaption">
+                <div style="display:inline-block" >
+                    <figure>
+                        <img src="./figure/text_cl_tf_k2.png" width=330px />
+                        <figcaption>a</figcaption>
+                    </figure>
+                </div>
+                <div style="display:inline-block">
+                    <figure>
+                        <img src="./figure/text_cl_tf_k3.png" width=330px  />
+                        <figcaption>b</figcaption>
+                    </figure>
+                </div>
+                <div style="display:inline-block">
+                  <figure>
+                      <img src="./figure/text_cl_tf_k4.png" width=330px />
+                      <figcaption>c</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <p>Figure 4. Different group numbers in k-means clustering using TfidfVectorizer() results. a, k=2; b, k=3; c, k=4.</p><br>
+          </div>
+
+          <h3 style="margin-left: 3%;"><li> Performance of k-means clusering</li></h3><br>
+          <p> Figure 5a shows how news clustered in two dimentions. The data is not well clustered in the plot. This is resulted 
+            from that the first two dimention of PCA only explains only 4.08% and 3.90% of the variance in the data (Figure 2b). This is an indication of that 
+            the word frequency of the news are relatively smooth distributed, which may not be detected using k-means clusering.
+          </p><br>
+          <div id="fig17" class="imagecaption">
+            <div style="display:inline-block" >
+                <figure>
+                    <img src="./figure/pca_news.png" width=600px />
+                    <figcaption>a</figcaption>
+                </figure>
+            </div>
+            <div style="display:inline-block">
+                <figure>
+                    <img src="./figure/pca_var.png" width=330px  />
+                    <figcaption>b</figcaption>
+                </figure>
+            </div>
+
+          </div>
+          <p>Figure 5. PCA in two dimensions</p><br>
+        
+        </ol>  
+        </div>
+
+        
+      <span class="anchor" id="DBSCAN news"></span>
+
+        <div style="margin: 5%; color: #112e51; " id="dbscan">
+          <h2> DBSCAN clustering</h2><br>
+          <p> DBSCAN is a density based clustering methods. The assumption of DBSCAN clusters is clusters are more compact compared to 
+            the noices (<a href="https://en.wikipedia.org/wiki/DBSCAN" target="_blank">Wiki</a>). DBSCAN method is applied on the results from 
+            TfidfVectorizer(). All code can be found 
+        <a href="./code/text_clustering.py" target="_blank">here</a>. </p> <br>
+          <ol>
+            <div id="k_db">
+              <h3 style="margin-left: 3%;"><li> Performance of DBSCAN </li></h3><br>
+              <p>To obtain the hyperparameter, epsilon, the maximum distance between two points, the 
+                <a href="https://towardsdatascience.com/machine-learning-clustering-dbscan-determine-the-optimal-value-for-epsilon-eps-python-example-3100091cfbc" target="_blank">
+                steps</a> are used. First, ploting a sorted distance between each vector using NearestNeighbors. The result of distance is shown in Figure 6. The epsilon 
+              is selected as at the point of maximum curvature of 1.1. Figure 7 shows the code and results of DBSCAN. DBSCAN treat most of 
+            the data as noises (value of -1). This is likely due to the nature of data is not following the assumption of DBSCAN, that the density 
+          is relatively average in the data. </p> <br>
+          <img id="fig18" src="./figure/db_eipsilon.png" width=330px />
+          <p>Figure 6. Distance from each point to its closest neighbour using the NearestNeighbors </p><br>
+
+          <img id="fig19" src="./figure/db_res.png" width=500px />
+          <p>Figure 7. Result of DBSCAN </p><br>
+
+        </div>
+          
+          </ol>  
+          </div>
+
+      <span class="anchor" id="hc news"></span>
+        <div style="margin: 5%; color: #112e51; " id="hierarchical-news">
+          <h2> Hierarchical clustering</h2><br>
+          <p> Hierarchical clustering is another wide used method to classify data based on pairwised within-cluster distance. Different from 
+            k-means clustering, hierarchical clustering do not need the hyperparameter of the number of groups. However, based on the results of 
+            clustering, the number of clustering can be decided for further analysis. Moreover, due to it requires 
+            measurement of dissimilarity between sets of observations, different distances representing this dissimilarity could affect 
+            the results of the Hierarchical clustering. (<a href="https://en.wikipedia.org/wiki/Hierarchical_clustering" target="_blank">Wiki</a>). 
+            Hierarchical clustering is applied on the results from TfidfVectorizer(). All code can be downloaded 
+        <a href="./code/text_clustering.py" target="_blank">here</a>. </p> <br>
+          <ol>
+            <div id="hc-res-text">
+              <h3 style="margin-left: 3%;"><li> Performance of hierarchical clustering </li></h3><br>
+              <p>The result of hierarchical clustering using k = 3 is shown in Figure 8. Figure 9 shows the dendrogram 
+                of hierarchical clustering. From the dendrogram, hierarchical clustering can group some of the news as clusters matching with 
+                their true label. Some home buying news and real estate news are mixed together. On the contrary, most mortgage news is 
+                seperated from others.   
+              </p> <br>
+
+              <img id="fig20" src="./figure/hc_res_text.png" width=500px />
+              <p>Figure 8. Result of hierarchical clustering using k = 3</p><br>
+
+              <img id="fig21" src="./figure/hc_dendro.png" width=500px />
+              <p>Figure 9. Dendrogram hierarchical clustering </p><br>
+
+              </div>
+          
+
+          </ol>  
+        </div>
+
+        <span class="anchor" id="optimal k news"></span>
+        <div style="margin: 5%; color: #112e51; " id="groupk-news">
+        
+          <h2> Optimal Number of Groups</h2><br>
+          <ol>
+            <div id="elbow_text">
+            <h3 style="margin-left: 3%;"><li> Elbow method </li></h3><br>
+              <p> Elbow method is applied on CountVectorizer() results to obtain the optimal number of groups. All code can be found 
+              <a href="./code/text_clustering.py" target="_blank">here</a>. </p> <br>
+              <p>Figure 10 shows the Elbow plot. The Elbow is not clearly shown in the first seven groups. </p><br>
+              
+              <img id="fig22" src="./figure/elbow_text.png" width=500px />
+              <p>Figure 10. Elbow method to determine the number of groups </p><br>
+            
+            </div>
+
+            <div id="silhouette_text">
+              <h3 style="margin-left: 3%;"><li> Silhouette method </li></h3><br>
+                <p> Silhouette method is applied on CountVectorizer() results to obtain the optimal number of groups. All code can be found 
+                <a href="./code/text_clustering.py" target="_blank">here</a>. </p> <br>
+                <p>Figure 11 shows the Silhouette number of groups. From the Figure 11, Silhouette methods cannot define clear 
+                  cluster either. However, from the plot, when k = 5, four clusters and some noises introduced. When k = 3, each group has 
+                  some noises. 
+                <img id="fig23" src="./figure/sil_text.png" width=800px />
+                <p>Figure 11. Silhouette method to determine the number of groups </p><br>
+    
+              </div>
+    
+          </ol>
+        </div>
+
+        <span class="anchor" id="summary news"></span>
+        <div style="margin: 5%; color: #112e51; " id="summary_news">
+          <h2> Summary </h2><br>
+          <p> Compared to CountVectorizer(), TfidfVectorizer() give more reasonal results. <br>
+            All clustering methods including k-means, DBSCAN, and hierarchical clustering are not performed well as they are in 
+            the record data that is more clearly classified. From the PCA, the merged news description data may not cluster in nature. There might 
+            be two reasons. First, data are collected based on the topic, which lead to the key words are correlated to each other. 
+            Second, the news description words are limited. The whole artiles may need to analyze the clusters in news articles. <br>
+            Among all three methods, hierarchical clustering performed better than the other two as it grouped data with 
+            same label together. 
+          </p> <br>
+    </div>
+
+    <span class="anchor" id="data news"></span>
+    <div style="margin: 5%; color: #112e51; " id="data_census">
+    <h2> Data download and analysis code </h2><br>
+    <table >
+      <tr>
+        <th>Name</th>
+        <th>Data Preview</th>
+        <th>Data Download</th>
+        <th>Code</th>
+      </tr>
+      <tr > 
+        <td>News abstract data</td>
+        <td>
+          <img id="myImg14" class="myImg" src="./figure/homebuying_news.png" alt="Home buying news" width="200" height="100">
+          <img id="myImg14" class="myImg" src="./figure/mortgage.png" alt="Mortgage news" width="200" height="100">
+          <img id="myImg14" class="myImg" src="./figure/real_estate.png" alt="Real estate news" width="200" height="100">
+        </td>          
+        <div id="myModal5" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img05">
+          <div id="caption5" class="modal-caption"></div>
+        </div>
+    
+        <td>                      
+          <li><a href="./data/homebuying_news.json" target="_blank">Raw Home buying news JSON Data Download</a></li>
+          <li><a href="./data/mortgage.json" target="_blank">Raw Mortgage JSON Data Download</a></li>
+          <li><a href="./data/real_estate.json" target="_blank">Raw Real Estate JSON Data Download</a></li>
+          <li><a href="./data/news_cv_dtm.csv" target="_blank">CV DTM Download</a></li>
+          <li><a href="./data/news_tf_dtm.csv" target="_blank">Tfidf DTM Download</a></li>
+        </td>
+      
+        <td>
+          <a href="./code/text_clustering.py" target="_blank">Python Code</a>              </td>                    
+      </tr>
+    </table><br>
+  </div>
+
+
+    
+
+  </div>
+</div>
+
+
+
+
+
+<script>
+    //open tab with click
+    function openPage(pageName,elmnt,color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+       ///// Image display modals
+    // All page modals
+    var modals = document.querySelectorAll('.modal');
+
+    // Get the image and insert it inside the modal - use its "alt" 
+    // text as a caption
+    var img = document.querySelectorAll("img.myImg")
+    var modalImg = document.querySelectorAll("img.modal-content")
+    var captionText = document.querySelectorAll(".modal-caption");
+
+    // Get the <span> element that closes the modal
+    var spans = document.getElementsByClassName("close");
+ 
+    // When the user clicks the image, open the modal
+    for (var i = 0; i < img.length; i++) {
+        img[i].onclick = function() {
+            for (var index in modals) {
+            modals[index].style.display = "block";
+            for (var index in modalImg) {
+                modalImg[index].src = this.src;}; 
+            for (var index in captionText) {
+                captionText[index].innerHTML = this.alt;}
+            }
+        }
+    }
+
+
+    // When the user clicks on <span> (x), close the modal
+    for (var i = 0; i < spans.length; i++) {
+    spans[i].onclick = function() {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+    }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+        for (var index in modals) {
+        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+        }
+    }
+
+$(".tablink").on("click", function() {
+$('html, body').animate({scrollTop:0},500);
+}) 
+
+</script>
+</body>
+</html>
+
+
+
+

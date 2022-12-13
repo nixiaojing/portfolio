@@ -1,0 +1,29 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label=<housing market &le; 0.007<br/>gini = 0.664<br/>samples = 35<br/>value = [11, 11, 13]<br/>class = mortgage>, fillcolor="#f4eefd"] ;
+1 [label=<backed &le; 0.01<br/>gini = 0.531<br/>samples = 24<br/>value = [1, 10, 13]<br/>class = mortgage>, fillcolor="#e4d5f9"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<department &le; 0.01<br/>gini = 0.426<br/>samples = 18<br/>value = [1, 4, 13]<br/>class = mortgage>, fillcolor="#ae80ee"] ;
+1 -> 2 ;
+3 [label=<early &le; 0.031<br/>gini = 0.24<br/>samples = 15<br/>value = [1, 1, 13]<br/>class = mortgage>, fillcolor="#9355e9"] ;
+2 -> 3 ;
+4 [label=<gini = 0.0<br/>samples = 13<br/>value = [0, 0, 13]<br/>class = mortgage>, fillcolor="#8139e5"] ;
+3 -> 4 ;
+5 [label=<applications fell &le; 0.035<br/>gini = 0.5<br/>samples = 2<br/>value = [1, 1, 0]<br/>class = real estate>, fillcolor="#ffffff"] ;
+3 -> 5 ;
+6 [label=<gini = 0.0<br/>samples = 1<br/>value = [1, 0, 0]<br/>class = real estate>, fillcolor="#e58139"] ;
+5 -> 6 ;
+7 [label=<gini = 0.0<br/>samples = 1<br/>value = [0, 1, 0]<br/>class = home buying>, fillcolor="#39e581"] ;
+5 -> 7 ;
+8 [label=<gini = 0.0<br/>samples = 3<br/>value = [0, 3, 0]<br/>class = home buying>, fillcolor="#39e581"] ;
+2 -> 8 ;
+9 [label=<gini = 0.0<br/>samples = 6<br/>value = [0, 6, 0]<br/>class = home buying>, fillcolor="#39e581"] ;
+1 -> 9 ;
+10 [label=<slang borrowing &le; 0.016<br/>gini = 0.165<br/>samples = 11<br/>value = [10, 1, 0]<br/>class = real estate>, fillcolor="#e88e4d"] ;
+0 -> 10 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+11 [label=<gini = 0.0<br/>samples = 10<br/>value = [10, 0, 0]<br/>class = real estate>, fillcolor="#e58139"] ;
+10 -> 11 ;
+12 [label=<gini = 0.0<br/>samples = 1<br/>value = [0, 1, 0]<br/>class = home buying>, fillcolor="#39e581"] ;
+10 -> 12 ;
+}

@@ -1,0 +1,402 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&family=Shadows+Into+Light&family=Titillium+Web:wght@700&family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Prompt&family=Shadows+Into+Light&family=Titillium+Web:wght@700&family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Indie+Flower&family=Prompt&family=Shadows+Into+Light&family=Titillium+Web:wght@700&family=Varela+Round&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Indie+Flower&family=Londrina+Outline&family=Prompt&family=Shadows+Into+Light&family=Titillium+Web:wght@700&family=Varela+Round&display=swap" rel="stylesheet">
+<style>
+
+  
+
+/*hex shape https://github.com/web-tiki/responsive-grid-of-hexagons*/
+
+:root{
+  --font: 1rem;
+  --line:calc(var(--f)*2);
+  --move:calc(-1*var(--line));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  font-size: 100%;
+  background: url(./figure/pictures/christopher-gower-m_HRfLhgABo-unsplash.jpg)
+  no-repeat center center fixed; 
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+
+
+#hexGrid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 45%;
+  margin: 3% auto 0 auto;
+  overflow: hidden;
+  font-family: 'Raleway', sans-serif;
+  font-size: 8px;
+  list-style-type: none;
+}
+
+.hex {
+  position: relative;
+  visibility : hidden;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+}
+.hex::after{
+  content:'';
+  display:block;
+  padding-bottom: 86.602%;  /* =  100 / tan(60) * 1.5 */
+}
+.hexIn{
+  position: absolute;
+  width:96%;
+  padding-bottom: 110.851%; /* =  width / sin(60) */
+  margin:0 2%;
+  overflow: hidden;
+  visibility: hidden;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  -webkit-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+      -ms-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+          transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+}
+.hexIn * {
+  position: absolute;
+  visibility: visible;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+}
+.hexLink {
+    display:block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    -webkit-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+        -ms-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+            transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+}
+
+/*** HEX CONTENT **********************************************************************/
+.hex img {
+  left: -100%;
+  right: -100%;
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  -webkit-transform: rotate3d(0,0,0,0deg);
+      -ms-transform: rotate3d(0,0,0,0deg);
+          transform: rotate3d(0,0,0,0deg);
+}
+
+
+.hex h1, .hex p {
+  width: 100%;
+  padding: 5%;
+  box-sizing:border-box;
+  background-color: rgba(8, 8, 8, 1);
+  font-weight: 200;
+  -webkit-transition:  -webkit-transform .2s ease-out, opacity .3s ease-out;
+          transition:          transform .2s ease-out, opacity .3s ease-out;
+}
+.hex label {
+  width: 100%;
+  left: 0; 
+  text-align: center;
+  font-size: calc(var(--font)*1.2);
+  line-height: var(--line);
+  padding-top: calc(var(--font)*3.5);
+  height: var(--line);
+  margin-top: calc(var(--font)*1.45);
+  color:white;
+  transform: translateY(var(--move));
+  transform: translateX(var(--move));
+  margin-bottom: var(--move);
+  overflow: visible;
+  font-weight:400;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.hex label::after {
+  content: '';
+  bottom: -10%;
+  width: 40%;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+}
+  
+.hex h1 {
+  bottom: 50%;
+  padding-top:50%;
+  font-size: 1.5em;
+  z-index: 1;
+  -webkit-transform:translate3d(0,-100%,0);
+      -ms-transform:translate3d(0,-100%,0);
+          transform:translate3d(0,-100%,0);
+}
+.hex h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  width: 10%;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+}
+.hex p {
+  top: 50%;
+  padding-bottom:50%;
+  -webkit-transform:translate3d(0,100%,0);
+      -ms-transform:translate3d(0,100%,0);
+          transform:translate3d(0,100%,0);
+}
+
+
+/*** HOVER EFFECT  **********************************************************************/
+.hexLink:hover h1, 
+.hexLink:hover p {
+  -webkit-transform:translate3d(0,0,0);
+      -ms-transform:translate3d(0,0,0);
+          transform:translate3d(0,0,0);
+}
+.hexLink:focus h1,.hexLink:focus p{
+  -webkit-transform:translate3d(0,0,0);
+      -ms-transform:translate3d(0,0,0);
+          transform:translate3d(0,0,0);
+          background: gray;
+          color: black;
+          font-weight: bold;
+}
+.hexLink:hover h2{
+  -webkit-transition:  -webkit-transform .2s ease-out;
+          transition:          transform .2s ease-out;
+
+}
+
+/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
+@media (min-width:1201px) { /* <- 4-3-4  hexagons per row */
+  #hexGrid{
+    
+    padding-bottom: 5%
+  }
+  .hex {
+    width: 25%; /* = 100 / 4 */
+  }
+  .hex:nth-child(5){ /* first hexagon of even rows */
+    margin-left:12.5%;  /* = width of .hex / 2  to indent even rows */
+  }
+  .hex:nth-child(8){ /* third row */
+  margin-left: 0%;  /* = 2*width of .hex / 2  */
+  }
+}
+
+@media (max-width: 1200px) and (min-width:901px) { /* <- 4-4-4  hexagons per row */
+  #hexGrid{
+    margin-left: 28%;
+    overflow: visible;
+    padding-bottom: 50px
+  }
+  .hex {
+    width: 25%; /* = 100 / 4 */
+  }
+  .hex:nth-child(5){ /* first hexagon of even rows */
+    margin-left: -12.5%;  /* = width of .hex / 2  to indent even rows */
+
+  }
+}
+
+@media (max-width: 900px) and (min-width:601px) { /* <- 3-3-3-3  hexagons per row */
+  #hexGrid{
+    overflow: visible;
+    margin-left: 28%;
+    padding-bottom: 7.4%
+  }
+  .hex {
+    width: 33.333%; /* = 100 / 3 */
+  }
+  .hex:nth-child(4){ /* first hexagon of even rows */
+    margin-left:-16.666%;  /* = width of .hex / 2  to indent even rows */
+  }
+  .hex:nth-child(10){ /* first hexagon of even rows */
+    margin-left:-16.666%;  /* = width of .hex / 2  to indent even rows */
+  }
+
+}
+
+@media (max-width: 600px) { /* <- 2-1  hexagons per row */
+  #hexGrid{
+    padding-bottom: 11.2%
+  }
+  .hex {
+    width: 50%; /* = 100 / 3 */
+  }
+  .hex:nth-child(3n+3){ /* first hexagon of even rows */
+    margin-left:25%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 400px) {
+    #hexGrid {
+        font-size: 13px;
+    }
+}
+
+
+
+</style>
+</head>
+
+<body>
+  
+  <a href="https://xni.georgetown.domains/" ><button class="btn" style="margin-left:700px;"><i class="fa fa-home"></i></button>
+  <p style="font-family: Arial, Helvetica, sans-serif; color: gray; position: fixed;
+  bottom: 8px;left: 16px;">Photo by <a href="https://unsplash.com/@cgower?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Christopher Gower</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  </p>
+  <h1 style="font-size:5vw;text-align: center;padding-top: 6vw; font-family: 'Londrina Outline', cursive;">“The world is one big data problem.” </h1>
+  
+  <p style="font-size:2vw;text-align: center;padding-left: 50%; font-family: 'Londrina Outline', cursive;">— Andrew McAfee</p> 
+  
+  <ul id="hexGrid">
+    
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="./about_me.html">
+                <img src="./figure/pictures/mike-yukhtenko-wfh8dDlNFOk-unsplash.jpg" alt="" />
+                <label>About me</label>
+                <h1>About me</h1>
+                <p>My experiences and why I want to be a Data Scientist</p>
+              </a>
+              <h1>Bottom Left</h1>
+            </div>
+          </li>
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="./introduction.html">
+                <img src="./figure/pictures/jeremy-bishop-G9i_plbfDgk-unsplash.jpg" alt="" />
+                <label>Introduction</label>
+                <h1>Introduction</h1>
+                <p>An introduction about this study: U.S. real estate analysis and prediction.</p>
+              </a>
+            </div>
+          </li>
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="./data_gathering.html">
+                <img src="./figure/pictures/sander-weeteling-KABfjuSOx74-unsplash.jpg" alt="" />
+                <label>Data Gathering</label>
+                <h1>Data Gathering</h1>
+                <p>Data sources, descriptions, and collecting methods.</p>
+              </a>
+            </div>
+          </li>
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="./data_cleaning.html">
+                <img src="./figure/pictures/pawel-czerwinski-BPrk2cOoCq8-unsplash.jpg" alt="" />
+                <label>Data Cleaning</label>
+                <h1>Data Cleaning</h1>
+                <p>Data are cleaned based on the characteristics of each datasets. 
+                  This session includes the steps of cleaning and before/after datasets. </p>
+              </a>
+            </div>
+          </li>
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="./data_exploring.html">
+                <img src="./figure/pictures/david-jorre-oQbLeq4nOek-unsplash.jpg" alt="" />
+                <label>Exploring Data</label>
+                <h1>Exploring Data</h1>
+                <p>This session includes EDA and visualizitions.</p>
+              </a>
+            </div>
+          </li>
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="./clustering.html">
+                <img src="./figure/pictures/brian-lundquist-I3qLDIdlOho-unsplash (1).jpg" alt="" />
+                <label>Clustering</label>
+                <h1>Clustering</h1>
+                <p>Labeled record and text data are clustered</p>
+              </a>
+            </div>
+          </li>
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="./arm.html">
+                <img src="./figure/pictures/frantisek-g-XXuVXLy5gHU-unsplash.jpg" alt="" />
+                <label>ARM and Networking</label>
+                <h1>ARM and Networking</h1>
+                <p>Association Rule Mining and Networking of Tweets</p>
+              </a>
+            </div>
+          </li>
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="./decision_trees.html">
+                <img src="./figure/pictures/pawel-czerwinski-Tyg0rVhOTrE-unsplash.jpg" alt="" />
+                <label style="color: black;">Decision Trees</label>
+                <h1>Decision Trees</h1>
+                <p>Decision Trees are applied on Zillow research data and news articles.</p>
+              </a>
+            </div>
+          </li>
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="./NB.html">
+                <img src="./figure/pictures/erol-ahmed-XsQ8nUKpAO4-unsplash.jpg" alt="" />
+                <label>Naïve Bayes</label>
+                <h1>Naïve Bayes</h1>
+                <p>Naive Bayes classifier is applied to Zillow research combined dataset and 
+                  News data.
+                </p>
+              </a>
+            </div>
+          </li>
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="./SVM.html">
+                <img src="./figure/pictures/mehdi-bvgBSDgJnE4-unsplash.jpg" alt="" />
+                <label>Support Vector Machine</label>
+                <h1>SVM</h1>
+                <p>SVM is applied to Zillow research combined dataset and 
+                  News data.</p>
+              </a>
+            </div>
+          </li>
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink" href="./conclusion.html">
+                <img src="./figure/pictures/hamish-duncan-Ae1rnzWL_44-unsplash.jpg" alt="" />
+                <label style="color:rgb(12, 21, 36);">Conclusions</label>
+                <h1>Conclusions</h1>
+                <p>What are found from this analysis.</p>
+              </a>
+            </div>
+          </li>
+
+  </ul>
+</body>
+</html>

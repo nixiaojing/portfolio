@@ -1,0 +1,735 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>About Me</title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* revised from https://codepen.io/tutsplus/pen/ZKpNwm */
+html {
+  font-size: 100%;
+  background: url(./figure/pictures/christopher-gower-m_HRfLhgABo-unsplash.jpg)
+  no-repeat center center fixed; 
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+  scroll-behavior: smooth;
+}
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+body {
+  font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+  background: #f1e8f3;
+  color: #fff;
+}
+
+
+/* .section SECTION
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.section {
+  background: #f7da7d;
+  padding: 50px 0;
+}
+
+.section .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section h1 {
+  font-size: 2.5rem;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.section h2 {
+  font-size: 1.3rem;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+
+}
+
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline {
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
+.timeline ol {
+  font-size: 0;
+  width: 100vw;
+  padding: 300px 0;
+}
+
+.timeline ol li:not(:last-child) {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  width: 200px;
+  height: 3px;
+  background: #fff;
+}
+
+.timeline ol li:last-child {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  width: 500px;
+  height: 3px;
+  background: #fff;
+}
+
+.timeline ol li:first-child {
+  width: 16%;
+}
+.timeline ol li:last-child {
+  width: 50%
+}
+
+/*white line starting point*/
+.timeline ol li:not(:first-child) {
+  margin-left: 14px;
+}
+
+.timeline ol li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 1px);
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #F45B69;
+}
+
+/*box position*/
+.timeline ol li span {
+  position: absolute;
+  left: calc(30% + 7px);
+  width: 400px;
+  padding: 15px;
+  height: 250px;
+  font-size: 1rem;
+  white-space: normal;
+  color: black;
+  background: white;
+}
+
+/*small triangle position*/
+.timeline ol li span::before {
+  content: '';
+  position: absolute;
+  transform: translateX(160px);
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.timeline ol li:not(:first-of-type) > span::before {
+  content: '';
+  position: absolute;
+  transform: translateX(140px);
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+
+
+.timeline ol li:nth-child(odd) span {
+  top: -30px;
+  transform: translateY(-100%);
+}
+
+/* triangle size */
+.timeline ol li:nth-child(odd) span::before {
+  top: 100%;
+  border-width: 18px 18px 18px 0;
+  border-color: white transparent transparent transparent;
+}
+
+.timeline ol li:nth-child(even) span {
+  top: calc(100% + 30px);
+}
+
+/* triangle size */
+.timeline ol li:nth-child(even) span::before {
+  top: -18px;
+  border-width: 18px 18px 18px 18px;
+  border-color: transparent transparent transparent white;
+}
+
+.timeline title {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.timeline li:nth-child(even) period {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  transform: translateY(-100%);
+
+}
+
+.timeline li:nth-child(odd) period {
+margin-top: 5px;
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+
+}
+
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 100%) {
+  .timeline ol,
+  .timeline ol li {
+    width: auto; 
+  }
+  
+  .timeline ol {
+    padding: 0;
+    transform: none !important;
+  }
+  
+  .timeline ol li {
+    display: block;
+    height: auto;
+    background: transparent;
+  }
+  
+  .timeline ol li:first-child {
+    margin-top: 25px;
+  }
+  
+  .timeline ol li:not(:first-child) {
+    margin-left: auto;
+  }
+  
+  .timeline ol li span {
+    width: 100%;
+    height: auto !important;
+    margin: 0 auto 25px;
+  }
+  
+  .timeline ol li span {
+    position: static;
+  }
+  
+  .timeline ol li:nth-child(odd) span {
+    transform: none;
+  }
+  
+  .timeline ol li:nth-child(odd) span::before,
+  .timeline ol li:nth-child(even) span::before {
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border: none;
+    border-left: 1px solid white;
+    height: 25px;
+  }
+  
+  .timeline ol li:last-child,
+  .timeline ol li:nth-last-child(2) span::before,
+  .timeline ol li:not(:last-child)::after {
+    display: none;
+  }
+}
+
+/* Slideshow from https://stackoverflow.com/questions/41541559/multiple-slideshows-on-one-page-makes-the-first-one-not-work-anymore*/
+/* Slideshow container */
+ 
+.content-container {
+  width: 370px;
+  height: 150px;
+  position: absolute;
+  margin: auto;
+  overflow: visible;
+} 
+
+.slideshow-container {
+  width: 50%;
+  height: 150px;
+  position: absolute;
+  margin: auto;
+  overflow: visible;
+}
+.float-child {
+    width: 45%;
+    height: 150px;
+    float: left;
+    margin-left: 8px;
+    margin-top: 8px;
+}  
+
+.float-child img{
+    width: 100%;
+    height: 150px;
+}  
+
+
+
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.mySlides {
+  display:none;
+}
+.active-slide {
+  display:block;
+}
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.fa:hover{
+  color:#F45B69;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="section intro">
+
+    <div class="container">
+      <h1>Xiaojing Ni</h1>
+      <h2>Data Scientist    
+      <a href="./cover_501.html" style="text-decoration: none;"><button class="btn"><i class="fa fa-home" aria-hidden="true" ></i></button> </a>
+      <a href="mailto:xn19@georgetown.edu" target="_blank" style="text-decoration: none;"><button class="btn"><i class="fa fa-envelope" aria-hidden="true" ></i></button> </a>
+      <a href="https://www.linkedin.com/in/xiaojing-ni-1bab3359/" target="_blank" style="text-decoration: none;"><button class="btn"><i class="fa fa-linkedin-square" aria-hidden="true" ></i></button> </a>
+      <a href="https://scholar.google.com/citations?hl=en&user=V1paByMAAAAJ" target="_blank" style="text-decoration: none;"><button class="btn"><i class="fa fa-graduation-cap" aria-hidden="true" ></i></button> </a>
+
+      </h2>
+
+    </div>
+
+  </section>
+  
+
+
+  <section class="timeline">
+    <ol>
+      <li>
+        <span>
+        <title>East Lansing, Michigan</title>
+
+        <div class="content-container">
+            <div class="float-child" style="font-size: 14.5;overflow: scroll;">In 2012, I came to the U.S. for the first time to study Environmental 
+                Engineering in Michigan State University. I got my first Master of Science in 2014.
+            </div>
+            <div class="float-child">
+                <div class="slideshow-container">
+                    
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 3</div>
+                        <img src="./figure/spartan.jpeg" style="width:90%;padding-left: 15%;">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 3</div>
+                        <img src="./figure/master.JPG" style="width:80%;padding-left: 20%;">
+                    </div>
+
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 3</div>
+                        <img src="./figure/ms_ski.JPG" style="width:80%;padding-left: 20%;">
+                    </div>
+        
+
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+
+                    <div style="text-align:center">
+                        <div class="dot"></div>
+                        <div class="dot" ></div>
+                        <div class="dot" ></div>
+                    </div>
+        
+        
+            </div>
+        </div>
+                    
+
+        </div>
+        </span>
+        <period style="float: right; margin-right: -50px;color: dimgray;">2012-2014</period>
+
+      </li>
+      <li>
+        <span>
+            <title>Mississippi State, Mississippi</title>
+    
+            <div class="content-container">
+                <div class="float-child" style="font-size: 14;overflow: scroll;">From 2014 to 2018, I had enrolled a PhD program in Mississippi State University focusing on Agricultural
+                     water usage and quality. I had one of my studies published and got my PhD degree in 2018.
+                </div>
+                <div class="float-child">
+                    <div class="slideshow-container">
+                        
+                        <div class="mySlides fade">
+                            <div class="numbertext">1 / 4</div>
+                            <img src="./figure/bulldog.png" style="width:90%;padding-left: 5%;">
+                        </div>
+    
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 4</div>
+                            <img src="./figure/msstate.JPG" style="width:100%">
+                        </div>
+    
+    
+                        <div class="mySlides fade">
+                            <div class="numbertext">3 / 4</div>
+                            <img src="./figure/commencement.png" style="width:100%">
+                        </div>
+            
+    
+                        <div class="mySlides fade">
+                            <div class="numbertext">4 / 4</div>
+                            <img src="./figure/phd.jpg" style="width:75%;padding-left: 20%;">
+                        </div>
+    
+    
+                        <a class="prev">&#10094;</a>
+                        <a class="next">&#10095;</a>
+    
+                        <div style="text-align:center">
+                            <div class="dot"></div>
+                            <div class="dot" ></div>
+                            <div class="dot" ></div>
+                            <div class="dot"></div>
+                        </div>
+            
+            
+                </div>
+            </div>
+                        
+    
+            </div>
+            </span>
+            <period style="float: right; margin-right: -50px;color: dimgray;">2014-2018</period>
+      </li>
+
+      <li>
+        <span>
+            <title>Durham, North Carolina</title>
+    
+            <div class="content-container">
+                <div class="float-child" style="font-size: 14.5;overflow: scroll;">I was a Grantee in The Environmental Protection Agency (EPA). In this period, I finished 
+                    a review paper focusing on water quality issue in the Great Lakes region and got published.
+                </div>
+                <div class="float-child">
+                    <div class="slideshow-container">
+                        
+                        <div class="mySlides fade">
+                            <div class="numbertext">1 / 4</div>
+                            <img src="./figure/epa.png" style="width:90%;padding-left: 10%;">
+                        </div>
+    
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 4</div>
+                            <img src="./figure/name_tag.JPG" style="width:100%">
+                        </div>
+    
+    
+                        <div class="mySlides fade">
+                            <div class="numbertext">3 / 4</div>
+                            <img src="./figure/duke.JPG" style="width:75%;padding-left: 20%;">
+                        </div>
+
+                        <div class="mySlides fade">
+                          <div class="numbertext">4 / 4</div>
+                          <img src="./figure/married.jpeg" style="width:75%;padding-left: 15%;">
+                      </div>
+            
+  
+    
+    
+                        <a class="prev">&#10094;</a>
+                        <a class="next">&#10095;</a>
+    
+                        <div style="text-align:center">
+                            <div class="dot"></div>
+                            <div class="dot" ></div>
+                            <div class="dot" ></div>
+                            <div class="dot"></div>
+                        </div>
+            
+            
+                </div>
+            </div>
+                        
+    
+            </div>
+            </span>
+            <period style="float: right; margin-right: -50px;color: dimgray;">2018-2019</period>
+      </li>
+      <li>
+        <span>
+            <title>Newark, Delaware</title>
+    
+            <div class="content-container">
+                <div class="float-child" style="font-size: 14.5;overflow: scroll;">During my researches, I have realized many problems are data problems. I decided to change my career path and learn something new. 
+                    Meantime, in 2020, I have finished my writings for three other papers in my PhD study and got published. This year, we also got two amazing cats.
+                </div>
+                <div class="float-child">
+                    <div class="slideshow-container">
+                        
+                        <div class="mySlides fade">
+                            <div class="numbertext">1 / 3</div>
+                            <img src="./figure/me.jpeg" style="width:75%;padding-left: 15%;">
+                        </div>
+    
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 3</div>
+                            <img src="./figure/we.jpeg" style="width:75%;padding-left: 15%;">
+                        </div>
+    
+    
+                        <div class="mySlides fade">
+                            <div class="numbertext">3 / 3</div>
+                            <img src="./figure/cats.png" style="width:80%; padding-left: 25%;">
+                        </div>
+            
+    
+    
+    
+                        <a class="prev">&#10094;</a>
+                        <a class="next">&#10095;</a>
+    
+                        <div style="text-align:center">
+                            <div class="dot"></div>
+                            <div class="dot" ></div>
+                            <div class="dot" ></div>
+                        </div>
+            
+            
+                </div>
+            </div>
+                        
+    
+            </div>
+            </span>
+            <period style="float: right; margin-right: -50px;color: dimgray;">2019-2021</period>
+      </li>
+      <li>
+        <span>
+            <title>Washington, D.C.</title>
+            <p> I am now a Master student in Data Science and Analytics program in Georgetown University. I believe more possibilities is waiting for me. 
+                And the best future is in front of me and my family. <br>
+                TO BE CONTINUE...
+          </p>
+          </span>
+        <period style="float: right; margin-right: -50px;color: dimgray;">2021-</period>
+      </li>
+      <li></li>
+    </ol>
+    
+
+  </section>
+
+  <script>
+ $(function() {
+
+init(); //on page load - show first slide, hidethe rest
+
+function init() {
+
+  parents = document.getElementsByClassName('slideshow-container');
+
+  for (j = 0; j < parents.length; j++) {
+    var slides = parents[j].getElementsByClassName("mySlides");
+    var dots = parents[j].getElementsByClassName("dot");
+    slides[0].classList.add('active-slide');
+    dots[0].classList.add('active');
+  }
+}
+
+dots = document.getElementsByClassName('dot'); //dots functionality
+
+for (i = 0; i < dots.length; i++) {
+
+  dots[i].onclick = function() {
+
+    slides = this.parentNode.parentNode.getElementsByClassName("mySlides");
+
+    for (j = 0; j < this.parentNode.children.length; j++) {
+      this.parentNode.children[j].classList.remove('active');
+      slides[j].classList.remove('active-slide');
+      if (this.parentNode.children[j] == this) {
+        index = j;
+      }
+    }
+    this.classList.add('active');
+    slides[index].classList.add('active-slide');
+
+  }
+}
+
+
+//prev/next functionality
+links = document.querySelectorAll('.slideshow-container a');
+
+for (i = 0; i < links.length; i++) {
+  links[i].onclick = function() {
+    current = this.parentNode;
+
+    var slides = current.getElementsByClassName("mySlides");
+    var dots = current.getElementsByClassName("dot");
+    curr_slide = current.getElementsByClassName('active-slide')[0];
+    curr_dot = current.getElementsByClassName('active')[0];
+    curr_slide.classList.remove('active-slide');
+    curr_dot.classList.remove('active');
+    if (this.className == 'next') {
+
+      if (curr_slide.nextElementSibling.classList.contains('mySlides')) {
+        curr_slide.nextElementSibling.classList.add('active-slide');
+        curr_dot.nextElementSibling.classList.add('active');
+      } else {
+        slides[0].classList.add('active-slide');
+        dots[0].classList.add('active');
+      }
+
+    }
+
+    else {
+
+      if (curr_slide.previousElementSibling) {
+        curr_slide.previousElementSibling.classList.add('active-slide');
+        curr_dot.previousElementSibling.classList.add('active');
+      } else {
+        slides[slides.length - 1].classList.add('active-slide');
+        dots[slides.length - 1].classList.add('active');
+      }
+
+    }
+
+  }
+
+}
+})();
+
+
+
+</script>
+
+
+</body>
+</html>

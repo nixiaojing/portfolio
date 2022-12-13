@@ -1,0 +1,229 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.example.com/javascripts/api/tableau-2.js"></script>
+
+<style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+scroll-snap-type: y mandatory;
+  font-size: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+body {
+    margin:0;
+	font-family:verdana;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+
+.scrollable {
+  scroll-snap-align:start;
+}
+
+.container {
+  padding: 50px;
+  width: 60%;
+  margin-top: 10px;
+  display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.two_section {
+    float: left;
+    overflow:hidden;
+    text-align: center;
+    position:absolute;
+    height: 100%;
+}
+.two_section section {
+    overflow:hidden; 
+    float: left;
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 2 px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column_figure {
+  float: left;
+  width: 33.33%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Clearfix (clear floats) */
+.row_figure::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+p{
+    text-indent: 50px;
+    text-align:justify;
+    line-height: 1.8
+
+}
+.fa:hover{
+  color:blue;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+<div class="main-container">
+    <div class="scrollable row_figure">
+        <div class="column_figure">
+            <img src="./figure/cover_real.jpg" style="width:100%; height: 100%">        </div>
+        <div class="column_figure">
+            <img src="./figure/condo_picture.jpg" style="width:100%; height: 100%">        </div>
+        <div class="column_figure">
+            <img src="./figure/money_picture.jpg" style="width:100%; height: 100%">        </div>
+      </div>
+
+    <div class="scrollable container" style="height: 500%;">
+        <div style="position: sticky; top: 0px; z-index: 289; background-color: rgb(255, 255, 255);
+        padding-bottom: 5%;">
+        <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home" ></i></button> </a>
+<br><br>
+        <h2 style="text-align: center;">Introduction</h2>
+    </div>
+
+        <div style="scroll-padding-top:inherit ;overflow-y:hidden">
+        <p>Recently, Zillow has announce to terminate IBuyer program partially due to the accelerating housing values 
+            causing portential risks on earnings and balance-sheet volatility (<a href="https://www.wired.com/story/zillow-ibuyer-real-estate/" target="_blank">Source</a>). With all the concerns and attentions from both individuals and public, this portfolio will give some insights of the U.S. real estate market.
+            Indeed, the U.S. real estate market is "on fire" in 2020. 
+            U.S. home prices hit the highest level since 2006 
+            (Bahney, 2021, Friedman, 2021). In fact, according to 
+            <a href="https://www.zillow.com/research/zillow-total-housing-value-2020-28704/" target="_blank">Zillow analysis</a>, 
+            the U.S. housing market value gained about $2.5 trillion in last year. 
+            Within that, about 88% of the gained value ($2.2 trillion) was from appreciation of existing homes, 
+            while 12% counting for $274 billion was from new construction, which indicated that the housing stock might be 
+            continued to increase with no sign of cooling off. </p><br>
+            
+            <p>There are many reasons behind this increasing. The number one would be the record-low
+             mortgage rate. According to <a href="http://www.freddiemac.com/pmms/" target="_blank" >Freddie Mac</a>, 
+             30-year fixed rate decreased from 5% in 2018 to 3% in 2021 (Figure 1). The interest rate is the amount charged on top of the principal by a lender to a borrower for the use of assets.
+             Due to the COVID-19 pandemic, U.S. interest rate has been cut by Federal researve by a total of 1.5 percentage points since March 3, 2020. This made homebuyers more 
+             easy to pay their debt to the lenders.
+             <img src="./figure/Freddie-Mac-mortgage-rates-3Y-historical.png" alt="freddie_mac" height="400px" class="center">
+             <i>Figure 1. Historical mortgage rate, source:<a href="http://www.freddiemac.com/pmms/" target="_blank" >Freddie Mac</a></i></p><br>
+             <p>Low mortgage rate is not the only reason the housing market thrive. Pandemic also increased the flexible work 
+             arrangement (e.g. work from home). Work from home concept is changing people's home buying decision (<a href="https://www.surfacesreporter.com/articles/61843/wfh-concept-is-changing-peoples-home-buying-decisions" target="_blank" >Source</a>). 
+             Instead of paying high rent in the city, many people would buy a home. In addition, the location of buying a home is 
+             also shifting from city center to the city's outskirts. Compared to the city center, houses in the city's 
+             outskirts are larger in size and more affodable. Moreover, 
+             safty and hygiene concerns highlight the advantage of buying a home. </p><br>
+             <p>On the other hand, low inventory of selling home cannot fullfill the 
+                 high demand and cause the increasing of home sales price. Compared to 2019, the U.S. total 
+                 home value increased 7% in 2020 with total value of 2.5 trillion U.S. dollars (Figure 2). 
+                 As a comparison, this number was around 3.7% in 2019 compared to 2018. Among all the state, California 
+                 counts for 21.4% of the total U.S. housing value. The next three states are New York, Texas, and Florida. The 
+                 variance of the housing value of different states are high. According to <a href="https://www.zillow.com/research/zillow-total-housing-value-2020-28704/" target="_blank" >Zillow Market Reports</a>, 
+                 "North Dakota ($64 billion), Wyoming ($70 billion) and South Dakota ($72 billion), three of the least-populous states, 
+                 have the smallest shares of the U.S. housing market. 
+                 Alaska was the only state where the housing stock lost value in 2020, 
+                 down 1.8% or about $1.5 billion. That was caused by relatively low levels of new construction 
+                 and declining values among homes in Alaska’s top tier."
+        
+             </p>  
+             <div class='tableauPlaceholder' id='viz1638458618920' style='position: relative'>
+                <noscript><a href='#'>
+                    <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;TotalValue2020&#47;2020&#47;1_rss.png' style='border: none' /></a></noscript>
+                    <object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> 
+                        <param name='site_root' value='' /><param name='name' value='TotalValue2020&#47;2020' /><param name='tabs' value='no' /><param name='toolbar' value='no' />
+                        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;TotalValue2020&#47;2020&#47;1.png' /> 
+                        <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value=':revert=' />
+                        <param name='refresh' value='yes' /><param name='filter' value=':linktarget=' /></object></div>                
+                        
+
+
+             <i>Figure 2. Total value of U.S. housing market by state, source:<a href="https://www.zillow.com/research/zillow-total-housing-value-2020-28704/" target="_blank" >Zillow Market Reports</a></i></p><br>
+             <p>The thriving of housing market also draws public attention. There are 564,000,000 news about 
+                 real estate using Google News Search (<a href="https://www.google.com/search?q=real+estate&biw=1440&bih=789&tbm=nws&ei=weuoYdyvGY7WytMPrtmx0AE&oq=real+estate&gs_l=psy-ab.3..0i433i67k1j0i512i433k1l3j0i67k1j0i512i433k1l5.69174.69709.0.69968.5.5.0.0.0.0.79.341.5.5.0....0...1c.1.64.psy-ab..0.5.338...0i512i433i131k1j0i512k1.0.rmmU5TDcjFg" target="_blank">Google News Searching</a>). 
+                 According to <a href="https://ritetag.com/best-hashtags-for/homebuying" target="_blank">RiteTag</a>, in the last 24 hours from generating this article, there are 388 unique tweets with 901,546 hashtag exposure for 
+                 #real estate on Twitter and Instagram. For #home, there are 9,475,304 hashtag exposure. Not only realtor and home buyers, potential buyers
+                 are also involved. Wendy Edelberg, the editor of Brookings scholor wrote in her <a href="https://www.brookings.edu/blog/up-front/2021/11/16/what-does-current-inflation-tell-us-about-the-future/" target="_blank">recent article</a>: "As measured by the CPI, the annual rate of inflation from October 2020 to October 2021 was 6.2 percent. As measured by the PCE deflator, the annual rate of inflation from September 2020 to September 2021 (the most recent available data) was 4.4 percent." 
+                 This recent inflation makes many people think investment may be a good choice.
+             </p><br>
+
+             <p>With all the concerns and attentions from both individuals and public, this portfolio will give some insights of the U.S. real estate market. 
+             Such as if the 2020 market is thriving in almost all regions in the U.S.?
+             Is there a specific market (e.g. condo, single family house) that 
+             has more increasing than others? Under such market, what realtors and home buyers react and what 
+             they care about? Addressing those concerns, individuals like realtors, investors, and homebuyers, and 
+             the public like the press would have more clear idea about what others react about this thriving and what they might want to do in the future. 
+             
+              </p><br><br>
+
+            <div style="text-indent:-36px; padding-left: 36px;font-size: 12px;"> 
+                <i>Bahney, Anna. "Home sales hit 14-year high in 2020, pushing prices to record levels." <em>Cnn.com</em>, CNN Business, 22 January 2021, <a href="https://www.cnn.com/2021/01/22/success/existing-home-sales-december-2020/index.html">https://www.cnn.com/2021/01/22/success/existing-home-sales-december-2020/index.html</a>. Accessed 30 August 2021.</i><br>
+            </div>
+  
+            <div style="text-indent:-36px; padding-left: 36px;font-size: 12px;"> 
+
+                <i>Friedman, Nicole. "U.S. Existing-Home Sales Reach Highest Level in 14 Years." <em>Wsj.com</em>, The Wall Street Journal, 22 January 2021, <a href="https://www.wsj.com/articles/u-s-existing-home-sales-reach-highest-level-in-14-years-11611327933">https://www.wsj.com/articles/u-s-existing-home-sales-reach-highest-level-in-14-years-11611327933</a>. Accessed 30 August 2021.</i>
+            </div>
+    </div>
+</div>
+</div>
+
+<script type='text/javascript'>                    
+    var divElement = document.getElementById('viz1638458618920');                    
+    var vizElement = divElement.getElementsByTagName('object')[0];                    
+    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='800px';vizElement.style.height='900px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='800px';vizElement.style.height='900px';} else { vizElement.style.width='100%';vizElement.style.height='700px';}                     
+    var scriptElement = document.createElement('script');                    
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+    </script>
+    
+</body>
+</html>

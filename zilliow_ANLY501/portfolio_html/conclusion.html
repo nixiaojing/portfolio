@@ -1,0 +1,232 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.example.com/javascripts/api/tableau-2.js"></script>
+
+<style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+scroll-snap-type: y mandatory;
+  font-size: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+body {
+    margin:0;
+	font-family:verdana;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+
+.scrollable {
+  scroll-snap-align:start;
+}
+
+.container {
+  padding: 50px;
+  width: 60%;
+  margin-top: 10px;
+  display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.two_section {
+    float: left;
+    overflow:hidden;
+    text-align: center;
+    position:absolute;
+    height: 100%;
+}
+.two_section section {
+    overflow:hidden; 
+    float: left;
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 2 px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column_figure {
+  float: left;
+  width: 33.33%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Clearfix (clear floats) */
+.row_figure::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+p{
+    text-indent: 50px;
+    text-align:justify;
+    line-height: 1.8
+}
+.fa:hover{
+  color:blue;
+}
+
+.container-row{
+  display: flex;
+}
+
+.container-row .half-image{
+  flex: 1;
+}
+
+.container-row .description {
+  flex: 2;
+}
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+<div class="main-container">
+    <div class="scrollable row_figure">
+            <img src="./figure/real_picture.jpg" style="width:100%; height: 33%">        
+            <img src="./figure/mortgage_picture1.jpg" style="width:100%; height: 33%">        
+            <img src="./figure/investment_picture.jpg" style="width:100%; height: 33%">        
+      </div>
+
+    <div class="scrollable container" style="height: 450%;">
+        <div style="position: sticky; top: 0px; z-index: 289; background-color: rgb(255, 255, 255);
+        padding-bottom: 5%;">
+        <a href="./cover_501.html" ><button class="btn"><i class="fa fa-home" ></i></button> </a>
+<br><br>
+        <h2 style="text-align: center;">Conclusion</h2>
+    </div>
+
+        <div style="scroll-padding-top:inherit ;overflow-y:hidden">
+            <p>Some home buyers have already found dream homes in 2020, while some of them are still hesitated where and when 
+                to buy a home. On the other hand, realtors and investors are also struggling when to get into the market. 
+                This portfolio gives some insights of the U.S. real estate market to help people understand the market behaviors. Frist, different region have various real market behaviors. 
+                This would help home buyers and investors to know more about the market, which is potentially helpful people to make decision. Moreover, 
+                public reactions to the thriving of real estate market vary by different people and press. 
+            </p><br>   
+               
+            <h4><li>Where to buy home?</li></h4> <br>
+                <img src="./figure/top10_value.png" alt="top 10 city" class="center">
+                <i style="font-size: 14;">Figure 1. Top 10 Housing Value Metropolitan Area</i><br><br>
+
+            <p>With the high Vacant Housing Units number holding high in the South Region, large inventory also resides in the South. However, 
+                based on the analysis, the most valued housing value still reside in the West and Northeast Region (<a href="./decision_trees.html" target="_blank">Decision Tree</a> and 
+                <a href="./NB.html" target="_blank">Naive Bayes</a> session). In fact, 8 of of 10 metropolitan area with 
+                top Home Sales Price are in the West Region. Analysis also shows that West and Northeast Markets are most alike compared to 
+                other regions. Thus, as a home buyer living primary in the South Region, buying a home may not be as hard as in West and 
+                Northeast regardless of other considerations (such as income). On the contrary, the increasing in the West and Northeast region 
+                is also higher than the South, which means, for investors, investing on housing on West and Northeast still be the high risk but 
+                high profit choice.<br>
+            </p><br><br>
+            <h4><li>What are individuals care about? </li></h4> <br>
+            <div class="container-row">
+
+              <div class="half-image">
+                <img src="./figure/mortgage_buying.png" alt="key" height="300px">
+              </div>
+              <div class="description">
+                <div>
+                  <p>Individuals like realtor and home buyers may care about different things regarding to 
+                    this thriving real estate market. Nowadays, more and more people rely on social 
+                    media to develope their network and obtain information. 
+                  </p>
+                  <p>Based on twitter hashtag analysis, on one hand, most realtors account using adding related hashtags to get more recognition. For example, 
+                    tweets with #homebuying are highly likely with #realestate or #homebuyer. In this way, when people try to find 
+                    information on Twitter, not only the content of interests would come out, other related information would </p><br>
+                </div>
+              </div>
+            </div>
+            <p    style="text-indent: 0px;">also be shown. 
+              However, not all contents come out in searching results are realted to people's need. Thus, when users using keywords to 
+              search the information, more detailed screening of the contents are also needed. For example, users may be interested in 
+              home buying tips. In this case, only sub-topic with #REtips may be useful.
+            </p><br>
+            <p>
+              On the other hand, added hashtag can indicate the topic of 
+              the tweet. Lenders advertize using tweets may add hashtag of "mortgage", while realtors advertize through tweets could add #REtips or 
+              #realtor. Based on who is advertizing, the hashtags are different, althrough all the tweets are focusing on the same topic of 
+              "homebuying". This is useful for advertizers when customers use more than one hashtag to locate information they needed. 
+            </p> <br>
+            <p>Moreover, based on the advertising topics, for recent home buying and real estate market, mortgage is still one of the main topics for both advertizers including 
+              lenders and home buyers. This indicates the importance of mortgage that affects the market.
+            </p><br>                        
+
+            <h4><li>What the press care about?</li></h4> <br>
+            <div class="container-row">
+              <div class="description">
+                <div>
+                  <p>Different from individuals like realtor and home buyers, the press seems to have a larger picture in mind. The analysis 
+                    of home buying related news reveals the key words frequently occur in the news. Policy change and the change of 
+                    interest rate are the main topic to discuss. Instead of mortgage rate increasing, the press care more about why the mortgage change. This is why 
+                    word like "treasury" stands out. 
+                  </p><br>
+                  <p>As same as the analysis for individuals, mortgage rate is still the No.1 topic related to real estate market news. 
+                    However, news usually has various aspect in one article. For example, real estate news could have paragraphs describing interest rate change, 
+                    while other paragraphs mentioned how real estate market react to this change. Thus, online news articles are very informative 
+                    to get general idea of how recent market shifts. </p><br>
+                </div>
+              </div>
+
+              <div class="half-image">
+                <img src="./figure/market_key.png" alt="key" height="500px">
+              </div>
+            </div>
+
+            <p> As a conclusion, no matter for realtor, investor, or home buyers, location is critical for their decision. 
+              Different region would have various risk and profit. For home buyers, mortgage rate is till the No.1 factor to consider
+            .Thus, for home buyer and other investors, considering overall mortgage rate and local 
+            mortage rate is critical for the decision to purchase a home. 
+          </p>
+
+    </div>
+</div>
+</div>
+
+</body>
+</html>

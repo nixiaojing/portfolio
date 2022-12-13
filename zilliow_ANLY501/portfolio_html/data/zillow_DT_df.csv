@@ -1,0 +1,363 @@
+region,state,2018,2019,2020,label,type,USregion
+"Los Angeles-Long Beach-Anaheim, CA",CA,677750,690109.8333333334,736750,SFR,sales,West
+"Chicago, IL",IL,243791.66666666666,249312.5,266250,SFR,sales,Midwest
+"Dallas-Fort Worth, TX",TX,265177.3333333333,272220.8333333333,291276.1666666667,SFR,sales,Southwest
+"Philadelphia, PA",PA,241850.75,251899.16666666666,272862.4166666667,SFR,sales,Northeast
+"Houston, TX",TX,236704.58333333334,245204.16666666666,260224.16666666666,SFR,sales,Southwest
+"Washington, DC",DC,417580.5833333333,425232.3333333333,450508.25,SFR,sales,Southeast
+"Miami-Fort Lauderdale, FL",FL,327020.4166666667,338079.1666666667,362741.6666666667,SFR,sales,Southeast
+"Atlanta, GA",GA,243912.5,258761.33333333334,279578.3333333333,SFR,sales,Southeast
+"Boston, MA",MA,454924.1666666667,473316,525336.1666666666,SFR,sales,Northeast
+"San Francisco, CA",CA,828023.1666666666,838937.5,902666.6666666666,SFR,sales,West
+"Detroit, MI",MI,184450,196147.25,214234.83333333334,SFR,sales,Midwest
+"Riverside, CA",CA,372864.5833333333,382250,414415.8333333333,SFR,sales,West
+"Phoenix, AZ",AZ,274974.5,291055.75,321331.6666666667,SFR,sales,Southwest
+"Seattle, WA",WA,489678.3333333333,514972.0833333333,569407.3333333334,SFR,sales,West
+"Minneapolis-St Paul, MN",MN,265038.3333333333,282957.75,304133.3333333333,SFR,sales,Midwest
+"San Diego, CA",CA,617895.8333333334,626604.1666666666,676968.75,SFR,sales,West
+"St. Louis, MO",MO,184824.91666666666,194004.5,210070.83333333334,SFR,sales,Midwest
+"Tampa, FL",FL,230185.41666666666,241135.75,259969.66666666666,SFR,sales,Southeast
+"Baltimore, MD",MD,297590.8333333333,307442.5,314070,SFR,sales,Northeast
+"Denver, CO",CO,437140.25,445813,476054.1666666667,SFR,sales,West
+"Pittsburgh, PA",PA,164779.16666666666,173935.41666666666,184294.5,SFR,sales,Northeast
+"Portland, OR",OR,396881.25,408875,437260.4166666667,SFR,sales,West
+"Charlotte, NC",NC,251350.33333333334,265540.6666666667,287204.1666666667,SFR,sales,Southeast
+"San Antonio, TX",TX,223955.91666666666,231444.08333333334,247951,SFR,sales,Southwest
+"Orlando, FL",FL,265048.1666666667,278608.3333333333,287786.6666666667,SFR,sales,Southeast
+"Cincinnati, OH",OH,184033.33333333334,195025,213747,SFR,sales,Midwest
+"Cleveland, OH",OH,148754.16666666666,157225,172770.83333333334,SFR,sales,Midwest
+"Kansas City, MO",MO,212717.41666666666,225004.16666666666,246604.16666666666,SFR,sales,Midwest
+"Las Vegas, NV",NV,298009.9166666667,314228.75,328244.3333333333,SFR,sales,West
+"Columbus, OH",OH,209916.66666666666,222200,241812.5,SFR,sales,Midwest
+"Indianapolis, IN",IN,182116.66666666666,196083.08333333334,220051.25,SFR,sales,Midwest
+"San Jose, CA",CA,1152302.0833333333,1112145.8333333333,1188500,SFR,sales,West
+"Austin, TX",TX,310571.6666666667,320833.75,349369.5833333333,SFR,sales,Southwest
+"Virginia Beach, VA",VA,250502.33333333334,255379.16666666666,271581.25,SFR,sales,Southeast
+"Nashville, TN",TN,281893.25,300359.9166666667,319846.25,SFR,sales,Southeast
+"Providence, RI",RI,278845.3333333333,297162.5,327854.1666666667,SFR,sales,Northeast
+"Milwaukee, WI",WI,214708.33333333334,212612.5,226116.66666666666,SFR,sales,Midwest
+"Jacksonville, FL",FL,248846.5,256972.66666666666,271003.75,SFR,sales,Southeast
+"Memphis, TN",TN,172391.66666666666,184887.5,206916.66666666666,SFR,sales,Southeast
+"Oklahoma City, OK",OK,170979.16666666666,187514.16666666666,201897.75,SFR,sales,Southwest
+"Louisville-Jefferson County, KY",KY,184608.58333333334,198456.25,211459,SFR,sales,Southeast
+"Hartford, CT",CT,241550,240783.33333333334,260487.5,SFR,sales,Northeast
+"Richmond, VA",VA,248343,261194.5,278047.0833333333,SFR,sales,Southeast
+"New Orleans, LA",LA,200036.5,214386.08333333334,229526.25,SFR,sales,Southeast
+"Buffalo, NY",NY,153599.75,163016.66666666666,178039.08333333334,SFR,sales,Northeast
+"Raleigh, NC",NC,281729.1666666667,296373.75,314759.9166666667,SFR,sales,Southeast
+"Birmingham, AL",AL,196674.16666666666,209320.83333333334,226260.41666666666,SFR,sales,Southeast
+"Salt Lake City, UT",UT,322968.0833333333,345503.8333333333,383100,SFR,sales,West
+"Rochester, NY",NY,145676.58333333334,151387.58333333334,165911.91666666666,SFR,sales,Northeast
+"Grand Rapids, MI",MI,189208.33333333334,205795.83333333334,227200.66666666666,SFR,sales,Midwest
+"Tucson, AZ",AZ,215354.16666666666,230749.16666666666,250754.16666666666,SFR,sales,Southwest
+"Urban Honolulu, HI",HI,673465.6666666666,680428.5833333334,738208.3333333334,SFR,sales,West
+"Tulsa, OK",OK,165917.83333333334,174200,196421.08333333334,SFR,sales,Southwest
+"Fresno, CA",CA,273979.1666666667,288142.0833333333,308458.3333333333,SFR,sales,West
+"Worcester, MA",MA,273027.0833333333,284475.6666666667,316464.5833333333,SFR,sales,Northeast
+"Stamford, CT",CT,460887.5,442989.4166666667,504979.1666666667,SFR,sales,Northeast
+"Albuquerque, NM",NM,200677.08333333334,219089.58333333334,241698.33333333334,SFR,sales,Southwest
+"Albany, NY",NY,192508.33333333334,198694.16666666666,213277.08333333334,SFR,sales,Northeast
+"Omaha, NE",NE,188375,199352.16666666666,216020.83333333334,SFR,sales,Midwest
+"New Haven, CT",CT,245662.5,246693.75,265441.6666666667,SFR,sales,Northeast
+"Bakersfield, CA",CA,235537.5,248658.33333333334,267166.6666666667,SFR,sales,West
+"Knoxville, TN",TN,192946.41666666666,208384.66666666666,230999.75,SFR,sales,Southeast
+"Greenville, SC",SC,200690.83333333334,215245.75,230747.75,SFR,sales,Southeast
+"Ventura, CA",CA,629750,624957.5,677583.3333333334,SFR,sales,West
+"Allentown, PA",PA,192750,200416.66666666666,222291.66666666666,SFR,sales,Northeast
+"El Paso, TX",TX,156301.83333333334,163783.33333333334,175853.16666666666,SFR,sales,Southwest
+"Baton Rouge, LA",LA,205247,212007.08333333334,221333,SFR,sales,Southeast
+"Dayton, OH",OH,141079.16666666666,146691.66666666666,161162.5,SFR,sales,Midwest
+"Columbia, SC",SC,174940.66666666666,186221.5,198193.75,SFR,sales,Southeast
+"Greensboro, NC",NC,161642.75,170062.5,186729.16666666666,SFR,sales,Southeast
+"Akron, OH",OH,142450,151309.58333333334,163896.91666666666,SFR,sales,Midwest
+"North Port-Sarasota-Bradenton, FL",FL,285713.3333333333,292242.1666666667,306549.4166666667,SFR,sales,Southeast
+"Little Rock, AR",AR,162569.08333333334,167542.08333333334,181194.33333333334,SFR,sales,Southeast
+"Stockton, CA",CA,390062.5,408333.3333333333,435875,SFR,sales,West
+"Charleston, SC",SC,278664.0833333333,287744.8333333333,309776.5,SFR,sales,Southeast
+"Syracuse, NY",NY,137479,145406.83333333334,157934.83333333334,SFR,sales,Northeast
+"Colorado Springs, CO",CO,310521.3333333333,328109.5833333333,366534.75,SFR,sales,West
+"Winston-Salem, NC",NC,163358.33333333334,176616.08333333334,194164.16666666666,SFR,sales,Southeast
+"Wichita, KS",KS,147341.66666666666,155454.16666666666,169082.5,SFR,sales,Midwest
+"Springfield, MA",MA,219185,226094.08333333334,245045.83333333334,SFR,sales,Northeast
+"Fort Myers, FL",FL,244075.41666666666,250304.16666666666,259778.75,SFR,sales,Southeast
+"Boise City, ID",ID,273056.6666666667,298887,349557.5,SFR,sales,West
+"Toledo, OH",OH,119141.66666666667,127029.16666666667,137103.5,SFR,sales,Midwest
+"Madison, WI",WI,273825,287971.5833333333,307362.5,SFR,sales,Midwest
+"Lakeland, FL",FL,194904.25,210619.33333333334,222640,SFR,sales,Southeast
+"Ogden, UT",UT,267787.5,290370.8333333333,330681.25,SFR,sales,West
+"Daytona Beach, FL",FL,204832.5,223249.25,236845,SFR,sales,Southeast
+"Des Moines, IA",IA,212394.83333333334,222204.16666666666,235505.83333333334,SFR,sales,Midwest
+"Jackson, MS",MS,183616.91666666666,188071.5,210708.33333333334,SFR,sales,Southeast
+"Augusta, GA",GA,175596.08333333334,184887.5,203865.83333333334,SFR,sales,Southeast
+"Harrisburg, PA",PA,178725,188000,202595.41666666666,SFR,sales,Northeast
+"Provo, UT",UT,311195.8333333333,331251.5,369220.8333333333,SFR,sales,West
+"Fort Collins, CO",CO,393481.3333333333,403937.8333333333,420121,SFR,sales,West
+"Los Angeles-Long Beach-Anaheim, CA",CA,640124.5833333334,650283.3333333334,699642.5,all,sales,West
+"Chicago, IL",IL,233216.66666666666,238958.33333333334,255375,all,sales,Midwest
+"Dallas-Fort Worth, TX",TX,263866.75,270685.25,289464.5833333333,all,sales,Southwest
+"Philadelphia, PA",PA,238927.08333333334,249103.75,270141.6666666667,all,sales,Northeast
+"Houston, TX",TX,234245,243626.33333333334,257812.75,all,sales,Southwest
+"Washington, DC",DC,404001.6666666667,413487.9166666667,440574.0833333333,all,sales,Southeast
+"Miami-Fort Lauderdale, FL",FL,278896.25,291737.5,318125,all,sales,Southeast
+"Atlanta, GA",GA,239566.16666666666,255395.58333333334,274972.6666666667,all,sales,Southeast
+"Boston, MA",MA,444924.25,460618.3333333333,504336.6666666667,all,sales,Northeast
+"San Francisco, CA",CA,806725.4166666666,807604.1666666666,855566.6666666666,all,sales,West
+"Detroit, MI",MI,180408.33333333334,189270.83333333334,206139.58333333334,all,sales,Midwest
+"Riverside, CA",CA,367799.5833333333,376145.8333333333,407495.8333333333,all,sales,West
+"Phoenix, AZ",AZ,271173.5833333333,286920.4166666667,316016.6666666667,all,sales,Southwest
+"Seattle, WA",WA,467583.0833333333,490602.0833333333,538267.25,all,sales,West
+"Minneapolis-St Paul, MN",MN,260692,277935.6666666667,300186.5,all,sales,Midwest
+"San Diego, CA",CA,578833.3333333334,586958.3333333334,627291.6666666666,all,sales,West
+"St. Louis, MO",MO,179316.66666666666,189115.91666666666,204111.33333333334,all,sales,Midwest
+"Tampa, FL",FL,220600,232500,252263.33333333334,all,sales,Southeast
+"Baltimore, MD",MD,291054.6666666667,301517.25,309633.3333333333,all,sales,Northeast
+"Denver, CO",CO,414708.4166666667,424740.4166666667,452392.5,all,sales,West
+"Pittsburgh, PA",PA,165937.5,174972,185091.66666666666,all,sales,Northeast
+"Portland, OR",OR,387661.25,399307.9166666667,426733.3333333333,all,sales,West
+"Charlotte, NC",NC,248402.5,263865.8333333333,285556.1666666667,all,sales,Southeast
+"Sacramento, CA",CA,403000,418083.3333333333,450333.3333333333,all,sales,West
+"San Antonio, TX",TX,222728.75,229841.75,246345,all,sales,Southwest
+"Orlando, FL",FL,252115.66666666666,267664.8333333333,278266.6666666667,all,sales,Southeast
+"Cincinnati, OH",OH,175329.33333333334,185405.25,202365.83333333334,all,sales,Midwest
+"Cleveland, OH",OH,142219.25,151173.33333333334,166387.5,all,sales,Midwest
+"Kansas City, MO",MO,211258.33333333334,223354.16666666666,244581.25,all,sales,Midwest
+"Las Vegas, NV",NV,287520.8333333333,302851.75,316461.9166666667,all,sales,West
+"Columbus, OH",OH,199129,210708.33333333334,229079.16666666666,all,sales,Midwest
+"Indianapolis, IN",IN,178719,193240.83333333334,216274.5,all,sales,Midwest
+"San Jose, CA",CA,1089104.1666666667,1039583.3333333334,1112825.8333333333,all,sales,West
+"Austin, TX",TX,307931.4166666667,317821.9166666667,346853.75,all,sales,Southwest
+"Virginia Beach, VA",VA,244883.33333333334,251025,267316.6666666667,all,sales,Southeast
+"Nashville, TN",TN,279013.8333333333,297642.8333333333,316085.4166666667,all,sales,Southeast
+"Providence, RI",RI,269266.6666666667,286029.1666666667,315398.4166666667,all,sales,Northeast
+"Milwaukee, WI",WI,204916.66666666666,204566.66666666666,216200,all,sales,Midwest
+"Jacksonville, FL",FL,241442.41666666666,250256.5,265998.8333333333,all,sales,Southeast
+"Memphis, TN",TN,173035.91666666666,184960.41666666666,207029.16666666666,all,sales,Southeast
+"Oklahoma City, OK",OK,170525.08333333334,186770.33333333334,200875,all,sales,Southwest
+"Louisville-Jefferson County, KY",KY,180609.58333333334,192235.83333333334,206537.5,all,sales,Southeast
+"Hartford, CT",CT,224900,225067.08333333334,244704.16666666666,all,sales,Northeast
+"Richmond, VA",VA,246417.08333333334,259303.08333333334,275970.8333333333,all,sales,Southeast
+"New Orleans, LA",LA,196302.83333333334,210495.83333333334,224829.16666666666,all,sales,Southeast
+"Buffalo, NY",NY,153019.66666666666,162537.5,177217.91666666666,all,sales,Northeast
+"Raleigh, NC",NC,278416.6666666667,293804.1666666667,311945.8333333333,all,sales,Southeast
+"Birmingham, AL",AL,194653.75,206650.66666666666,223494.33333333334,all,sales,Southeast
+"Salt Lake City, UT",UT,312142.9166666667,334356.1666666667,370462.5,all,sales,West
+"Rochester, NY",NY,145391.66666666666,151016.66666666666,165345.83333333334,all,sales,Northeast
+"Grand Rapids, MI",MI,190912.5,207155.33333333334,226776.66666666666,all,sales,Midwest
+"Tucson, AZ",AZ,209652.16666666666,225050,244908.33333333334,all,sales,Southwest
+"Urban Honolulu, HI",HI,569200,588891.1666666666,614563.4166666666,all,sales,West
+"Tulsa, OK",OK,164312.5,171748.83333333334,193343.08333333334,all,sales,Southwest
+"Fresno, CA",CA,271791.6666666667,285354.1666666667,305583.3333333333,all,sales,West
+"Worcester, MA",MA,263870.8333333333,275079.1666666667,306495.8333333333,all,sales,Northeast
+"Stamford, CT",CT,403656.6666666667,394087.5,452116.6666666667,all,sales,Northeast
+"Albuquerque, NM",NM,197825.75,214877.25,237983.33333333334,all,sales,Southwest
+"Albany, NY",NY,192312.5,197876.33333333334,212709.25,all,sales,Northeast
+"Omaha, NE",NE,187745.83333333334,198354.16666666666,214662.5,all,sales,Midwest
+"New Haven, CT",CT,222102.75,224443.75,242279.16666666666,all,sales,Northeast
+"Bakersfield, CA",CA,232791.66666666666,246031.25,264041.6666666667,all,sales,West
+"Knoxville, TN",TN,191099,207722.66666666666,229529.58333333334,all,sales,Southeast
+"Greenville, SC",SC,197822.25,212535.66666666666,227474.83333333334,all,sales,Southeast
+"Ventura, CA",CA,594270.8333333334,593937.5,643375,all,sales,West
+"Allentown, PA",PA,191465,200018.58333333334,220995.83333333334,all,sales,Northeast
+"El Paso, TX",TX,155490.08333333334,163297.91666666666,175208.75,all,sales,Southwest
+"Baton Rouge, LA",LA,201548.58333333334,208641.91666666666,217797.16666666666,all,sales,Southeast
+"Dayton, OH",OH,137270.83333333334,141991.66666666666,156887.5,all,sales,Midwest
+"Columbia, SC",SC,173038.75,183685.75,195747.33333333334,all,sales,Southeast
+"Greensboro, NC",NC,157333.33333333334,164783.33333333334,180582.08333333334,all,sales,Southeast
+"Akron, OH",OH,140956.08333333334,150256.25,162276.58333333334,all,sales,Midwest
+"North Port-Sarasota-Bradenton, FL",FL,271420,280924.0833333333,294675.8333333333,all,sales,Southeast
+"Little Rock, AR",AR,162418.75,167399.58333333334,180714.16666666666,all,sales,Southeast
+"Stockton, CA",CA,384062.5,402395.8333333333,427104.1666666667,all,sales,West
+"Charleston, SC",SC,272669.25,283038.5833333333,303611.3333333333,all,sales,Southeast
+"Syracuse, NY",NY,137722.25,145247,157893.66666666666,all,sales,Northeast
+"Colorado Springs, CO",CO,306485.4166666667,323909.3333333333,362030.25,all,sales,West
+"Winston-Salem, NC",NC,160645.83333333334,173083.33333333334,191020.83333333334,all,sales,Southeast
+"Wichita, KS",KS,146245.83333333334,155210.41666666666,168587.5,all,sales,Midwest
+"Springfield, MA",MA,213500,219517.75,237275,all,sales,Northeast
+"Fort Myers, FL",FL,230279.16666666666,236248.66666666666,247964.58333333334,all,sales,Southeast
+"Boise City, ID",ID,272640.5833333333,298491.25,349446.5,all,sales,West
+"Toledo, OH",OH,120758.33333333333,128479.16666666667,138339.58333333334,all,sales,Midwest
+"Madison, WI",WI,258995.83333333334,269542.6666666667,290250,all,sales,Midwest
+"Lakeland, FL",FL,191854.41666666666,207752.08333333334,220000.25,all,sales,Southeast
+"Ogden, UT",UT,264139.5833333333,286545.8333333333,324980.25,all,sales,West
+"Daytona Beach, FL",FL,206324.41666666666,222879,237624.66666666666,all,sales,Southeast
+"Des Moines, IA",IA,202283.33333333334,213552.08333333334,226975,all,sales,Midwest
+"Jackson, MS",MS,182315,187604.83333333334,210212.5,all,sales,Southeast
+"Augusta, GA",GA,175087,183880.83333333334,202707.91666666666,all,sales,Southeast
+"Harrisburg, PA",PA,177425,187745.83333333334,201758.33333333334,all,sales,Northeast
+"Provo, UT",UT,300957.3333333333,322662.0833333333,357954.5833333333,all,sales,West
+"Fort Collins, CO",CO,381630.9166666667,391030.5833333333,408698.1666666667,all,sales,West
+"New York, NY",NY,747666,777637,622664,SFR,inventory,Northeast
+"Los Angeles-Long Beach-Anaheim, CA",CA,268874,280535,232990,SFR,inventory,West
+"Chicago, IL",IL,513812,538499,448883,SFR,inventory,Midwest
+"Dallas-Fort Worth, TX",TX,352029,406071,349758,SFR,inventory,Southwest
+"Philadelphia, PA",PA,329821,324322,242450,SFR,inventory,Northeast
+"Houston, TX",TX,440734,480362,423928,SFR,inventory,Southwest
+"Washington, DC",DC,274905,253706,206151,SFR,inventory,Southeast
+"Miami-Fort Lauderdale, FL",FL,383205,404359,338343,SFR,inventory,Southeast
+"Atlanta, GA",GA,369614,425259,375790,SFR,inventory,Southeast
+"Boston, MA",MA,124297,128532,93424,SFR,inventory,Northeast
+"San Francisco, CA",CA,71045,76861,66319,SFR,inventory,West
+"Detroit, MI",MI,195358,214688,168140,SFR,inventory,Midwest
+"Riverside, CA",CA,226475,228934,163574,SFR,inventory,West
+"Phoenix, AZ",AZ,305442,302261,244344,SFR,inventory,Southwest
+"Seattle, WA",WA,121222,125007,96263,SFR,inventory,West
+"Minneapolis-St Paul, MN",MN,156038,162396,144411,SFR,inventory,Midwest
+"San Diego, CA",CA,88441,88760,65638,SFR,inventory,West
+"St. Louis, MO",MO,161728,152165,122638,SFR,inventory,Midwest
+"Tampa, FL",FL,218858,226675,180722,SFR,inventory,Southeast
+"Baltimore, MD",MD,160345,158591,116782,SFR,inventory,Northeast
+"Denver, CO",CO,150631,170175,135279,SFR,inventory,West
+"Pittsburgh, PA",PA,125837,114757,90265,SFR,inventory,Northeast
+"Portland, OR",OR,109643,115855,93259,SFR,inventory,West
+"Charlotte, NC",NC,127229,140373,112654,SFR,inventory,Southeast
+"San Antonio, TX",TX,155841,179992,164536,SFR,inventory,Southwest
+"Orlando, FL",FL,146071,154484,135672,SFR,inventory,Southeast
+"Cincinnati, OH",OH,99906,97709,75332,SFR,inventory,Midwest
+"Cleveland, OH",OH,142660,140759,104654,SFR,inventory,Midwest
+"Kansas City, MO",MO,126598,113839,86105,SFR,inventory,Midwest
+"Las Vegas, NV",NV,124496,143833,115878,SFR,inventory,West
+"Columbus, OH",OH,68824,68219,54347,SFR,inventory,Midwest
+"Indianapolis, IN",IN,89811,92891,75016,SFR,inventory,Midwest
+"San Jose, CA",CA,27114,30837,26335,SFR,inventory,West
+"Austin, TX",TX,110274,115446,96813,SFR,inventory,Southwest
+"Virginia Beach, VA",VA,134734,125862,96631,SFR,inventory,Southeast
+"Providence, RI",RI,72619,70856,52690,SFR,inventory,Northeast
+"Milwaukee, WI",WI,41773,36190,33524,SFR,inventory,Midwest
+"Jacksonville, FL",FL,125347,133522,110526,SFR,inventory,Southeast
+"Memphis, TN",TN,74501,72346,53776,SFR,inventory,Southeast
+"Oklahoma City, OK",OK,102172,90461,74329,SFR,inventory,Southwest
+"Louisville-Jefferson County, KY",KY,59556,61717,47488,SFR,inventory,Southeast
+"Hartford, CT",CT,62394,61485,45937,SFR,inventory,Northeast
+"Richmond, VA",VA,62309,62639,52451,SFR,inventory,Southeast
+"Buffalo, NY",NY,37050,36292,27748,SFR,inventory,Northeast
+"Raleigh, NC",NC,84720,93684,78135,SFR,inventory,Southeast
+"Birmingham, AL",AL,79057,74021,61135,SFR,inventory,Southeast
+"Salt Lake City, UT",UT,44379,50161,36685,SFR,inventory,West
+"Rochester, NY",NY,41788,38653,30599,SFR,inventory,Northeast
+"Grand Rapids, MI",MI,39346,40997,31674,SFR,inventory,Midwest
+"Tucson, AZ",AZ,56370,55819,45149,SFR,inventory,Southwest
+"Tulsa, OK",OK,70326,60313,48198,SFR,inventory,Southwest
+"Fresno, CA",CA,27799,29797,21609,SFR,inventory,West
+"Worcester, MA",MA,36792,35852,25288,SFR,inventory,Northeast
+"Stamford, CT",CT,65322,66441,52663,SFR,inventory,Northeast
+"Albuquerque, NM",NM,47860,42370,32990,SFR,inventory,Southwest
+"Albany, NY",NY,34066,33121,25178,SFR,inventory,Northeast
+"Omaha, NE",NE,43037,43003,37273,SFR,inventory,Midwest
+"New Haven, CT",CT,39726,38004,28574,SFR,inventory,Northeast
+"Bakersfield, CA",CA,37428,37780,31024,SFR,inventory,West
+"Knoxville, TN",TN,54901,52734,40639,SFR,inventory,Southeast
+"Ventura, CA",CA,23178,24100,18701,SFR,inventory,West
+"Allentown, PA",PA,48704,45470,32422,SFR,inventory,Northeast
+"El Paso, TX",TX,50030,44958,38076,SFR,inventory,Southwest
+"Baton Rouge, LA",LA,56111,59801,50278,SFR,inventory,Southeast
+"Dayton, OH",OH,36465,31010,24547,SFR,inventory,Midwest
+"McAllen, TX",TX,26905,29542,24121,SFR,inventory,Southwest
+"Greensboro, NC",NC,33279,29712,23922,SFR,inventory,Southeast
+"Akron, OH",OH,46697,43565,33510,SFR,inventory,Midwest
+"North Port-Sarasota-Bradenton, FL",FL,97926,100357,85184,SFR,inventory,Southeast
+"Little Rock, AR",AR,65391,60042,50777,SFR,inventory,Southeast
+"Charleston, SC",SC,77727,82905,68626,SFR,inventory,Southeast
+"Syracuse, NY",NY,33761,30089,20474,SFR,inventory,Northeast
+"Colorado Springs, CO",CO,36170,38383,37250,SFR,inventory,West
+"Winston-Salem, NC",NC,32613,28877,23628,SFR,inventory,Southeast
+"Wichita, KS",KS,33558,30890,24973,SFR,inventory,Midwest
+"Springfield, MA",MA,21610,20728,15316,SFR,inventory,Northeast
+"Fort Myers, FL",FL,143537,153309,119583,SFR,inventory,Southeast
+"Toledo, OH",OH,28691,25489,20286,SFR,inventory,Midwest
+"Madison, WI",WI,29456,29664,26638,SFR,inventory,Midwest
+"Lakeland, FL",FL,53030,62575,53558,SFR,inventory,Southeast
+"Ogden, UT",UT,29857,34516,24874,SFR,inventory,West
+"Daytona Beach, FL",FL,56568,60795,51559,SFR,inventory,Southeast
+"Des Moines, IA",IA,49249,49716,41183,SFR,inventory,Midwest
+"Jackson, MS",MS,36967,34352,27102,SFR,inventory,Southeast
+"Augusta, GA",GA,45607,45001,33500,SFR,inventory,Southeast
+"Harrisburg, PA",PA,29086,26803,19952,SFR,inventory,Northeast
+"Provo, UT",UT,32023,41461,30805,SFR,inventory,West
+"Fort Collins, CO",CO,31379,31845,26614,SFR,inventory,West
+"New York, NY",NY,1011758,1051849,893677,all,inventory,Northeast
+"Los Angeles-Long Beach-Anaheim, CA",CA,325645,345655,281827,all,inventory,West
+"Chicago, IL",IL,632038,664548,566501,all,inventory,Midwest
+"Dallas-Fort Worth, TX",TX,367547,426371,371346,all,inventory,Southwest
+"Philadelphia, PA",PA,346996,338969,252185,all,inventory,Northeast
+"Houston, TX",TX,457433,497828,443161,all,inventory,Southwest
+"Washington, DC",DC,301793,272606,221568,all,inventory,Southeast
+"Miami-Fort Lauderdale, FL",FL,774082,800716,726803,all,inventory,Southeast
+"Atlanta, GA",GA,402149,455764,409334,all,inventory,Southeast
+"Boston, MA",MA,173300,185363,152321,all,inventory,Northeast
+"San Francisco, CA",CA,87663,97183,92935,all,inventory,West
+"Detroit, MI",MI,222509,246383,198089,all,inventory,Midwest
+"Riverside, CA",CA,248538,249056,179482,all,inventory,West
+"Phoenix, AZ",AZ,320116,318096,261610,all,inventory,Southwest
+"Seattle, WA",WA,140322,147220,117381,all,inventory,West
+"Minneapolis-St Paul, MN",MN,166274,173979,155447,all,inventory,Midwest
+"San Diego, CA",CA,110039,114284,87015,all,inventory,West
+"St. Louis, MO",MO,173644,161861,131427,all,inventory,Midwest
+"Tampa, FL",FL,241133,246369,203089,all,inventory,Southeast
+"Baltimore, MD",MD,169384,164941,120392,all,inventory,Northeast
+"Denver, CO",CO,180709,203961,166400,all,inventory,West
+"Pittsburgh, PA",PA,134276,121319,97537,all,inventory,Northeast
+"Portland, OR",OR,121939,129819,106535,all,inventory,West
+"Charlotte, NC",NC,130827,144273,115378,all,inventory,Southeast
+"San Antonio, TX",TX,159756,184135,168976,all,inventory,Southwest
+"Orlando, FL",FL,163799,172397,155607,all,inventory,Southeast
+"Cincinnati, OH",OH,110789,107030,84113,all,inventory,Midwest
+"Cleveland, OH",OH,160064,157249,117842,all,inventory,Midwest
+"Kansas City, MO",MO,130538,117502,89623,all,inventory,Midwest
+"Las Vegas, NV",NV,144203,168436,137425,all,inventory,West
+"Columbus, OH",OH,78573,78930,64579,all,inventory,Midwest
+"Indianapolis, IN",IN,96355,99394,81921,all,inventory,Midwest
+"San Jose, CA",CA,31009,36463,31846,all,inventory,West
+"Austin, TX",TX,108523,113206,100246,all,inventory,Southwest
+"Virginia Beach, VA",VA,152451,143229,111401,all,inventory,Southeast
+"Providence, RI",RI,85751,84877,64841,all,inventory,Northeast
+"Milwaukee, WI",WI,58331,50938,47858,all,inventory,Midwest
+"Jacksonville, FL",FL,142674,151719,125077,all,inventory,Southeast
+"Memphis, TN",TN,76181,73642,55002,all,inventory,Southeast
+"Oklahoma City, OK",OK,103645,91915,75925,all,inventory,Southwest
+"Louisville-Jefferson County, KY",KY,64588,67100,52311,all,inventory,Southeast
+"Hartford, CT",CT,75217,72128,54800,all,inventory,Northeast
+"Richmond, VA",VA,68593,65937,55376,all,inventory,Southeast
+"Buffalo, NY",NY,38116,37659,29086,all,inventory,Northeast
+"Raleigh, NC",NC,88324,97647,82193,all,inventory,Southeast
+"Birmingham, AL",AL,80990,75519,63149,all,inventory,Southeast
+"Salt Lake City, UT",UT,49308,55584,41993,all,inventory,West
+"Rochester, NY",NY,43348,40344,31893,all,inventory,Northeast
+"Grand Rapids, MI",MI,46355,49156,39750,all,inventory,Midwest
+"Tucson, AZ",AZ,58309,58052,47678,all,inventory,Southwest
+"Tulsa, OK",OK,72816,62509,50160,all,inventory,Southwest
+"Fresno, CA",CA,28588,30632,22283,all,inventory,West
+"Worcester, MA",MA,42545,41190,30008,all,inventory,Northeast
+"Stamford, CT",CT,79851,80066,66363,all,inventory,Northeast
+"Albuquerque, NM",NM,49917,45258,34911,all,inventory,Southwest
+"Albany, NY",NY,35049,33994,25953,all,inventory,Northeast
+"Omaha, NE",NE,44583,44301,38442,all,inventory,Midwest
+"New Haven, CT",CT,49990,46772,35771,all,inventory,Northeast
+"Bakersfield, CA",CA,38214,38506,31796,all,inventory,West
+"Knoxville, TN",TN,57677,54870,42762,all,inventory,Southeast
+"Ventura, CA",CA,26842,28028,21777,all,inventory,West
+"Allentown, PA",PA,50620,47370,33787,all,inventory,Northeast
+"El Paso, TX",TX,51634,46237,39152,all,inventory,Southwest
+"Baton Rouge, LA",LA,60108,64465,54413,all,inventory,Southeast
+"Dayton, OH",OH,39030,33311,26265,all,inventory,Midwest
+"Greensboro, NC",NC,34711,31000,25178,all,inventory,Southeast
+"Akron, OH",OH,52061,48258,37364,all,inventory,Midwest
+"North Port-Sarasota-Bradenton, FL",FL,115202,117060,99692,all,inventory,Southeast
+"Little Rock, AR",AR,66149,60966,51706,all,inventory,Southeast
+"Charleston, SC",SC,79765,85424,72634,all,inventory,Southeast
+"Syracuse, NY",NY,34693,30730,21013,all,inventory,Northeast
+"Colorado Springs, CO",CO,37470,39700,38617,all,inventory,West
+"Winston-Salem, NC",NC,33983,30161,24880,all,inventory,Southeast
+"Wichita, KS",KS,34189,31393,25434,all,inventory,Midwest
+"Springfield, MA",MA,25052,23577,17820,all,inventory,Northeast
+"Fort Myers, FL",FL,185302,192667,153089,all,inventory,Southeast
+"Toledo, OH",OH,30844,27612,22323,all,inventory,Midwest
+"Madison, WI",WI,36155,36389,33238,all,inventory,Midwest
+"Lakeland, FL",FL,54790,64343,55691,all,inventory,Southeast
+"Ogden, UT",UT,27194,31370,23448,all,inventory,West
+"Daytona Beach, FL",FL,74647,78978,67636,all,inventory,Southeast
+"Des Moines, IA",IA,52395,53382,47613,all,inventory,Midwest
+"Jackson, MS",MS,37556,34855,27414,all,inventory,Southeast
+"Augusta, GA",GA,45772,45451,34064,all,inventory,Southeast
+"Harrisburg, PA",PA,29714,27246,20180,all,inventory,Northeast
+"Provo, UT",UT,35027,46015,34765,all,inventory,West
+"Fort Collins, CO",CO,36545,36704,31101,all,inventory,West

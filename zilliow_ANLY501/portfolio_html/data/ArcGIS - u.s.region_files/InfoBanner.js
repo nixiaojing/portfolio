@@ -1,0 +1,3 @@
+//>>built
+define("arcgisonline/sharing/dijit/InfoBanner","require exports tslib dijit/_WidgetBase arcgis-components/wrappers/InfoBanner arcgisonline/tsutils/declareDecorator".split(" "),function(g,h,b,c,f,d){c=b.__importDefault(c);d=b.__importDefault(d);return function(){function e(a,k){}e.prototype.postCreate=function(){this.inherited(arguments);var a={bannerConfig:this.banner};"bottom"===this.region?a.bottomContainer=this.domNode:a.topContainer=this.domNode;new f.InfoBanner(a)};return e=b.__decorate([d["default"](c["default"])],
+e)}()});
