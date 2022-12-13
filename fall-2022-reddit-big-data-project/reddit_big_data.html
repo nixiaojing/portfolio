@@ -118,7 +118,7 @@ https://templatemo.com/tm-518-sentra
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                 <li><a href="#"><i class="fa fa-rss"></i></a></li>-->
-                <li><a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-22" target="blank"><i class="fa fa-github"></i></a></li>
+                <li><a href="https://github.com/nixiaojing/reddit-big-data" target="blank"><i class="fa fa-github"></i></a></li>
             </ul>
         </div>
 
@@ -753,7 +753,7 @@ https://templatemo.com/tm-518-sentra
                     <h4>For each question we isolated the necessary dataset, created dummy variables and conducted 
                         data transformations where needed, measured the Pearson correlation with “score,” and 
                         created visualizations to demonstrate the findings. For a full review of the results 
-                        and work done, you can view our notebook <a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-22/blob/master/code/eda/exported_databricks_nbs/project_eda.ipynb" target="blank">here</a>. 
+                        and work done, you can view our notebook <a href="https://github.com/nixiaojing/reddit-big-data/blob/main/code/eda/exported_databricks_nbs/project_eda.ipynb" target="blank">here</a>. 
                         Some of our more interesting results included that aggregate post score for the author 
                         of a given post was weakly correlated with score for that particular current post. 
                         In other words, past success was a slight predictor of current success for the author 
@@ -967,7 +967,7 @@ https://templatemo.com/tm-518-sentra
                                 dataset contained 154 game threads from the Yankees 2021 season with external data on the 
                                 outcome of each game. Whe then merged this dataset with the comments for each game thread, 
                                 resulting in a final dataset containing roughly 600,000 rows (~4,000 comments per game thread).
-                                The code used to produce this dataset can be viewed within our <a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-22/blob/master/code/nlp/Data_Gathering.ipynb" target="blank">Data Gathering notebook</a>. 
+                                The code used to produce this dataset can be viewed within our <a href="https://github.com/nixiaojing/reddit-big-data/blob/main/code/nlp/Data_Gathering.ipynb" target="blank">Data Gathering notebook</a>. 
                                 We then formulated specific business questions pertaining to this data, including:</h4>
                         
                                 <div class="report_list">
@@ -1066,7 +1066,7 @@ https://templatemo.com/tm-518-sentra
                               <h4>We then performed natural language processing on all of the comments for each of these
                                  game threads. This processing included analysis on comment length, most mentioned words, 
                                  and the most "important" words within each comment. The code can be found in our 
-                                 <a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-22/blob/master/code/nlp/Yankees_Processing_with_NLP.ipynb" target="blank">Yankees processing notebook</a>.
+                                 <a href="https://github.com/nixiaojing/reddit-big-data/blob/main/code/nlp/Yankees_Processing_with_NLP.ipynb" target="blank">Yankees processing notebook</a>.
                                  To begin processing the data, we first removed deleted comments from our dataset. 
                                  We then found the word count for each comment by splitting the body of the 
                                  comment into a string array using the space character to conduct the split. As displayed 
@@ -1153,7 +1153,7 @@ https://templatemo.com/tm-518-sentra
                                 “has_gary_sanchez” (Table 4, 5). Aaraon Judge was mentioned in 14,488 comments, 
                                 while Sanchez was mentioned in 1,046 comments. Code for this portion of the 
                                 analysis can also be viewed within the 
-                                <a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-22/blob/master/code/nlp/Yankees_Processing_with_NLP.ipynb" target="blank">Yankees processing notebook</a>.</h4>
+                                <a href="https://github.com/nixiaojing/reddit-big-data/blob/main/code/nlp/Yankees_Processing_with_NLP.ipynb" target="blank">Yankees processing notebook</a>.</h4>
                         
                                 <br>
                         
@@ -1215,7 +1215,7 @@ https://templatemo.com/tm-518-sentra
                                 while Aaaron Judge played exceptionally well (.311 BA). This thus provides 
                                 insight into our last business question, which is that there was a sentiment 
                                 difference among comments mentioning different players. The code can be found 
-                                within the <a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-22/blob/master/code/nlp/Sentiment_Analysis.ipynb">Sentiment Analysis notebook</a>.</h4>
+                                within the <a href="https://github.com/nixiaojing/reddit-big-data/blob/main/code/nlp/Sentiment_Analysis.ipynb">Sentiment Analysis notebook</a>.</h4>
                         
                               <br>
 
@@ -1326,7 +1326,7 @@ https://templatemo.com/tm-518-sentra
                     <h4>
                         To prepare our data for modeling, we created three new variables and transformed two existing variables within our 
                             dataset. We then filtered our dataset down to contain our two target variables and 13 predictor variables we 
-                            determined could be potentially useful to our models. The code for this can be found in our <a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-22/blob/master/code/ml/exported_databricks_nbs/Cleaning%26Prepping_Data_ML.ipynb" target="blank">Cleaning&Prepping_Data_ML 
+                            determined could be potentially useful to our models. The code for this can be found in our <a href="https://github.com/nixiaojing/reddit-big-data/blob/main/code/ml/exported_databricks_nbs/Cleaning%26Prepping_Data_ML.ipynb" target="blank">Cleaning&Prepping_Data_ML 
                             notebook.</a>. We then generated a correlation plot to see which of our numerical variables were correlated with one another, 
                             which produced some interesting findings. Notably, both the number of comments and the score a game thread received 
                             had a moderate correlation with the game's championship leverage index (cLI), a statistic that measures the importance 
@@ -1348,7 +1348,7 @@ https://templatemo.com/tm-518-sentra
                     </div>
                     <br>
                     <h4>In order to predict the score of a comment within a Yankees game thread given our dataset, we attempted to create two 
-                        XGBoost models, one regressor and one classifier (full summary and walkthrough can be found in the <a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-22/blob/master/code/ml/exported_databricks_nbs/ML_Modeling.ipynb" target="blank">ML_Modeling notebook</a>). 
+                        XGBoost models, one regressor and one classifier (full summary and walkthrough can be found in the <a href="https://github.com/nixiaojing/reddit-big-data/blob/main/code/ml/exported_databricks_nbs/ML_Modeling.ipynb" target="blank">ML_Modeling notebook</a>). 
                         To create the regression model, we constructed a pipeline that performed indexing of categorical variables, 
                         "assembled" features into a vector format supported by Pyspark, and cross validated training and hyperparameter search 
                         for the XGBoostRegressor model. For hyperparameter tuning, we chose to only tune the max depth of trees grown and 
@@ -1391,7 +1391,7 @@ https://templatemo.com/tm-518-sentra
 
 
                     <h4>To predict the sentiment of a given comment from our dataset, we created two supervised classification models: random 
-                        forest and support vector machine (SVM) (full summary and walkthrough can be found in the <a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-22/blob/master/code/ml/exported_databricks_nbs/ML_Sentiment.ipynb" target="blank">ML_Sentiment notebook</a>). 
+                        forest and support vector machine (SVM) (full summary and walkthrough can be found in the <a href="https://github.com/nixiaojing/reddit-big-data/blob/main/code/ml/exported_databricks_nbs/ML_Sentiment.ipynb" target="blank">ML_Sentiment notebook</a>). 
                         Before training each model, we found that our dataset contains imbalanced sentiment results, which would affect the 
                         random forest model's performance if not addressed. To handle this imbalance, we calculated the weighted score of each 
                         sentiment class and added its value to the dataset. To create the random forest model, we built a pipeline that indexed 
