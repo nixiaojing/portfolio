@@ -1,0 +1,332 @@
+---
+title: "CO2 emissions by fuel "
+author: 
+  - Aanchal Dusija
+  - Xiaojing Ni
+format: html
+embed-resources: true
+code-fold: true
+---
+This notebook is the revised version of the pie chart. 
+
+# Where do CO2 emissions come from?
+
+Various fuel types can contribute to the carbon dioxide emissions linked to energy and industrial output. Each of these sources' contribution has evolved dramatically throughout time and continues to vary greatly by region. The graphic shows the absolute and relative contribution of CO2 emissions by source, broken down into cement manufacturing, gas flaring, oil flaring, and coal. By moving to the chart's "relative" mode, it is easiest to show that solid fuel use predominated early industrialization on a worldwide scale.
+
+```{r global, include=FALSE}
+#| echo: false
+rm(list = ls())
+# install.packages("streamgraph", repos = "http://cran.rstudio.com/")
+# install.packages("devtools")
+# devtools::install_github("hrbrmstr/streamgraph")
+#library(streamgraph)
+library(crosstalk)
+library(htmlwidgets)
+library(tidyr)
+library(webshot)
+library(plotly)
+library(RColorBrewer)
+library(inlmisc)
+#if (!requireNamespace("remotes")) install.packages("remotes")
+#remotes::install_github("USGS-R/inlmisc", dependencies = TRUE)
+
+```
+
+# Data
+
+```{r}
+df <- read.csv("../data/CO2-by-source.csv")
+df<-df[,-2]
+colnames(df) <- c("Country", "Year", "Others","Flaring","Cement","Gas","Oil","Coal")
+head(df)
+```
+
+```{r}
+df_long <- gather(df, key = "Type", value = "Value", -Country, -Year)
+head(df_long)
+```
+
+# Graphing
+
+```{r}
+# US
+df_us <- df_long[df_long$Country=="United States",]
+head(df_us)
+
+# CHINA
+df_china <- df_long[df_long$Country=="China",]
+head(df_china)
+
+# BRAZIL
+df_brazil <- df_long[df_long$Country=="Brazil",]
+head(df_brazil)
+
+# CANADA
+df_canada <- df_long[df_long$Country=="Canada",]
+head(df_canada)
+
+# RUSSIA
+df_russia <- df_long[df_long$Country=="Russia",]
+head(df_russia)
+```
+
+```{r}
+# group by fuel type and calculate total CO2 emissions
+df_us_sum <- aggregate(df_us$Value, by=list(Category=df_us$Type), FUN=sum)
+
+
+
+# group by fuel type and calculate total CO2 emissions
+df_china_sum <- aggregate(df_china$Value, by=list(Category=df_china$Type), FUN=sum)
+
+
+# group by fuel type and calculate total CO2 emissions
+df_brazil_sum <- aggregate(df_brazil$Value, by=list(Category=df_brazil$Type), FUN=sum)
+
+
+
+# group by fuel type and calculate total CO2 emissions
+df_canada_sum <- aggregate(df_canada$Value, by=list(Category=df_canada$Type), FUN=sum)
+
+
+# group by fuel type and calculate total CO2 emissions
+df_russia_sum <- aggregate(df_russia$Value, by=list(Category=df_russia$Type), FUN=sum)
+
+
+```
+
+```{r}
+library(plotly)
+library(dplyr)
+
+fig <- plot_ly(width = 800, height = 500)
+
+### Brazil
+fig <-
+  fig %>% add_pie(
+    data = df_brazil_sum,
+    labels = ~ Category,
+    values = ~ x,
+    sort = FALSE, ## change the order manually
+    hole = 0.6, 
+    name = "Brazil",
+    domain = list(x = c(0.063, 0.598), y = c(0.475, 0.95)),
+    textposition = 'inside',
+    insidetextfont = list(color = '#FFFFFF'),
+    hoverinfo = 'label+percent',
+    textinfo = 'label+percent',
+    #marker = list(colors = inlmisc::GetTolColors(n =  length(df_russia_sum$Category)))
+    marker= list(colors = c("#AADDCC","#78B9D2","#DDCC66","#CCDDAA","#BBCCEE","#FFCCCC"))
+
+  )
+
+
+### China
+fig <-
+  fig %>% add_pie(
+    data = df_china_sum,
+    labels = ~ Category,
+    values = ~ x,
+    sort = FALSE, ## change the order manually
+    hole = 0.6,
+    name = "China",
+    domain = list(x = c(0.402, 0.937), y = c(0.475, 0.95)),
+    textposition = 'inside',
+    insidetextfont = list(color = '#FFFFFF'),
+    hoverinfo = 'label+percent',
+    textinfo = 'label+percent',
+    marker= list(colors = c("#AADDCC","#78B9D2","#DDCC66","#CCDDAA","#BBCCEE","#FFCCCC"))
+
+    # marker = list(colors = brewer.pal(
+    #   n = length(df_russia_sum$Category), name = 'Greens'
+    # ))
+  )
+
+
+## U.S.
+fig <-
+  fig %>% add_pie(
+    data = df_us_sum,
+    labels = ~ Category,
+    values = ~ x,
+    sort = FALSE, ## change the order manually
+    hole = 0.6,
+    name = "U.S.",
+    domain = list(row = 1, column = 0),
+    textposition = 'inside',
+    insidetextfont = list(color = '#FFFFFF'),
+    hoverinfo = 'label+percent',
+    textinfo = 'label+percent',
+    marker= list(colors = c("#AADDCC","#78B9D2","#DDCC66","#CCDDAA","#BBCCEE","#FFCCCC"))
+
+    # marker = list(colors = brewer.pal(
+    #   n = length(df_russia_sum$Category), name = 'Greens'
+    # ))
+  )
+
+
+## Canada
+fig <-
+  fig %>% add_pie(
+    data = df_canada_sum,
+    labels = ~ Category,
+    values = ~ x,
+    sort = FALSE, ## change the order manually
+    hole = 0.6,
+    name = "Canada",
+    domain = list(row = 1, column = 1),
+    textposition = 'inside',
+    insidetextfont = list(color = '#FFFFFF'),
+    hoverinfo = 'label+percent',
+    textinfo = 'label+percent',
+    marker= list(colors = c("#AADDCC","#78B9D2","#DDCC66","#CCDDAA","#BBCCEE","#FFCCCC"))
+
+    # marker = list(colors = brewer.pal(
+    #   n = length(df_russia_sum$Category), name = 'Greens'
+    # ))
+  )
+
+
+## Russia
+fig <-
+  fig %>% add_pie(
+    data = df_russia_sum,
+    labels = ~ Category,
+    values = ~ x,
+    sort = FALSE, ## change the order manually
+    hole = 0.6,
+    name = "Russia",
+    domain = list(row = 1, column = 2),
+    textposition = 'inside',
+    insidetextfont = list(color = '#FFFFFF'),
+    hoverinfo = 'label+percent',
+    textinfo = 'label+percent',
+    marker= list(colors = c("#AADDCC","#78B9D2","#DDCC66","#CCDDAA","#BBCCEE","#FFCCCC"))
+
+    # marker = list(colors = brewer.pal(
+    #   n = length(df_russia_sum$Category), name = 'Greens'
+    # ))
+  )
+
+
+## layout
+fig <-
+  fig %>% layout(
+    title = "CO<sub>2</sub> emission by fuel type",
+    showlegend = T,
+    grid = list(rows = 2, columns = 3),
+    xaxis = list(
+      showgrid = FALSE,
+      zeroline = FALSE,
+      showticklabels = FALSE
+    ),
+    yaxis = list(
+      showgrid = FALSE,
+      zeroline = FALSE,
+      showticklabels = FALSE
+    ),
+    
+    ### add annotations
+    annotations = list(
+      list(
+        x = 0.305,
+        y = 0.805,
+        text = "Brazil",
+        "showarrow" = F,
+        font = list(size = 12)
+      ),
+      list(
+        x = 0.704,
+        y = 0.805,
+        text = "China",
+        "showarrow" = F,
+        font = list(size = 12)
+      ),
+      list(
+        x = 0.083,
+        y = 0.28,
+        text = "United States",
+        "showarrow" = F,
+        font = list(size = 12)
+      ),
+      list(
+        x = 0.503,
+        y = 0.28,
+        text = "Canada",
+        "showarrow" = F,
+        font = list(size = 12)
+      ),
+      list(
+        x = 0.885,
+        y = 0.28,
+        text = "Russia",
+        "showarrow" = F,
+        font = list(size = 12)
+      )
+    ),
+    
+    ## add images
+    images = list(
+      ## Brazil
+      list(
+        source =  base64enc::dataURI(file = "../img/oil_pie.png"),
+        xref = "paper",
+        yref = "paper",
+        x = 0.25,
+        y = 0.747,
+        sizex = 0.17,
+        sizey = 0.17,
+        layer = "below"
+      ),
+      ## China
+      list(
+        source =  base64enc::dataURI(file = "../img/coal.png"),
+        xref = "paper",
+        yref = "paper",
+        x = 0.62,
+        y = 0.747,
+        sizex = 0.17,
+        sizey = 0.17,
+        layer = "above"
+      ),
+      ## U.S.
+      list(
+        source =  base64enc::dataURI(file = "../img/coal.png"),
+        xref = "paper",
+        yref = "paper",
+        x = 0.1,
+        y = 0.28,
+        sizex = 0.17,
+        sizey = 0.17,
+        layer = "above"
+      ),
+      ## Canada.
+      list(
+        source =  base64enc::dataURI(file = "../img/oil_pie.png"),
+        xref = "paper",
+        yref = "paper",
+        x = 0.42,
+        y = 0.28,
+        sizex = 0.17,
+        sizey = 0.17,
+        layer = "above"
+      ),
+      ## Russia
+      list(
+        source =  base64enc::dataURI(file = "../img/oil_pie.png"),
+        xref = "paper",
+        yref = "paper",
+        x = 0.77,
+        y = 0.28,
+        sizex = 0.17,
+        sizey = 0.17,
+        layer = "above"
+      )        
+    )
+  )
+
+fig
+saveWidget(fig, "fig.html", selfcontained = F, libdir = "lib_fig")
+
+```
+

@@ -1,0 +1,184 @@
+---
+title: "Choropleth map and time series data processing"
+author: "Group 18: Xiaojing Ni"
+format:
+    html:
+        toc: true
+        toc-depth: 4
+        embed-resources: true
+        theme: default
+        code-copy: true
+        code-line-numbers: true
+        link-external-icon: true
+        link-external-newwindow: true
+---
+
+```{r echo=FALSE, results='hide', warning=FALSE, message=FALSE}
+library(dplyr)
+library(stringr)
+library(ggplot2)
+library(reshape2)
+
+
+```
+
+### Read data
+```{r warning=FALSE,message=FALSE}
+## read data
+
+forest_pct <- read.csv("../data/ForestPct.csv", nrows = 267)
+# summary(forest_pct) ## ~ 1990-2020
+# head(forest_pct)
+
+gdp <- read.csv("../data/gdp-per-capita-worldbank.csv")
+# summary(gdp) ## 1990-2020
+
+emission_sector <- read.csv("../data/ghg-emissions-by-sector.csv")
+# summary(emission_sector) ## 1990-2019
+
+energy_use <- read.csv("../data/energy_use.csv", skip = 4)
+# summary(energy_use) ## 1990-2014 Energy use (kg of oil equivalent per capita)
+### source https://data.worldbank.org/indicator/EG.USE.PCAP.KG.OE
+
+```
+
+### Filter data to 1990-2020 and reshape the data
+Note: energy use data only till 2015
+
+Forest percentage from 1990 to 2020, by country, unit:100%.
+```{r}
+
+feature_list <- lapply(seq(1990, 2020), function(x)
+  paste0("X", x)) ## get name of the year
+
+## extract 1990 - 2020 data
+forest_pct_9020 <-
+  cbind(forest_pct$Country.Name,
+        forest_pct$Country.Code,
+        forest_pct[, which(colnames(forest_pct) %in% feature_list)])
+
+
+## show the data
+# head(forest_pct_9020)
+
+forest_pct_melted <-
+  melt(forest_pct_9020,
+       id.vars = c('forest_pct$Country.Name', 'forest_pct$Country.Code'))
+colnames(forest_pct_melted) <-
+  c("country", "code", "year", "forest_pct")
+
+forest_pct_melted$year <-
+  unlist(lapply(forest_pct_melted$year, function(x)
+    str_sub(x, 2, -1))) ## convert the column name to year
+head(forest_pct_melted)
+```
+
+GDP, dollar
+```{r}
+gdp <- read.csv("../data/gdp-per-capita-worldbank.csv")
+# summary(gdp) ## 1990-2020
+colnames(gdp) <- c("country", "code", "year", "gdp")
+head(gdp)
+```
+
+Emission by country, tonnes
+```{r message=FALSE}
+emission_country <- read.csv("../data/annual-co2-emissions-per-country.csv")
+
+## filter 1990-2020
+
+emission_country<- emission_country[which((emission_country$Year<2021) & (emission_country$Year>1989)),]
+
+colnames(emission_country) <-
+  c("country", "code", "year", "emission")
+head(emission_country)
+
+## Country average
+
+avg_country <- emission_country %>%
+   group_by(country, code) %>%
+   summarise(country_avg = mean(emission, na.rm = TRUE))
+
+head(avg_country)
+  
+### if use the emission by sector file
+# summary(emission_sector) ## 1990-2019
+# colnames(emission_sector) <- c("country","code","year","agriculture","LU_Frst","waste","industry","manuf","transp","elec","building","fugi","other","aviation")
+
+# emission_melt <-
+#   melt(emission_sector, id.vars = c('Entity', 'Code', 'Year'))
+# colnames(emission_melt) <-
+#   c("country", "code", "year", "sector", "emission")
+# # head(emission_melt)
+# 
+# ## group by year, annual total
+# emission_annual <- emission_melt %>%
+#   group_by(country, code, year) %>%
+#   summarise(annual_emission = sum(emission, na.rm = TRUE))
+# 
+# ## group by country, mean
+# emission_country <- emission_annual %>%
+#   group_by(country, code) %>%
+#   summarise(country_emission = mean(annual_emission, na.rm = TRUE))
+# 
+# head(emission_annual)
+# 
+# head(emission_country)
+```
+
+Energy use (kg of oil equivalent per capita), 1990-2014 
+```{r message=FALSE}
+energy_use <- read.csv("../data/energy_use.csv", skip = 4)
+#summary(energy_use) ## 1990-2014 Energy use (kg of oil equivalent per capita)
+### source https://data.worldbank.org/indicator/EG.USE.PCAP.KG.OE
+
+## extract 1990 - 2014 data
+energy_list <- lapply(seq(1990, 2014), function(x)
+  paste0("X", x)) ## get name of the year
+
+energy_9014 <-
+  cbind(energy_use$Country.Name, energy_use$Country.Code, energy_use[, which(colnames(energy_use) %in% feature_list)])
+
+
+## show the data
+#head(energy_9014)
+
+energy_melted <-
+  melt(energy_9014, id.vars = c('energy_use$Country.Name', 'energy_use$Country.Code'))
+colnames(energy_melted) <- c("country", "code", "year", "energy_use")
+
+## select some countries as countries of interest
+###  US, China, Brazil, Canada, and Russia.(they have the most forests/sq-km in the world)
+
+energy_melted$year <-
+  unlist(lapply(energy_melted$year, function(x)
+    str_sub(x, 2, -1)))
+
+head(energy_melted)
+
+```
+
+Merge all data into one dataframe
+```{r}
+df_merge <-
+  merge(forest_pct_melted,
+        gdp,
+        by = c("code", "year"), all.x = TRUE) %>% ## forest percentage
+  merge(emission_country[,2:length(emission_country)],
+        by = c( "code", "year"), all.x = TRUE) %>% ## annual emission
+  merge(energy_melted[,2:length(energy_melted)],
+        by = c("code", "year"), all.x = TRUE)%>% ## energy use
+  merge(avg_country[,2:length(avg_country)],
+        by = c( "code"), all.x = TRUE) ## country average emission
+```
+Save csv
+```{r}
+## eliminate comma in the country name
+df_merge <- df_merge[c("country.x","code","year","forest_pct","gdp","emission","energy_use","country_avg")]
+colnames(df_merge) <- c("country","code","year","forest_pct","gdp","emission","energy_use","country_avg")
+df_merge[,'country'] <- gsub(",","",df_merge[,'country'])
+## for map purpose
+df_merge$country[df_merge$country == 'Russian Federation'] <- 'Russian'
+
+write.csv(df_merge, "../data/map_timeseries.csv", row.names=FALSE, quote=FALSE) 
+```

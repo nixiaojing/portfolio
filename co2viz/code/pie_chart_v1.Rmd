@@ -1,0 +1,202 @@
+---
+title: "CO2 emissions by fuel "
+author: Aanchal Dusija
+format: html
+embed-resources: true
+code-fold: true
+---
+
+# Where do CO2 emissions come from?
+
+Various fuel types can contribute to the carbon dioxide emissions linked to energy and industrial output. Each of these sources' contribution has evolved dramatically throughout time and continues to vary greatly by region. The graphic shows the absolute and relative contribution of CO2 emissions by source, broken down into cement manufacturing, gas flaring, oil flaring, and coal. By moving to the chart's "relative" mode, it is easiest to show that solid fuel use predominated early industrialization on a worldwide scale.
+
+```{r global, include=FALSE}
+#| echo: false
+rm(list = ls())
+# install.packages("streamgraph", repos = "http://cran.rstudio.com/")
+# install.packages("devtools")
+# devtools::install_github("hrbrmstr/streamgraph")
+library(streamgraph)
+library(crosstalk)
+library(htmlwidgets)
+library(tidyr)
+library(webshot)
+library(plotly)
+library(RColorBrewer)
+
+```
+
+# Data
+
+```{r}
+df <- read.csv("CO2-by-source.csv")
+df<-df[,-2]
+colnames(df) <- c("Country", "Year", "Others","Flaring","Cement","Gas","Oil","Coal")
+head(df)
+```
+
+```{r}
+df_long <- gather(df, key = "Type", value = "Value", -Country, -Year)
+head(df_long)
+```
+
+# Graphing
+
+```{r}
+# US
+df_us <- df_long[df_long$Country=="United States",]
+head(df_us)
+
+# CHINA
+df_china <- df_long[df_long$Country=="China",]
+head(df_china)
+
+# BRAZIL
+df_brazil <- df_long[df_long$Country=="Brazil",]
+head(df_brazil)
+
+# CANADA
+df_canada <- df_long[df_long$Country=="Canada",]
+head(df_canada)
+
+# RUSSIA
+df_russia <- df_long[df_long$Country=="Russia",]
+head(df_russia)
+```
+
+```{r, warning=FALSE}
+# Stream graph for CO2 - USA
+pp <- streamgraph(df_us, key="Type", value="Value",offset = "zero", date="Year", height="450px", width="800px", order = "inside-out", top = 20, right = 40, bottom = 30, left = 100) %>%
+    sg_axis_x(20) %>%
+  sg_axis_y(20) %>%
+    sg_fill_brewer("PuOr") %>%
+  sg_legend(show=TRUE, label="Fuel: ") %>%
+  sg_title(title = "CO2 emissions by fuel for United States of America")
+
+pp
+```
+
+```{r, warning=FALSE}
+# Stream graph for CO2 - CHINA
+pp <- streamgraph(df_china, key="Type", value="Value",offset = "zero", date="Year", height="450px", width="800px", order = "inside-out", top = 20, right = 40, bottom = 30, left = 100) %>%
+    sg_axis_x(20) %>%
+  sg_axis_y(20) %>%
+    sg_fill_brewer("PuOr") %>%
+  sg_legend(show=TRUE, label="Fuel: ")%>%
+  sg_title(title = "CO2 emissions by fuel for China")
+
+pp
+```
+
+```{r, warning=FALSE}
+# Stream graph for CO2 - BRAZIL
+pp <- streamgraph(df_brazil, key="Type", value="Value",offset = "zero", date="Year", height="450px", width="800px", order = "inside-out", top = 20, right = 40, bottom = 30, left = 100) %>%
+    sg_axis_x(20) %>%
+  sg_axis_y(20) %>%
+    sg_fill_brewer("PuOr") %>%
+  sg_legend(show=TRUE, label="Fuel: ")%>%
+  sg_title(title = "CO2 emissions by fuel for Brazil")
+
+pp
+```
+
+```{r, warning=FALSE}
+# Stream graph for CO2 - CANADA
+pp <- streamgraph(df_canada, key="Type", value="Value",offset = "zero", date="Year", height="450px", width="800px", order = "inside-out", top = 20, right = 40, bottom = 30, left = 100) %>%
+    sg_axis_x(20) %>%
+  sg_axis_y(20) %>%
+    sg_fill_brewer("PuOr") %>%
+  sg_legend(show=TRUE, label="Fuel: ")%>%
+  sg_title(title = "CO2 emissions by fuel for Canada")
+
+pp
+```
+
+```{r, warning=FALSE}
+# Stream graph for CO2 - RUSSIA
+pp <- streamgraph(df_russia, key="Type", value="Value",offset = "zero", date="Year", height="450px", width="800px", order = "inside-out", top = 20, right = 40, bottom = 30, left = 100) %>%
+    sg_axis_x(20) %>%
+  sg_axis_y(20) %>%
+    sg_fill_brewer("PuOr") %>%
+  sg_legend(show=TRUE, label="Fuel: ")%>%
+  sg_title(title = "CO2 emissions by fuel for Russia")
+
+pp
+```
+
+```{r}
+# look into
+# 1. https://stackoverflow.com/questions/15881613/d3-js-streamgraph-example-generating-correct-area-function-values
+
+```
+
+```{r}
+# group by fuel type and calculate total CO2 emissions
+df_us_sum <- aggregate(df_us$Value, by=list(Category=df_us$Type), FUN=sum)
+
+# create pie chart using plotly
+p <- plot_ly(df_us_sum, labels = ~Category, values = ~x, type = 'pie', 
+             textposition = 'inside', insidetextfont = list(color = '#FFFFFF'),
+             hoverinfo = 'label+percent', textinfo = 'label+percent',
+             marker = list(colors = brewer.pal(n = length(df_us_sum$Category), name = 'Greens')))
+p <- p %>% layout(title = "CO2 emissions by fuel for United States of America")
+
+p
+
+
+```
+```{r}
+# group by fuel type and calculate total CO2 emissions
+df_china_sum <- aggregate(df_china$Value, by=list(Category=df_china$Type), FUN=sum)
+
+# create pie chart using plotly
+p <- plot_ly(df_china_sum, labels = ~Category, values = ~x, type = 'pie', 
+             textposition = 'inside', insidetextfont = list(color = '#FFFFFF'),
+             hoverinfo = 'label+percent', textinfo = 'label+percent',
+             marker = list(colors = brewer.pal(n = length(df_china_sum$Category), name = 'Greens')))
+p <- p %>% layout(title = "CO2 emissions by fuel for China")
+
+p
+```
+```{r}
+# group by fuel type and calculate total CO2 emissions
+df_brazil_sum <- aggregate(df_brazil$Value, by=list(Category=df_brazil$Type), FUN=sum)
+
+# create pie chart using plotly
+p <- plot_ly(df_brazil_sum, labels = ~Category, values = ~x, type = 'pie', 
+             textposition = 'inside', insidetextfont = list(color = '#FFFFFF'),
+             hoverinfo = 'label+percent', textinfo = 'label+percent',
+             marker = list(colors = brewer.pal(n = length(df_brazil_sum$Category), name = 'Greens')))
+p <- p %>% layout(title = "CO2 emissions by fuel for Brazil")
+
+p
+```
+```{r}
+
+# group by fuel type and calculate total CO2 emissions
+df_canada_sum <- aggregate(df_canada$Value, by=list(Category=df_canada$Type), FUN=sum)
+
+# create pie chart using plotly
+p <- plot_ly(df_canada_sum, labels = ~Category, values = ~x, type = 'pie', 
+             textposition = 'inside', insidetextfont = list(color = '#FFFFFF'),
+             hoverinfo = 'label+percent', textinfo = 'label+percent',
+             marker = list(colors = brewer.pal(n = length(df_canada_sum$Category), name = 'Greens')))
+p <- p %>% layout(title = "CO2 emissions by fuel for Canada")
+
+p
+```
+
+```{r}
+# group by fuel type and calculate total CO2 emissions
+df_russia_sum <- aggregate(df_russia$Value, by=list(Category=df_russia$Type), FUN=sum)
+
+# create pie chart using plotly
+p <- plot_ly(df_russia_sum, labels = ~Category, values = ~x, type = 'pie', 
+             textposition = 'inside', insidetextfont = list(color = '#FFFFFF'),
+             hoverinfo = 'label+percent', textinfo = 'label+percent',
+             marker = list(colors = brewer.pal(n = length(df_russia_sum$Category), name = 'Greens')))
+p <- p %>% layout(title = "CO2 emissions by fuel for Russia")
+
+p
+```
+

@@ -1,0 +1,244 @@
+---
+title: "EDA Global CO2 Emission"
+author: "Group 18: Xiaojing Ni"
+format:
+    html:
+        toc: true
+        toc-depth: 4
+        embed-resources: true
+        theme: default
+        code-copy: true
+        code-line-numbers: true
+        link-external-icon: true
+        link-external-newwindow: true
+---
+
+```{r echo=FALSE, results='hide', warning=FALSE, message=FALSE}
+library(stringr)
+library(ggplot2)
+library(reshape2)
+
+```
+## Data preview
+
+```{r warning=FALSE,message=FALSE}
+## read data
+
+forest <- read.csv("../data/ForestArea.csv", nrows = 267)
+forest[, 5:(length(forest))] <-
+  apply(forest[, 5:(length(forest))], 2, as.numeric)
+summary(forest) ## ~ 1990-2020
+head(forest)
+
+forest_pct <- read.csv("../data/ForestPct.csv", nrows = 267)
+summary(forest_pct) ## ~ 1990-2020
+head(forest_pct)
+
+gdp <- read.csv("../data/gdp-per-capita-worldbank.csv")
+summary(gdp) ## 1990-2020
+
+emission_sector <- read.csv("../data/ghg-emissions-by-sector.csv")
+summary(emission_sector) ## 1990-2019
+
+hd_idex <- read.csv("../data/human-development-index.csv")
+summary(hd_idex) ## 1990-2021
+
+meat_prod <- read.csv("../data/meat-production-tonnes.csv")
+summary(meat_prod) ## 1961-2020
+
+income_groups <- read.csv("../data/world-banks-income-groups.csv")
+summary(income_groups) ## 1987-2021
+
+energy_use <- read.csv("../data/energy_use.csv", skip = 4)
+summary(energy_use) ## 1990-2014 Energy use (kg of oil equivalent per capita)
+### source https://data.worldbank.org/indicator/EG.USE.PCAP.KG.OE
+
+```
+
+## Time series
+
+### Forest
+
+[Data source](# https://data.worldbank.org/indicator/AG.LND.FRST.ZS?end=2020&name_desc=false&start=1990)
+
+1. Percentage
+```{r}
+## forest area from 1990 to 2020, by country
+feature_list <- lapply(seq(1990, 2020), function(x)
+  paste0("X", x)) ## get name of the year
+
+## extract 1990 - 2020 data
+forest_pct_9020 <-
+  cbind(forest_pct$Country.Name, forest_pct[, which(colnames(forest_pct) %in% feature_list)])
+
+
+## show the data
+head(forest_pct_9020)
+
+```
+```{r}
+forest_pct_melted <-
+  melt(forest_pct_9020, id.vars = 'forest_pct$Country.Name')
+colnames(forest_pct_melted) <- c("country_name", "variable", "value")
+
+## select some countries as countries of interest
+###  US, China, Brazil, Canada, and Russia.(they have the most forests/sq-km in the world)
+country_OI <-
+  c("United States",
+    "Brazil",
+    "China",
+    "Canada",
+    "Russian Federation")
+forest_pct_melted$variable <-
+  unlist(lapply(forest_pct_melted$variable, function(x)
+    str_sub(x, 2, -1)))
+
+ggplot(data = forest_pct_melted[which(forest_pct_melted$country_name %in% country_OI), ], aes(x =
+                                                                                                variable, y = value, group = country_name)) +
+  geom_line(aes(color = country_name)) +
+  xlab("Year") + ylab("Percentage of the land, 100%") +
+  theme(axis.text.x = element_text(angle = 90))
+
+```
+
+2. Area
+
+```{r}
+
+## extract 1990 - 2020 data
+forest_9020 <- forest[, c(3, 5:(length(forest) - 1))]
+
+
+## show the data
+head(forest_9020)
+
+```
+```{r}
+forest_melted <- melt(forest_9020, id.vars = 'Country.Name')
+colnames(forest_melted) <- c("country_name", "variable", "value")
+
+## select some countries as countries of interest
+###  US, China, Brazil, Canada, and Russia.(they have the most forests/sq-km in the world)
+forest_melted$variable <-
+  unlist(lapply(forest_melted$variable, function(x)
+    str_sub(x, 2, 5)))
+
+ggplot(data = forest_melted[which(forest_melted$country_name %in% country_OI), ], aes(x =
+                                                                                        variable, y = value, group = country_name)) +
+  geom_line(aes(color = country_name)) +
+  xlab("Year") + ylab("Area, sq-km") +
+  theme(axis.text.x = element_text(angle = 90))
+
+```
+
+### GDP
+```{r}
+colnames(gdp) <- c("country", "code", "year", "gdp")
+country_OI_code <- c("USA", "BRA", "CHN", "CAN", "RUS")
+ggplot(data = gdp[which(gdp$code %in% country_OI_code), ], aes(x = year, y =
+                                                                 gdp, group = country)) +
+  geom_line(aes(color = country)) +
+  xlab("Year") + ylab("GDP, dollar") +
+  theme(axis.text.x = element_text(angle = 90))
+
+```
+### Meat production
+```{r}
+colnames(meat_prod) <- c("country", "code", "year", "meat_prod")
+ggplot(data = meat_prod[which(meat_prod$code %in% country_OI_code), ], aes(x =
+                                                                             year, y = meat_prod, group = country)) +
+  geom_line(aes(color = country)) +
+  xlab("Year") + ylab("Meat production, ton") +
+  theme(axis.text.x = element_text(angle = 90))
+
+```
+### Human Development Index
+```{r}
+colnames(hd_idex) <- c("country", "code", "year", "hdi")
+ggplot(data = hd_idex[which(hd_idex$code %in% country_OI_code), ], aes(x =
+                                                                         year, y = hdi, group = country)) +
+  geom_line(aes(color = country)) +
+  xlab("Year") + ylab("Human Development Index") +
+  theme(axis.text.x = element_text(angle = 90))
+
+```
+### Emission by sector
+
+1. Industry
+```{r}
+colnames(emission_sector) <-
+  c(
+    "country",
+    "code",
+    "year",
+    "agriculture",
+    "LU_Frst",
+    "waste",
+    "industry",
+    "manuf",
+    "transp",
+    "elec",
+    "building",
+    "fugi",
+    "other",
+    "aviation"
+  )
+
+## industry
+ggplot(data = emission_sector[which(emission_sector$code %in% country_OI_code), ], aes(x =
+                                                                                         year, y = industry, group = country)) +
+  geom_line(aes(color = country)) +
+  xlab("Year") + ylab("Industry, ton") +
+  theme(axis.text.x = element_text(angle = 90))
+
+```
+2. Electricity and heat
+```{r}
+
+
+## elec
+ggplot(data = emission_sector[which(emission_sector$code %in% country_OI_code), ], aes(x =
+                                                                                         year, y = elec, group = country)) +
+  geom_line(aes(color = country)) +
+  xlab("Year") + ylab("Electricity and heat, ton") +
+  theme(axis.text.x = element_text(angle = 90))
+
+```
+
+### Energy use
+
+```{r}
+## extract 1990 - 2014 data
+energy_list <- lapply(seq(1990, 2014), function(x)
+  paste0("X", x)) ## get name of the year
+
+energy_9014 <-
+  cbind(energy_use$Country.Name, energy_use[, which(colnames(energy_use) %in% feature_list)])
+
+
+## show the data
+head(energy_9014)
+
+```
+```{r}
+
+energy_melted <-
+  melt(energy_9014, id.vars = 'energy_use$Country.Name')
+colnames(energy_melted) <- c("country_name", "variable", "value")
+
+## select some countries as countries of interest
+###  US, China, Brazil, Canada, and Russia.(they have the most forests/sq-km in the world)
+
+energy_melted$variable <-
+  unlist(lapply(energy_melted$variable, function(x)
+    str_sub(x, 2, -1)))
+
+ggplot(data = energy_melted[which(energy_melted$country_name %in% country_OI), ], aes(x =
+                                                                                        variable, y = value, group = country_name)) +
+  geom_line(aes(color = country_name)) +
+  xlab("Year") + ylab("Energy use, kg of oil equivalent per capita") +
+  theme(axis.text.x = element_text(angle = 90))
+
+
+```
+

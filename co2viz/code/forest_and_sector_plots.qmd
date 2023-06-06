@@ -1,0 +1,712 @@
+---
+title: "ca829 Project"
+format: html
+code-line-numbers: true
+editor: visual
+code-link: true
+execute:
+  echo: true
+  freeze: auto
+code-fold: true
+output:
+  html_document:
+    keep_md: --- 
+---
+
+### Loading Necessary Packages
+
+```{r Loading Packages}
+#| warning: FALSE
+library(tidyr)
+library(plotly)
+library(gt)
+library(dplyr)
+```
+
+### Reading the Data
+
+```{r Download Data}
+#| warning: FALSE
+emission <- read.csv("../data/ghg-emissions-by-sector.csv",header=T)
+gdp <- read.csv("../data/gdp-per-capita-worldbank.csv",header=T)
+area <- read.csv("../data/ForestArea.csv",header=T)
+pct <- read.csv("../data/ForestPct.csv",header=T)
+```
+
+### Cleaning the Data
+
+```{r Clean Data}
+#| warning: FALSE
+
+# Unfortunately it looks like for the most part, there's only continuous data from 2012 - 2020. We will have to use the same date range for both data sets to have a proper visualization.
+
+# On a separate note, Google says that the US, Canada, Russia, China, and Brazil are the countries that share the most forest cover between them in the whole world. Rather than trying to look at hundreds of countries, I think we can get an interesting snapshot by looking at these 5 countries as a reference. 
+
+
+############
+# EMISSION #
+############
+emission.t5 <- emission[emission$Entity=="Brazil" |
+                       emission$Entity=="Canada" |
+                       emission$Entity=="United States" |
+                       emission$Entity=="China" |
+                       emission$Entity=="Russia",]
+
+emission.t5$total <- rep(0,nrow(emission.t5))
+for (i in 1:nrow(emission.t5)){
+  emission.t5[i,15] <- sum(emission.t5[i,4:14])
+}
+
+emission.t5 <- emission.t5[,c(1,3,15)]
+emission.t5 <- emission.t5[emission.t5$Year==2012 |
+                             emission.t5$Year==2013 |
+                             emission.t5$Year==2014 |
+                             emission.t5$Year==2015 |
+                             emission.t5$Year==2016 |
+                             emission.t5$Year==2017 |
+                             emission.t5$Year==2018 |
+                             emission.t5$Year==2019 ,]
+
+colnames(emission.t5) <- c("Country","year","emissions")
+emission.t5$year <- as.character(emission.t5$year)
+
+###############
+# FOREST AREA #
+###############
+
+area <- area[,c(3,7:15)]
+
+area.t5 <- area[area$Country.Name=="Brazil" | 
+                  area$Country.Name=="Canada" |
+                  area$Country.Name=="United States" |
+                  area$Country.Name=="China" |
+                  area$Country.Name=="Russian Federation" ,]
+colnames(area.t5) <- c("Country","2012","2013","2014","2015","2016","2017","2018","2019","2020")
+
+area.t5 <- area.t5 %>% pivot_longer(cols=c("2012","2013","2014","2015","2016","2017","2018","2019","2020"), names_to="year", values_to="forest_cover")
+
+area.t5$forest_cover <- as.numeric(area.t5$forest_cover)
+
+
+# area.t5 <- area.t5 %>% pivot_wider(names_from = Country, values_from = forest_cover)
+
+# area.t5$Brazil <- as.numeric(area.t5$Brazil)
+# area.t5$Canada <- as.numeric(area.t5$Canada)
+# area.t5$China <- as.numeric(area.t5$China)
+# area.t5$`Russian Federation` <- as.numeric(area.t5$`Russian Federation`)
+# area.t5$`United States` <- as.numeric(area.t5$`United States`)
+
+
+
+##############
+# FOREST PCT #
+##############
+
+pct <- pct[,c(1,27:35)]
+
+pct.t5 <- pct[pct$Country.Name=="Brazil" | 
+                  pct$Country.Name=="Canada" |
+                  pct$Country.Name=="United States" |
+                  pct$Country.Name=="China" |
+                  pct$Country.Name=="Russian Federation" ,]
+colnames(pct.t5) <- c("Country","2012","2013","2014","2015","2016","2017","2018","2019","2020")
+
+pct.t5 <- pct.t5 %>% pivot_longer(cols=c("2012","2013","2014","2015","2016","2017","2018","2019","2020"), names_to="year", values_to="percent_cover")
+
+pct.t5_2019 <- pct.t5[pct.t5$year!=2020,]
+
+
+# pct.t5 <- pct.t5 %>% pivot_wider(names_from = Country, values_from = percent_cover)
+# 
+# pct.t5$Brazil <- as.numeric(pct.t5$Brazil)
+# pct.t5$Canada <- as.numeric(pct.t5$Canada)
+# pct.t5$China <- as.numeric(pct.t5$China)
+# pct.t5$`Russian Federation` <- as.numeric(pct.t5$`Russian Federation`)
+# pct.t5$`United States` <- as.numeric(pct.t5$`United States`)
+
+
+############
+# Combined #
+############
+
+pct.t5_2019[pct.t5_2019$Country=="Russian Federation",1] <- "Russia"
+pct.t5_2019$concat1 <- paste(pct.t5_2019$Country,pct.t5_2019$year)
+emission.t5$concat2 <- paste(emission.t5$Country,emission.t5$year)
+
+
+pct_em.t5 <- merge(pct.t5_2019,emission.t5,by.x="concat1",by.y="concat2")
+pct_em.t5 <- pct_em.t5[,c(2,3,4,7)]
+colnames(pct_em.t5) <- c("country","year","percent_cover","emissions")
+```
+
+### Joint Emission / Forest Cover Plot
+
+```{r}
+#| warning: FALSE
+
+
+#------------------------------------------------------------------------------------#
+
+# For interpretability and contextualization, we want to work out, for each country, how much 1% of movement in % forest cover affects the actual number of trees in a given country. With some basic research and conversions, this is a simple calculation to obtain.
+
+avg_area_china <- area.t5[area.t5$Country=="China",3] # average tree cover of china over the 9-year period
+china_1pct_cover <- mean(avg_area_china$forest_cover)*.01 # ~21230 square km. of forest cover per 1% of movement
+
+# First we will convert the number of square kilometers to a number of acres of land.
+china_1pct_acres <- china_1pct_cover*247 # 5,243,677 = corresponding # of acres
+
+# Using data from the Washington Farm Forestry Association, we can say that 1 acre of land corresponds to about 435 trees (https://www.wafarmforestry.com/sites/default/files/pdfs/Education/SFLO101/5-Planting.pdf). This implies that:
+
+china_1pct_trees <- china_1pct_acres*435 # 2,280,999,477 = corresponding # of trees
+
+# Similarly, we can obtain the results for the other 4 countries:
+avg_area_brazil <- area.t5[area.t5$Country=="Brazil",3]
+brazil_1pct_trees <- mean(avg_area_brazil$forest_cover)*.01*247*435 # 5,396,625,068
+
+avg_area_canada <- area.t5[area.t5$Country=="Canada",3]
+canada_1pct_trees <- mean(avg_area_canada$forest_cover)*.01*247*435 # 3,729,202,230
+
+avg_area_us <- area.t5[area.t5$Country=="United States",3]
+us_1pct_trees <- mean(avg_area_us$forest_cover)*.01*247*435 # 3,328,413,303
+
+avg_area_russia <- area.t5[area.t5$Country=="Russian Federation",3]
+russia_1pct_trees <- mean(avg_area_russia$forest_cover)*.01*247*435 # 8,758,361,790
+
+# For summarization sake, we'll say the final numbers are as follows:
+#  Country |  Trees / 1%
+# ---------|--------------
+#   China  | ~2.3 billion trees
+#   Brazil | ~5.4 billion trees
+#   Canada | ~3.7 billion trees
+#   USA    | ~3.3 billion trees
+#   Russia | ~8.8 billion trees
+
+#------------------------------------------------------------------------------------#
+
+brazil.dat <- pct_em.t5[pct_em.t5$country=="Brazil",]
+brazil.dat$percent_cover <- round(brazil.dat$percent_cover,digits=2)
+
+canada.dat <- pct_em.t5[pct_em.t5$country=="Canada",]
+canada.dat$percent_cover <- round(canada.dat$percent_cover,digits=2)
+
+china.dat <- pct_em.t5[pct_em.t5$country=="China",]
+china.dat$percent_cover <- round(china.dat$percent_cover,digits=2)
+
+us.dat <- pct_em.t5[pct_em.t5$country=="United States",]
+us.dat$percent_cover <- round(us.dat$percent_cover,digits=2)
+
+russia.dat <- pct_em.t5[pct_em.t5$country=="Russia",]
+russia.dat$percent_cover <- round(russia.dat$percent_cover,digits=2)
+
+#------------------------------------------------------------------------------------#
+
+tot_plot <- plot_ly()
+
+ay <- list(
+  tickfont = list(color = "black"),
+  overlaying = "y",
+  side = "right",
+  title = "% of Land Covered by Forest",
+  ticks="outside",
+  tickwidth=2,
+  showgrid=F)
+
+m <- list(
+  l = 50,
+  r = 100,
+  b = 100,
+  t = 100,
+  pad = 4
+)
+
+
+# Add traces
+tot_plot <- tot_plot %>% 
+  add_trace(data=brazil.dat, # BRAZIL
+            x = brazil.dat$year,
+            y = brazil.dat$emissions,
+            name = "Emissions       ",
+            mode = "lines",
+            type="scatter",
+            line = list(color = 'black', width = 2),
+            visible=T) %>%
+  add_trace(data=brazil.dat, # BRAZIL
+            x = brazil.dat$year,
+            y = brazil.dat$percent_cover,
+            name = "% Forest Cover (1% ~ 5 billion trees)",
+            yaxis = "y2",
+            mode = "lines",
+            type="scatter",
+            line = list(color = 'black', width = 2, dash="dash"),
+            visible=T) %>%
+  add_trace(data=china.dat, # CHINA
+            x = china.dat$year,
+            y = china.dat$emissions,
+            name = "Emissions       ",
+            mode = "lines",
+            type="scatter",
+            line = list(color = 'black', width = 2),
+            visible=F) %>%
+  add_trace(data=china.dat, # CHINA
+            x = china.dat$year,
+            y = china.dat$percent_cover,
+            name = "% Forest Cover (1% ~ 2 billion trees)", 
+            yaxis = "y2", 
+            mode = "lines", 
+            type="scatter", 
+            line = list(color = 'black', width = 2, dash="dash"),
+            visible=F) %>%
+  add_trace(data=china.dat, # CANADA
+            x = canada.dat$year,
+            y = canada.dat$emissions,
+            name = "Emissions       ",
+            mode = "lines",
+            type="scatter",
+            line = list(color = 'black', width = 2),
+            visible=F) %>%
+  add_trace(data=china.dat, # CANADA
+            x = canada.dat$year,
+            y = canada.dat$percent_cover,
+            name = "% Forest Cover (1% ~ 4 billion trees)", 
+            yaxis = "y2", 
+            mode = "lines", 
+            type="scatter", 
+            line = list(color = 'black', width = 2, dash="dash"),
+            visible=F) %>%
+  add_trace(data=china.dat, # USA
+            x = us.dat$year,
+            y = us.dat$emissions,
+            name = "Emissions       ",
+            mode = "lines",
+            type="scatter",
+            line = list(color = 'black', width = 2),
+            visible=F) %>%
+  add_trace(data=china.dat, # USA
+            x = us.dat$year,
+            y = us.dat$percent_cover,
+            name = "% Forest Cover (1% ~ 3 billion trees)", 
+            yaxis = "y2", 
+            mode = "lines", 
+            type="scatter", 
+            line = list(color = 'black', width = 2, dash="dash"),
+            visible=F) %>%
+  add_trace(data=china.dat, # RUSSIA
+            x = russia.dat$year,
+            y = russia.dat$emissions,
+            name = "Emissions       ",
+            mode = "lines",
+            type="scatter",
+            line = list(color = 'black', width = 2),
+            visible=F) %>%
+  add_trace(data=china.dat, # RUSSIA
+            x = russia.dat$year,
+            y = russia.dat$percent_cover,
+            name = "% Forest Cover (1% ~ 9 billion trees)", 
+            yaxis = "y2", 
+            mode = "lines", 
+            type="scatter", 
+            line = list(color = 'black', width = 2, dash="dash"),
+            visible=F) %>%
+  layout(plot_bgcolor='white',
+          xaxis = list(
+            title="Year",
+            showgrid=F,
+            gridcolor = 'white',
+            linecolor = 'black',
+            linewidth = 2,
+            mirror=T),
+          yaxis = list(
+            title="Emissions (tonnes CO2)",
+            showgrid=F,
+            gridcolor = 'white',
+            linecolor = 'black',
+            linewidth = 2,
+            mirror=T,
+            ticks="outside",
+            tickwidth=2),
+         legend = list(y = 1.2, orientation="h"),
+         yaxis2 = ay,
+         title="Joint Behavior of Emissions and Forest Cover",
+         updatemenus = list(
+           list(
+             y=1.5,
+             yanchor = 'auto',
+             buttons = list(
+               list(method = "restyle",
+                    args = list("visible", list(T, T, F, F, F, F, F, F, F, F)),
+                    label = 'Brazil 🇧🇷'),
+               list(method = "restyle",
+                    args = list("visible", list(F, F, T, T, F, F, F, F, F, F)),
+                    label = 'China 🇨🇳'),
+               list(method = "restyle",
+                    args = list("visible", list(F, F, F, F, T, T, F, F, F, F)),
+                    label = 'Canada 🇨🇦'),
+               list(method = "restyle",
+                    args = list("visible", list(F, F, F, F, F, F, T, T, F, F)),
+                    label = 'United States 🇺🇲'),
+               list(method = "restyle",
+                    args = list("visible", list(F, F, F, F, F, F, F, F, T, T)),
+                    label = 'Russia 🇷🇺')))),
+         margin = m
+        )
+
+tot_plot
+```
+
+```{r}
+
+
+tot_plot <- plot_ly()
+
+ay <- list(
+  tickfont = list(color = "black"),
+  overlaying = "y",
+  side = "right",
+  title = "% of Land Covered by Forest",
+  ticks="outside",
+  tickwidth=2,
+  showgrid=F)
+
+m <- list(
+  l = 50,
+  r = 100,
+  b = 100,
+  t = 100,
+  pad = 4
+)
+
+
+
+# Add traces
+tot_plot <- tot_plot %>% 
+  add_trace(data=brazil.dat, # BRAZIL
+            x = brazil.dat$year,
+            y = brazil.dat$emissions,
+            name = "Emissions - BRAZIL",
+            mode = "lines",
+            type="scatter",
+            line = list(color = '#E5A008', width = 2),
+            visible=T) %>%
+  add_trace(data=brazil.dat, # BRAZIL
+            x = brazil.dat$year,
+            y = brazil.dat$percent_cover,
+            name = "% Forest Cover - BRAZIL",
+            yaxis = "y2",
+            mode = "lines",
+            type="scatter",
+            line = list(color = '#E5A008', width = 2, dash="dash"),
+            visible=T) %>%
+  add_trace(data=china.dat, # CHINA
+            x = china.dat$year,
+            y = china.dat$emissions,
+            name = "Emissions - CHINA",
+            mode = "lines",
+            type="scatter",
+            line = list(color = 'red', width = 2),
+            visible=T) %>%
+  add_trace(data=china.dat, # CHINA
+            x = china.dat$year,
+            y = china.dat$percent_cover,
+            name = "% Forest Cover - CHINA", 
+            yaxis = "y2", 
+            mode = "lines", 
+            type="scatter", 
+            line = list(color = 'red', width = 2, dash="dash"),
+            visible=T) %>%
+  add_trace(data=china.dat, # CANADA
+            x = canada.dat$year,
+            y = canada.dat$emissions,
+            name = "Emissions - CANADA",
+            mode = "lines",
+            type="scatter",
+            line = list(color = 'green', width = 2),
+            visible=T) %>%
+  add_trace(data=china.dat, # CANADA
+            x = canada.dat$year,
+            y = canada.dat$percent_cover,
+            name = "% Forest Cover - CANADA", 
+            yaxis = "y2", 
+            mode = "lines", 
+            type="scatter", 
+            line = list(color = 'green', width = 2, dash="dash"),
+            visible=T) %>%
+  add_trace(data=china.dat, # USA
+            x = us.dat$year,
+            y = us.dat$emissions,
+            name = "Emissions - USA",
+            mode = "lines",
+            type="scatter",
+            line = list(color = '#AD4E04', width = 2),
+            visible=T) %>%
+  add_trace(data=china.dat, # USA
+            x = us.dat$year,
+            y = us.dat$percent_cover,
+            name = "% Forest Cover - USA", 
+            yaxis = "y2", 
+            mode = "lines", 
+            type="scatter",
+            line = list(color = '#AD4E04', width = 2, dash="dash"),
+            visible=T) %>%
+  add_trace(data=china.dat, # RUSSIA
+            x = russia.dat$year,
+            y = russia.dat$emissions,
+            name = "Emissions - RUSSIA",
+            mode = "lines",
+            type="scatter",
+            line = list(color = 'blue', width = 2),
+            visible=T) %>%
+  add_trace(data=china.dat, # RUSSIA
+            x = russia.dat$year,
+            y = russia.dat$percent_cover,
+            name = "% Forest Cover - RUSSIA", 
+            yaxis = "y2", 
+            mode = "lines", 
+            type="scatter", 
+            line = list(color = 'blue', width = 2, dash="dash"),
+            visible=T) %>%
+  layout(plot_bgcolor='white',
+          xaxis = list(
+            title="Year",
+            showgrid=F,
+            gridcolor = 'white',
+            linecolor = 'black',
+            linewidth = 2,
+            mirror=T),
+          yaxis = list(
+            title="Emissions (tonnes CO2)",
+            showgrid=F,
+            gridcolor = 'white',
+            linecolor = 'black',
+            linewidth = 2,
+            mirror=T,
+            ticks="outside",
+            tickwidth=2),
+         legend = list(x=1.2, y = 1.2, orientation="v"),
+         yaxis2 = ay,
+         title="Joint Behavior of Emissions and Forest Cover",
+         margin = m
+        )
+
+tot_plot
+
+```
+
+### Data Table
+
+```{r}
+#| warning: FALSE
+
+emission_continent <- emission[emission$Entity=="Asia" |
+                                 emission$Entity=="Africa" |
+                                 emission$Entity=="North America" |
+                                 emission$Entity=="South America" |
+                                 emission$Entity=="Europe" |
+                                 emission$Entity=="Oceania",]
+
+emission_continent <- emission_continent[emission_continent$Year=="1990" |
+                                           emission_continent$Year=="2019",]
+
+emission_continent$TOTAL <- rep(0,nrow(emission_continent))
+
+
+net_change <- c()
+
+for (i in 1:nrow(emission_continent)){
+  emission_continent[i,15] <- sum(emission_continent[i,4:14])
+}
+
+emission_continent_1990 <- emission_continent[emission_continent$Year=="1990",15]
+emission_continent_2019 <- emission_continent[emission_continent$Year=="2019",15]
+difference <- emission_continent_2019 - emission_continent_1990
+
+emission_continent <- emission_continent[emission_continent$Year=="2019",]
+emission_continent <- cbind(emission_continent$Entity,emission_continent_1990,emission_continent_2019,difference)
+
+colnames(emission_continent) <- c("continent","total_emissions_1990","total_emissions_2019","net_change")
+
+emission_continent <- as.data.frame(emission_continent)
+emission_continent$total_emissions_1990 <- as.numeric(emission_continent$total_emissions_1990)
+emission_continent$total_emissions_2019 <- as.numeric(emission_continent$total_emissions_2019)
+emission_continent$net_change <- as.numeric(emission_continent$net_change)
+
+emission_continent$total_emissions_1990 <- round(emission_continent$total_emissions_1990,digits=0)
+emission_continent$total_emissions_2019 <- round(emission_continent$total_emissions_2019,digits=0)
+emission_continent$net_change <- round(emission_continent$net_change,digits=0)
+
+
+gt_table <- gt(emission_continent) |>
+  tab_header(
+    title = md("**CO<sub>2</sub> Emission by Continent (tonnes)**"),
+    subtitle = md("*From 1990 to 2019*")
+  ) |>
+  fmt_number(columns = c(total_emissions_1990, total_emissions_2019, net_change),
+             suffixing = T
+  ) |>
+  tab_source_note(
+    source_note = md("*Source: Our World in Data (https://ourworldindata.org/co2-and-greenhouse-gas-emissions)*")
+  ) |>
+  tab_style(
+    style = cell_borders(
+      sides = c("left", "right"),
+      color = "lightgrey",
+      weight = px(1.5),
+      style = "dotted"
+    ),
+    locations = cells_body(
+      columns = everything(),
+      rows = everything()
+    )
+  ) |>
+  tab_style(
+    style = list(
+      cell_fill(color = "#D3FFDB")),
+    locations = cells_body(
+      columns = net_change,
+      rows = net_change >= 0
+    )
+  ) |>
+  tab_style(
+    style = list(
+      cell_fill(color = "#F9E3D6")),
+    locations = cells_body(
+      columns = net_change,
+      rows = net_change < 0
+    )
+  ) |>
+  cols_label(
+    continent = md("**Continent**"),
+    total_emissions_1990 = md("**1990 Emissions**"),
+    total_emissions_2019 = md("**2019 Emissions**"),
+    net_change = md("**Net Change**")
+  )
+
+gt_table
+
+```
+
+### Emissions by Sector
+
+```{r}
+
+emission_income <- emission[emission$Code=="",]
+emission_income <- emission_income[emission_income$Entity=="Upper-middle-income countries"|
+                                     emission_income$Entity=="Lower-middle-income countries"|
+                                     emission_income$Entity=="High-income countries"|
+                                     emission_income$Entity=="Low-income countries",]
+
+emission_income <- emission_income[,-2]
+emission_income <- emission_income[emission_income$Year=="1990"|
+                                     emission_income$Year=="2019",]
+
+
+agriculture_1990 <- emission_income[emission_income$Year=="1990",3]
+land_1990 <- emission_income[emission_income$Year=="1990",4]
+waste_1990 <- emission_income[emission_income$Year=="1990",5]
+industry_1990 <- emission_income[emission_income$Year=="1990",6]
+manufacture_1990 <- emission_income[emission_income$Year=="1990",7]
+transport_1990 <- emission_income[emission_income$Year=="1990",8]
+elec_1990 <- emission_income[emission_income$Year=="1990",9]
+buildings_1990 <- emission_income[emission_income$Year=="1990",10]
+fugitive_1990 <- emission_income[emission_income$Year=="1990",11]
+other_1990 <- emission_income[emission_income$Year=="1990",12]
+aviation_1990 <- emission_income[emission_income$Year=="1990",13]
+
+agriculture_2019 <- emission_income[emission_income$Year=="2019",3]
+land_2019 <- emission_income[emission_income$Year=="2019",4]
+waste_2019 <- emission_income[emission_income$Year=="2019",5]
+industry_2019 <- emission_income[emission_income$Year=="2019",6]
+manufacture_2019 <- emission_income[emission_income$Year=="2019",7]
+transport_2019 <- emission_income[emission_income$Year=="2019",8]
+elec_2019 <- emission_income[emission_income$Year=="2019",9]
+buildings_2019 <- emission_income[emission_income$Year=="2019",10]
+fugitive_2019 <- emission_income[emission_income$Year=="2019",11]
+other_2019 <- emission_income[emission_income$Year=="2019",12]
+aviation_2019 <- emission_income[emission_income$Year=="2019",13]
+
+diff_agriculture <- agriculture_2019 - agriculture_1990
+diff_land <- land_2019 - land_1990
+diff_waste <- waste_2019 - waste_1990
+diff_industry <- industry_2019 - industry_1990
+diff_manufacture <- manufacture_2019 - manufacture_1990
+diff_transport <- transport_2019 - transport_1990
+diff_elec <- elec_2019 - elec_1990
+diff_buildings <- buildings_2019 - buildings_1990
+diff_fugitive <- fugitive_2019 - fugitive_1990
+diff_other <- other_2019 - other_1990
+diff_aviation <- aviation_2019 - aviation_1990
+
+emission_income_net <- as.data.frame(cbind(unique(emission_income$Entity),
+                             diff_agriculture,
+                             diff_land,
+                             diff_waste,
+                             diff_industry,
+                             diff_manufacture,
+                             diff_transport,
+                             diff_elec,
+                             diff_buildings,
+                             diff_fugitive,
+                             diff_other,
+                             diff_aviation
+                             ))
+
+colnames(emission_income_net) <- c("type","agriculture","land","waste","industry","manufacturing","transport","elec_heat","buildings","fugitive","other","aviation_ship")
+
+emission_income_net.long <- emission_income_net %>% 
+  pivot_longer(cols=c("agriculture","land","waste","industry","manufacturing","transport","elec_heat","buildings","fugitive","other","aviation_ship"),
+               names_to='Sector',
+               values_to='Emissions')
+
+emission_income_net.long$Emissions <- as.numeric(emission_income_net.long$Emissions)
+
+emission_income_net$agriculture <- as.numeric(emission_income_net$agriculture)
+emission_income_net$land <- as.numeric(emission_income_net$land)
+emission_income_net$waste <- as.numeric(emission_income_net$waste)
+emission_income_net$industry <- as.numeric(emission_income_net$industry)
+emission_income_net$manufacturing <- as.numeric(emission_income_net$manufacturing)
+emission_income_net$transport <- as.numeric(emission_income_net$transport)
+emission_income_net$elec_heat <- as.numeric(emission_income_net$elec_heat)
+emission_income_net$buildings <- as.numeric(emission_income_net$buildings)
+emission_income_net$fugitive <- as.numeric(emission_income_net$fugitive)
+emission_income_net$other <- as.numeric(emission_income_net$other)
+emission_income_net$aviation_ship <- as.numeric(emission_income_net$aviation_ship)
+
+x <- c("Agriculture","Land-use and Forestry","Waste","Industry","Manufacturing and Construction","Transport","Electricity and Heat","Buildings","Fugitive Emissions","Other Fuel Combustion","Aviation and Shipping")
+
+
+y_hi <- emission_income_net.long[emission_income_net.long$type=="High-income countries",3]; y_hi <- y_hi[["Emissions"]]
+
+y_um <- emission_income_net.long[emission_income_net.long$type=="Upper-middle-income countries",3]; y_um <- y_um[["Emissions"]]
+
+y_lm <- emission_income_net.long[emission_income_net.long$type=="Lower-middle-income countries",3]; y_lm <- y_lm[["Emissions"]]
+
+y_lo <- emission_income_net.long[emission_income_net.long$type=="Low-income countries",3]; y_lo <- y_lo[["Emissions"]]
+
+
+data <- data.frame(x, y_hi, y_um, y_lm, y_lo)
+data[12,1] <- "Total"
+data[12,2] <- sum(data[1:11,2])
+data[12,3] <- sum(data[1:11,3])
+data[12,4] <- sum(data[1:11,4])
+data[12,5] <- sum(data[1:11,5])
+
+#The default order will be alphabetized unless specified as below:
+data$x <- factor(data$x, levels = data[["x"]])
+
+fig <- plot_ly(data, x = ~x, y = ~y_hi, type = 'bar', name = 'High-Income Countries', marker = list(color = '#d53e4f')) %>%
+  add_trace(y = ~y_um, name = 'Upper-Middle Income Countries', marker = list(color = '#fc8d59')) %>%
+  add_trace(y = ~y_lm, name = 'Lower-Middle Income Countries', marker = list(color = '#e6f598')) %>%
+  add_trace(y = ~y_lo, name = 'Low Income Countries', marker = list(color = '#99d594')) %>% 
+  layout(title="<b>Net Change in Emissions by Economic Sector (from 1990 to 2019)</b>",
+         xaxis = list(title = "<b>Sector</b>",
+                      tickangle = -45,
+                      linecolor = 'black',
+                      linewidth = 1),
+         yaxis = list(title = "<b>Emission (tonnes of CO<sub>2</sub>)</b>",
+                      linecolor = 'black',
+                      linewidth = 1),
+         margin = list(b = 100),
+         barmode = 'group')
+
+fig
+
+```
